@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Infografis Desa Tegongan</title>
+  <meta name="description" content="Infografis data dan informasi penting Desa Tegongan, Kabupaten Brebes.">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white font-sans text-gray-800">
+
+  <!-- Header -->
+  <div class="w-full bg-green-800 py-4 px-4">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+        <img src="logobrebes.png" alt="Logo Brebes" class="w-12 h-12" />
+        <div>
+          <h1 class="text-xl text-white font-bold">Desa Tegongan</h1>
+          <p class="text-sm text-white">Kabupaten Brebes</p>
+        </div>
+      </div>
+      <button class="md:hidden" id="menu-toggle">
+        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <nav class="mt-4 hidden md:flex" id="menu-nav">
+      <ul class="flex flex-col md:flex-row gap-4 font-semibold text-sm text-white md:justify-center">
+        <li><a href="index.html" class="hover:text-yellow-400">Home</a></li>
+        <li><a href="Profil Desa.html" class="hover:text-yellow-400">Profil Desa</a></li>
+        <li><a href="infografis.html" class="text-yellow-400">Infografis</a></li>
+        <li><a href="listing.html" class="hover:text-yellow-400">Listing</a></li>
+        <li><a href="Berita.html" class="hover:text-yellow-400">Berita</a></li>
+        <li><a href="Belanja.html" class="hover:text-yellow-400">Belanja</a></li>
+        <li><a href="Kontak.html" class="hover:text-yellow-400">Kontak</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <script>
+    const toggleBtn = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('menu-nav');
+    toggleBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('hidden');
+    });
+  </script>
+
+  <!-- Judul -->
+  <section class="text-center py-10 bg-green-50">
+    <h2 class="text-3xl font-bold text-green-700">Infografis Desa Tegongan</h2>
+    <p class="text-gray-600 mt-2">Data Demografi dan Sosial Ekonomi Desa</p>
+  </section>
+
+  <!-- Konten Infografis -->
+  <section class="max-w-6xl mx-auto px-6 py-12 grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+    <!-- Penduduk -->
+    <div class="bg-white border rounded-lg shadow p-6 text-center">
+      <img src="https://img.icons8.com/ios-filled/64/2f855a/group.png" class="mx-auto mb-4" />
+      <h3 class="font-bold text-green-800 text-xl">Jumlah Penduduk</h3>
+      <p class="text-2xl font-extrabold text-gray-800 mt-2">2.150 Jiwa</p>
+    </div>
+
+    <!-- Pendidikan -->
+    <div class="bg-white border rounded-lg shadow p-6 text-center">
+      <img src="https://img.icons8.com/ios-filled/64/2f855a/graduation-cap.png" class="mx-auto mb-4" />
+      <h3 class="font-bold text-green-800 text-xl">Pendidikan Terakhir</h3>
+      <p class="text-sm text-gray-700">SD: 500 | SMP: 400 | SMA: 300 | S1+: 150</p>
+    </div>
+
+    <!-- Pekerjaan -->
+    <div class="bg-white border rounded-lg shadow p-6 text-center">
+      <img src="https://img.icons8.com/ios-filled/64/2f855a/briefcase.png" class="mx-auto mb-4" />
+      <h3 class="font-bold text-green-800 text-xl">Jenis Pekerjaan</h3>
+      <p class="text-sm text-gray-700">Petani: 800 | Pedagang: 300 | Lainnya: 250</p>
+    </div>
+
+    <!-- Usia Produktif -->
+    <div class="bg-white border rounded-lg shadow p-6 text-center">
+      <img src="https://img.icons8.com/ios-filled/64/2f855a/age.png" class="mx-auto mb-4" />
+      <h3 class="font-bold text-green-800 text-xl">Usia Produktif</h3>
+      <p class="text-2xl font-extrabold text-gray-800 mt-2">65%</p>
+    </div>
+
+    <!-- Jenis Kelamin -->
+    <div class="bg-white border rounded-lg shadow p-6 text-center">
+      <img src="https://img.icons8.com/ios-filled/64/2f855a/gender.png" class="mx-auto mb-4" />
+      <h3 class="font-bold text-green-800 text-xl">Jenis Kelamin</h3>
+      <p class="text-sm text-gray-700">Laki-laki: 1.100 | Perempuan: 1.050</p>
+    </div>
+
+    <!-- Rumah Tangga -->
+    <div class="bg-white border rounded-lg shadow p-6 text-center">
+      <img src="https://img.icons8.com/ios-filled/64/2f855a/home.png" class="mx-auto mb-4" />
+      <h3 class="font-bold text-green-800 text-xl">Jumlah KK</h3>
+      <p class="text-2xl font-extrabold text-gray-800 mt-2">580 KK</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-green-700 text-white text-center py-6">
+    <p>&copy; KKN UMUS 2025 - Infografis Desa Tegongan</p>
+  </footer>
+
+</body>
+</html>

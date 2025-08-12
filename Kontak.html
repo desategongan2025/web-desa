@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Desa Tegongan - Website Resmi</title>
+  <meta name="description" content="Website resmi Desa Tegongan. Temukan informasi sejarah, visi misi, struktur organisasi, dan agenda terbaru desa.">
+  <meta name="keywords" content="Desa Tegongan, informasi desa, website desa, sejarah desa, struktur desa, agenda desa">
+  <meta name="author" content="KKN UMUS 2025">
+  <meta name="robots" content="index, follow" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body 
+<body class="font-sans bg-white text-gray-800">
+<body class="font-sans bg-white text-gray-800">
+<body class="font-sans bg-white text-gray-800">
+
+  <!-- Garis Hijau Horizontal dan Header Desa -->
+  <div class="w-full bg-[#eceaeae5] py-4 px-4">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+        <img src="logobrebes.png" alt="Logo Brebes" class="w-12 h-12" />
+        <div>
+          <h1 class="text-xl font-bold text-white-800">Desa Tegongan</h1>
+          <p class="text-sm text-gray-600">Kabupaten Brebes</p>
+        </div>
+      </div>
+      <!-- Hamburger button -->
+      <button class="md:hidden" id="menu-toggle">
+        <svg class="w-8 h-8 text-green-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Navigasi Menu -->
+    <nav class="mt-4 hidden md:flex" id="menu-nav">
+      <ul class="flex flex-col md:flex-row md:flex-wrap gap-4 font-semibold text-sm text-green-700 md:justify-center">
+        <li><a href="index.html" class="hover:text-yellow-500 transition">Home</a></li>
+        <li><a href="Sejarah.html" class="hover:text-yellow-500 transition">Sejarah</a></li>
+        <li><a href="visi&misi.html" class="hover:text-yellow-500 transition">Visi & Misi</a></li>
+        <li><a href="Struktuk.html" class="hover:text-yellow-500 transition">Struktur</a></li>
+        <li><a href="Kontak.html" class="hover:text-yellow-500 transition">Kontak</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Script Toggle Menu -->
+  <script>
+    const toggleBtn = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('menu-nav');
+
+    toggleBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('hidden');
+    });
+  </script>
+
+  <!-- Hero Gambar Desa -->
+  <header class="relative h-60 sm:h-[80vh] bg-cover bg-center" style="background-image: url('gambar 1.jpg');">
+    <div class="absolute inset-0 bg-black/50 z-10"></div>
+    <div class="absolute inset-0 z-10 flex items-center justify-center text-center text-white px-4">
+      <div>
+        <h2 class="text-xl sm:text-4xl font-bold mb-2">Selamat Datang di Desa Tegongan</h2>
+        <p class="text-sm sm:text-lg">Desa maju dan transparan untuk masa depan yang lebih baik</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu Informasi Desa -->
+  <section class="mt-10 mb-24">
+    <h2 class="text-2xl font-bold text-green-700 text-center mb-6">Menu Informasi Desa</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 px-4 text-center">
+      <a href="struktur.html" class="text-center">
+        <img src="https://img.icons8.com/color/48/organization.png" class="mx-auto" />
+        <p class="text-xs mt-1">Struktur</p>
+      </a>
+      <a href="wilayah.html" class="text-center">
+        <img src="https://img.icons8.com/color/48/region-code.png" class="mx-auto" />
+        <p class="text-xs mt-1">Wilayah</p>
+      </a>
+      <a href="umur.html" class="text-center">
+        <img src="https://img.icons8.com/color/48/age.png" class="mx-auto" />
+        <p class="text-xs mt-1">Umur</p>
+      </a>
+      <a href="agenda.html" class="text-center">
+        <img src="https://img.icons8.com/color/48/calendar.png" class="mx-auto" />
+        <p class="text-xs mt-1">Agenda</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Agenda Terbaru -->
+  <main class="py-10 px-4 max-w-6xl mx-auto mb-24">
+    <h2 class="text-2xl font-bold text-green-700 text-center mb-8">Agenda Terbaru</h2>
+    <section class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div class="bg-white shadow-md rounded-xl p-6 hover:bg-green-50 transition">
+        <p class="text-sm text-gray-500 mb-2">10 Juli 2025</p>
+        <h3 class="text-lg font-semibold text-green-700 mb-1">Musyawarah Pembangunan Desa</h3>
+        <p class="text-gray-600">Pembahasan rencana pembangunan jalan lingkungan dan drainase RT 02/04.</p>
+      </div>
+      <div class="bg-white shadow-md rounded-xl p-6 hover:bg-blue-50 transition">
+        <p class="text-sm text-gray-500 mb-2">14 Juli 2025</p>
+        <h3 class="text-lg font-semibold text-blue-700 mb-1">Penyuluhan Kesehatan Ibu & Anak</h3>
+        <p class="text-gray-600">Kegiatan posyandu dan penyuluhan gizi balita di balai desa.</p>
+      </div>
+      <div class="bg-white shadow-md rounded-xl p-6 hover:bg-yellow-50 transition">
+        <p class="text-sm text-gray-500 mb-2">20 Juli 2025</p>
+        <h3 class="text-lg font-semibold text-yellow-600 mb-1">Kerja Bakti Bersama</h3>
+        <p class="text-gray-600">Kerja bakti pembersihan saluran air & lingkungan sekitar masjid.</p>
+      </div>
+    </section>
+  </main>
+<!-- Script Toggle Menu -->
+  <script>
+    const toggleBtn = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('menu-nav');
+
+    toggleBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('hidden');
+    });
+  </script>
+
+<!-- Kontak Desa -->
+<section class="bg-green-800 text-white py-6 px-4 text-sm">
+  <div class="flex items-center space-x-4 mb-4">
+    <img src="logobrebes.png" alt="Logo Brebes" class="w-12 h-12" />
+    <div>
+      <h3 class="text-xl font-bold">Desa Tegongan</h3>
+      <p class="text-sm leading-tight">Kecamatan Brebes<br/>Kabupaten Brebes<br/>Provinsi Jawa Tengah</p>
+    </div>
+  </div>
+
+  <ul class="space-y-4">
+    <li>
+      <button class="w-full flex justify-between items-center font-semibold pb-2 border-b border-white/30" onclick="toggleDetail('website')">
+        <span class="flex items-center space-x-2"><span>🌐</span><span>Kunjungan Website</span></span>
+        <span>⌄</span>
+      </button>
+      <div id="detail-website" class="hidden mt-2 pl-6 text-white/90 text-xs">https://desategongan.brebes.go.id</div>
+    </li>
+    <li>
+      <button class="w-full flex justify-between items-center font-semibold pb-2 border-b border-white/30" onclick="toggleDetail('kontak')">
+        <span class="flex items-center space-x-2"><span>📞</span><span>Kontak Desa</span></span>
+        <span>⌄</span>
+      </button>
+      <div id="detail-kontak" class="hidden mt-2 pl-6 text-white/90 text-xs">
+  <a href="https://wa.me/6281212192002" target="_blank" class="underline text-white">
+    📞 0812-3456-7890 (Klik untuk WhatsApp)
+  </a><br>
+  Email: desategongan@brebes.go.id
+</div>
+
+    </li>
+    <li>
+      <button class="w-full flex justify-between items-center font-semibold pb-2 border-b border-white/30" onclick="toggleDetail('telepon')">
+        <span class="flex items-center space-x-2"><span>🚨</span><span>Nomor Telepon Penting</span></span>
+        <span>⌄</span>
+      </button>
+      <div id="detail-telepon" class="hidden mt-2 pl-6 text-white/90 text-xs">
+        Pemadam: 113<br>Polisi: 110<br>Ambulan: 119
+      </div>
+    </li>
+    <li>
+      <button class="w-full flex justify-between items-center font-semibold pb-2 border-b border-white/30" onclick="toggleDetail('sosial')">
+        <span class="flex items-center space-x-2"><span>📱</span><span>Sosial Media</span></span>
+        <span>⌄</span>
+      </button>
+      <div id="detail-sosial" class="hidden mt-2 pl-6 text-white/90 text-xs">
+        Facebook: fb.com/desategongan<br>Instagram: @desategongan
+      </div>
+    </li>
+    <li>
+      <button class="w-full flex justify-between items-center font-semibold pb-2" onclick="toggleDetail('jelajahi')">
+        <span class="flex items-center space-x-2"><span>🔗</span><span>Jelajahi</span></span>
+        <span>⌄</span>
+      </button>
+      <div id="detail-jelajahi" class="hidden mt-2 pl-6 text-white/90 text-xs">
+        Peta, Galeri, Berita Desa dan lainnya.
+      </div>
+    </li>
+  </ul>
+</section>
+
+<script>
+  function toggleDetail(id) {
+    const elem = document.getElementById('detail-' + id);
+    if (elem.classList.contains('hidden')) {
+      elem.classList.remove('hidden');
+    } else {
+      elem.classList.add('hidden');
+    }
+  }
+</script>
+  <!-- Footer -->
+  <footer class="bg-gray-100 text-center py-6 text-sm text-gray-600">
+    <p>Copyright © KKN UMUS 2025</p>
+  </footer>
+
+</body>
+</html>
+
+
