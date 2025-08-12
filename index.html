@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -14,6 +13,26 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body class="font-sans bg-white text-gray-800">
+<!-- Menu Navigasi Responsive -->
+<nav class="w-full bg-green-700 py-3">
+  <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
+    <div class="text-white font-bold text-lg">Menu</div>
+    <button id="menu-toggle" class="text-white md:hidden focus:outline-none">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+  <ul id="menu-nav" class="hidden flex-col gap-2 px-4 pt-2 pb-4 md:flex md:flex-row md:gap-4 md:items-center md:justify-center text-white font-semibold text-sm">
+    <li><a href="index.html" class="hover:text-yellow-300 block py-1">Home</a></li>
+    <li><a href="Profil Desa.html" class="hover:text-yellow-300 block py-1">Profil Desa</a></li>
+    <li><a href="infografis.html" class="hover:text-yellow-300 block py-1">Infografis</a></li>
+    <li><a href="listing.html" class="hover:text-yellow-300 block py-1">Listing</a></li>
+    <li><a href="Berita.html" class="hover:text-yellow-300 block py-1">Berita</a></li>
+    <li><a href="Belanja.html" class="hover:text-yellow-300 block py-1">Belanja</a></li>
+    <li><a href="Kontak.html" class="hover:text-yellow-300 block py-1">Kontak</a></li>
+  </ul>
+</nav>
 
 <!-- Header -->
 <div class="w-full bg-blue-800 py-4 px-4">
@@ -43,27 +62,6 @@
 <marquee behavior="scroll" direction="left" scrollamount="6" class="bg-WHITE-300 text-green-900 font-bold py-2 px-4">
   🌾 SELAMAT DATANG DI WEBSITE PEMERINTAH DESA TEGONGAN - KECAMATAN TANJUNG - KABUPATEN BREBES 🌾
 </marquee>
-
-<!-- Menu Navigasi Responsive -->
-<nav class="w-full bg-green-700 py-3">
-  <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
-    <div class="text-white font-bold text-lg">Menu</div>
-    <button id="menu-toggle" class="text-white md:hidden focus:outline-none">
-      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
-  </div>
-  <ul id="menu-nav" class="hidden flex-col gap-2 px-4 pt-2 pb-4 md:flex md:flex-row md:gap-4 md:items-center md:justify-center text-white font-semibold text-sm">
-    <li><a href="index.html" class="hover:text-yellow-300 block py-1">Home</a></li>
-    <li><a href="Profil Desa.html" class="hover:text-yellow-300 block py-1">Profil Desa</a></li>
-    <li><a href="infografis.html" class="hover:text-yellow-300 block py-1">Infografis</a></li>
-    <li><a href="listing.html" class="hover:text-yellow-300 block py-1">Listing</a></li>
-    <li><a href="Berita.html" class="hover:text-yellow-300 block py-1">Berita</a></li>
-    <li><a href="Belanja.html" class="hover:text-yellow-300 block py-1">Belanja</a></li>
-    <li><a href="Kontak.html" class="hover:text-yellow-300 block py-1">Kontak</a></li>
-  </ul>
-</nav>
 
 <!-- Script Toggle Menu -->
 <script>
@@ -401,6 +399,7 @@
 
 
 </html>
+
 
 
 
