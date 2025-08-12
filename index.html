@@ -27,8 +27,7 @@
   </div>
 </div>
   
-<!-- Hero Fullscreen -->
-<header class="relative w-full h-[80vh] bg-cover bg-center overflow-hidden" style="background-image: url('indonesia.png');">
+<header id="hero" class="relative w-full h-[80vh] bg-cover bg-center overflow-hidden" style="background-image: url('indonesia.png');">
   <div class="absolute inset-0 bg-black/50 z-10"></div>
   <div class="absolute inset-0 z-10 flex items-center justify-center text-center text-white px-4">
     <div>
@@ -37,6 +36,20 @@
     </div>
   </div>
 </header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const hero = document.getElementById('hero');
+    const images = ['gambar1.jpg', 'gambar2.jpg', 'gambar3.jpg']; // daftar gambar
+    let index = 0;
+
+    setInterval(() => {
+      index = (index + 1) % images.length;
+      hero.style.backgroundImage = `url('${images[index]}')`;
+    }, 4000); // ganti setiap 4 detik
+  });
+</script>
+
   
 <!-- Marquee -->
 <marquee behavior="scroll" direction="left" scrollamount="6" class="bg-WHITE-300 text-red-800 font-bold py-2 px-4">
@@ -395,6 +408,7 @@
 
 
 </html>
+
 
 
 
