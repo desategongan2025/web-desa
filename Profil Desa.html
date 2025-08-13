@@ -1,105 +1,81 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Profil Desa Tegongan — Desa Tegongan</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil Desa Tegongan</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="font-sans bg-white text-gray-800">
+<body class="bg-green-100 font-sans">
 
-<!-- Header dan Navigasi -->
-<div class="w-full bg-blue-800 py-4 px-4">
-  <div class="flex items-center">
-    <img src="logobrebes.png" alt="Logo Brebes" class="w-12 h-12 mr-3" />
-    <div>
-      <h1 class="text-xl text-white font-bold">Desa Tegongan</h1>
-      <p class="text-sm text-white">Kecamatan Tanjung – Kabupaten Brebes</p>
-    </div>
+<!-- Header -->
+<header class="bg-green-800 text-white">
+  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold">Desa Tegongan</h1>
+    <nav>
+      <ul class="hidden md:flex space-x-6 text-sm font-semibold">
+        <li><a href="index.html" class="hover:text-yellow-300">Home</a></li>
+        <li><a href="Profil Desa.html" class="hover:text-yellow-300">Profil Desa</a></li>
+        <li><a href="VisiMisi.html" class="hover:text-yellow-300">Visi & Misi</a></li>
+        <li><a href="Struktur.html" class="hover:text-yellow-300">Struktur</a></li>
+        <li><a href="Kontak.html" class="hover:text-yellow-300">Kontak</a></li>
+      </ul>
+      <!-- Hamburger untuk HP -->
+      <button id="menu-toggle" class="md:hidden focus:outline-none">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </nav>
   </div>
-</div>
-<nav class="bg-green-700 py-3">
-  <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
-    <div class="text-white font-bold">Menu</div>
-    <button id="menu-toggle" class="text-white md:hidden">
-      <!-- Hamburger Icon -->
-      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
-    <ul id="menu-nav"
-        class="hidden md:flex space-x-4 text-white text-sm font-semibold">
-      <li><a href="index.html" class="hover:text-yellow-300">Home</a></li>
-      <li><a href="Profil Desa.html" class="hover:text-yellow-300">Profil Desa</a></li>
-      <li><a href="Infografis.html" class="hover:text-yellow-300">Infografis</a></li>
-      <li><a href="Listing.html" class="hover:text-yellow-300">Listing</a></li>
-      <li><a href="Berita.html" class="hover:text-yellow-300">Berita</a></li>
-      <li><a href="Belanja.html" class="hover:text-yellow-300">Belanja</a></li>
-      <li><a href="Kontak.html" class="hover:text-yellow-300">Kontak</a></li>
-    </ul>
+  <!-- Menu mobile -->
+  <div id="menu-nav" class="hidden px-4 pb-4 md:hidden">
+    <a href="index.html" class="block py-1 hover:text-yellow-300">Home</a>
+    <a href="Profil Desa.html" class="block py-1 hover:text-yellow-300">Profil Desa</a>
+    <a href="VisiMisi.html" class="block py-1 hover:text-yellow-300">Visi & Misi</a>
+    <a href="Struktur.html" class="block py-1 hover:text-yellow-300">Struktur</a>
+    <a href="Kontak.html" class="block py-1 hover:text-yellow-300">Kontak</a>
   </div>
-</nav>
+</header>
 
-<!-- Banner Profil Desa -->
-<section class="relative h-64 bg-cover bg-center"
-         style="background-image: url('foto-desa.jpg');">
-  <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
-    <h2 class="text-white text-3xl font-bold">Profil Desa Tegongan</h2>
-  </div>
-</section>
+<!-- Konten -->
+<main class="max-w-4xl mx-auto py-10 px-4 space-y-12">
 
-<!-- Isi Konten -->
-<main class="max-w-3xl mx-auto p-6 space-y-8 text-gray-700">
-  <!-- Sejarah -->
-  <section>
-    <h3 class="text-2xl font-bold text-green-700 mb-2">Sejarah Desa</h3>
-    <p>Desa Tegongan adalah salah satu desa di Kecamatan Tanjung, Kabupaten Brebes... [Silakan isi sesuai data aslinya]</p>
-  </section>
-
-  <!-- Letak Geografis -->
-  <section>
-    <h3 class="text-2xl font-bold text-green-700 mb-2">Letak Geografis</h3>
-    <p>Desa ini terletak di Kecamatan Tanjung, Kabupaten Brebes. Secara administratif termasuk... [isi detail lokasi & batas-batas desa]</p>
-  </section>
-
-  <!-- Demografi & Statistik -->
-  <section>
-    <h3 class="text-2xl font-bold text-green-700 mb-2">Demografi</h3>
-    <p>Silakan masukkan data jumlah penduduk, kepadatan, pembagian umur, dsb.</p>
-  </section>
-
-  <!-- Potensi & Sarana -->
-  <section>
-    <h3 class="text-2xl font-bold text-green-700 mb-2">Potensi & Fasilitas</h3>
-    <ul class="list-disc pl-5 space-y-1">
-      <li>Potensi pertanian / perikanan / industri</li>
-      <li>Fasilitas pendidikan, kesehatan, infrastruktur desa</li>
-      <li>Potensi wisata (jika ada)</li>
-    </ul>
-  </section>
-
-  <!-- Peta Desa -->
-  <section>
-    <h3 class="text-2xl font-bold text-green-700 mb-2">Peta Desa</h3>
-    <div class="w-full h-60 rounded shadow overflow-hidden">
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=[...]"
-        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  <!-- Visi -->
+  <section class="text-center">
+    <h2 class="text-3xl font-bold text-red-600 mb-6">Visi</h2>
+    <div class="bg-white p-6 rounded-lg shadow">
+      <p class="text-lg font-medium">
+        “Desa Tegongan sebagai Desa Maju yang mampu mengelola potensi lokal dan pembangunan berkelanjutan untuk masyarakat yang sejahtera dan mandiri.”
+      </p>
     </div>
   </section>
+
+  <!-- Misi -->
+  <section class="text-center">
+    <h2 class="text-3xl font-bold text-red-600 mb-6">Misi</h2>
+    <div class="bg-white p-6 rounded-lg shadow text-left">
+      <ol class="list-decimal pl-6 space-y-2">
+        <li>Mewujudkan tata kelola pemerintahan desa yang baik dan bersih.</li>
+        <li>Meningkatkan kegiatan keagamaan dan sosial kemasyarakatan.</li>
+        <li>Mendorong peningkatan kualitas pendidikan dan sumber daya manusia.</li>
+        <li>Mengembangkan teknologi dan informasi desa.</li>
+        <li>Membangun dan memperbaiki infrastruktur serta sarana prasarana publik.</li>
+      </ol>
+    </div>
+  </section>
+
 </main>
 
 <!-- Footer -->
-<footer class="bg-green-700 text-white text-center py-6">
-  <p>© 2025 Pemerintah Desa Tegongan — KKN UMUS</p>
+<footer class="bg-green-800 text-white text-center py-4">
+  <p>© 2025 Pemerintah Desa Tegongan</p>
 </footer>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const toggleBtn = document.getElementById('menu-toggle');
-    const nav = document.getElementById('menu-nav');
-    toggleBtn.addEventListener('click', () => nav.classList.toggle('hidden'));
+  document.getElementById('menu-toggle').addEventListener('click', function () {
+    document.getElementById('menu-nav').classList.toggle('hidden');
   });
 </script>
 
