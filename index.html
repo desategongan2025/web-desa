@@ -26,7 +26,8 @@
     </div>
   </div>
 </div>
-<header id="hero" class="relative w-full h-[80vh] bg-cover bg-center overflow-hidden" style="background-image: url('80.png');">
+<!-- Hero / Slideshow Header -->
+<header id="hero" class="relative w-full h-[80vh] bg-cover bg-center overflow-hidden">
   <div class="absolute inset-0 bg-black/50 z-10"></div>
   <div class="absolute inset-0 z-10 flex items-center justify-center text-center text-white px-4">
     <div>
@@ -34,22 +35,30 @@
       <p class="text-sm sm:text-lg">Desa maju dan transparan untuk masa depan yang lebih baik</p>
     </div>
   </div>
-</header>  
+  <!-- Tombol Pengaduan -->
+  <div class="absolute bottom-6 right-6 z-20">
+    <button class="bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-full shadow font-semibold text-sm">📢 Pengaduan</button>
+  </div>
+</header>
+
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const hero = document.getElementById('hero');
-    const images = ['80.png', 'gambar 2.jpg', 'gambar 1.jpg']; // daftar gambar
+    const images = ['80.png', 'gambar 2.jpg', 'gambar 1.jpg']; // Ganti dengan gambar kalian
     let index = 0;
+    hero.style.backgroundImage = `url('${images[index]}')`;
     setInterval(() => {
       index = (index + 1) % images.length;
-      hero.style.backgroundImage = url('${images[index]}');
-    }, 4000); // ganti setiap 4 detik
+      hero.style.backgroundImage = `url('${images[index]}')`;
+    }, 4000); // Ganti setiap 4 detik
   });
 </script>
+
 <!-- Marquee -->
-<marquee behavior="scroll" direction="left" scrollamount="6" class="bg-WHITE-300 text-red-800 font-bold py-2 px-4">
+<marquee behavior="scroll" direction="left" scrollamount="6" class="bg-white text-red-800 font-bold py-2 px-4">
   🌾 SELAMAT DATANG DI WEBSITE PEMERINTAH DESA TEGONGAN - KECAMATAN TANJUNG - KABUPATEN BREBES 🌾
 </marquee>
+
   <!-- Menu Navigasi Responsive -->
 <nav class="w-full bg-red-800 py-3">
   <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
@@ -346,6 +355,7 @@
 
 
 </html>
+
 
 
 
