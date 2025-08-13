@@ -11,49 +11,39 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 </head>
 <body class="font-sans bg-white text-gray-800">
+
 <!-- Header -->
 <div class="w-full bg-red-800 py-4 px-4">
   <div class="flex items-center justify-between">
     <div class="flex items-center space-x-4">
-      <img src="logobrebes.png" alt="Logo Brebes" class="w-12 h-12" />
+      <img src="logobrebes.png" alt="Logo Brebes" class="w-12 h-12 animate__animated animate__fadeInLeft" />
       <div>
-        <h1 class="text-xl text-white font-bold">Desa Tegongan</h1>
-        <p class="text-sm text-white">Kecamatan Tanjung</p>
-        <p class="text-sm text-white">Kabupaten Brebes</p>
+        <h1 class="text-xl text-white font-bold animate__animated animate__fadeInDown">Desa Tegongan</h1>
+        <p class="text-sm text-white animate__animated animate__fadeInUp">Kecamatan Tanjung</p>
+        <p class="text-sm text-white animate__animated animate__fadeInUp animate__delay-1s">Kabupaten Brebes</p>
       </div>
     </div>
   </div>
 </div>
   
-<header id="hero" class="relative w-full h-[80vh] bg-cover bg-center overflow-hidden" style="background-image: url('indonesia.png');">
+<!-- Hero Fullscreen -->
+<header class="relative w-full h-[80vh] bg-cover bg-center overflow-hidden" style="background-image: url('indonesia.png');">
   <div class="absolute inset-0 bg-black/50 z-10"></div>
-  <div class="absolute inset-0 z-10 flex items-center justify-center text-center text-white px-4">
-    <div>
-      <h2 class="text-xl sm:text-4xl font-bold mb-2">Selamat Datang di Desa Tegongan</h2>
-      <p class="text-sm sm:text-lg">Desa maju dan transparan untuk masa depan yang lebih baik</p>
-    </div>
+  <div class="absolute inset-0 z-10 flex flex-col items-center justify-center text-center text-white px-4">
+    <h2 class="text-xl sm:text-4xl font-bold mb-2 animate__animated animate__fadeInDown">Selamat Datang di Desa Tegongan</h2>
+    <p class="text-sm sm:text-lg animate__animated animate__fadeInUp animate__delay-1s">Desa maju dan transparan untuk masa depan yang lebih baik</p>
   </div>
 </header>
   
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const hero = document.getElementById('hero');
-    const images = ['indonesia.png', 'gambar 2.jpg', 'gambar 1.jpg']; // daftar gambar
-    let index = 0;
-
-    setInterval(() => {
-      index = (index + 1) % images.length;
-      hero.style.backgroundImage = `url('${images[index]}')`;
-    }, 4000); // ganti setiap 4 detik
-  });
-</script>
 <!-- Marquee -->
-<marquee behavior="scroll" direction="left" scrollamount="6" class="bg-WHITE-300 text-red-800 font-bold py-2 px-4">
+<marquee behavior="scroll" direction="left" scrollamount="6" class="bg-WHITE-300 text-red-800 font-bold py-2 px-4 animate__animated animate__fadeIn">
   🌾 SELAMAT DATANG DI WEBSITE PEMERINTAH DESA TEGONGAN - KECAMATAN TANJUNG - KABUPATEN BREBES 🌾
 </marquee>
-  <!-- Menu Navigasi Responsive -->
+
+<!-- Menu Navigasi Responsive -->
 <nav class="w-full bg-red-800 py-3">
   <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
     <div class="text-white font-bold text-lg">Menu</div>
@@ -73,309 +63,73 @@
     <li><a href="Kontak.html" class="hover:text-yellow-300 block py-1">Kontak</a></li>
   </ul>
 </nav>
-<!-- Script Toggle Menu -->
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const toggleBtn = document.getElementById('menu-toggle');
-    const navMenu = document.getElementById('menu-nav');
-    if (toggleBtn && navMenu) {
-      toggleBtn.addEventListener('click', function () {
-        navMenu.classList.toggle('hidden');
-      });
-    }
-  });
-</script>
-</body>
-</html>
-<!-- Tombol Pengaduan -->
-    <div class="absolute bottom-6 right-6">
-      <button class="bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-full shadow font-semibold text-sm">📢 Pengaduan</button>
-    </div>
-  </section>
+
+<!-- Jelajahi Desa -->
 <section class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center bg-white">
-  <!-- Keterangan Teks -->
-  <div>
+  <div data-aos="fade-right">
     <h2 class="text-3xl md:text-4xl font-extrabold text-red-600 mb-4">JELAJAHI DESA</h2>
     <p class="text-gray-700 text-lg leading-relaxed">
       Melalui website ini Anda dapat menjelajahi segala hal yang terkait dengan desa. Aspek pemerintahan, penduduk,
       demografi, potensi desa, dan juga berita tentang desa.
     </p>
   </div>
-
-  <!-- Ikon Menu -->
   <div class="grid grid-cols-2 md:grid-cols-2 gap-6">
-    <!-- Profil Desa -->
-    <a href="Profil Desa.html" class="bg-white p-6 rounded-lg shadow hover:shadow-md transition text-center border">
-      <img src="https://img.icons8.com/ios-filled/64/2f855a/city-hall.png" alt="Profil Desa" class="mx-auto mb-3 w-12 h-12">
+    <a href="Profil Desa.html" class="bg-white p-6 rounded-lg shadow hover:shadow-md transition text-center border animate__animated animate__fadeInUp animate__delay-1s">
+      <img src="https://img.icons8.com/ios-filled/64/2f855a/city-hall.png" class="mx-auto mb-3 w-12 h-12">
       <h3 class="font-semibold text-green-800">PROFIL DESA</h3>
     </a>
-    <!-- Infografis -->
-    <a href="infografis.html" class="bg-white p-6 rounded-lg shadow hover:shadow-md transition text-center border">
-      <img src="https://img.icons8.com/ios-filled/64/2f855a/combo-chart--v1.png" alt="Infografis" class="mx-auto mb-3 w-12 h-12">
+    <a href="infografis.html" class="bg-white p-6 rounded-lg shadow hover:shadow-md transition text-center border animate__animated animate__fadeInUp animate__delay-2s">
+      <img src="https://img.icons8.com/ios-filled/64/2f855a/combo-chart--v1.png" class="mx-auto mb-3 w-12 h-12">
       <h3 class="font-semibold text-green-800">INFOGRAFIS</h3>
     </a>
-
-    <!-- IDM -->
-    <a href="idm.html" class="bg-white p-6 rounded-lg shadow hover:shadow-md transition text-center border">
-      <img src="https://img.icons8.com/ios-filled/64/2f855a/thumb-up.png" alt="IDM" class="mx-auto mb-3 w-12 h-12">
+    <a href="idm.html" class="bg-white p-6 rounded-lg shadow hover:shadow-md transition text-center border animate__animated animate__fadeInUp animate__delay-3s">
+      <img src="https://img.icons8.com/ios-filled/64/2f855a/thumb-up.png" class="mx-auto mb-3 w-12 h-12">
       <h3 class="font-semibold text-green-800">IDM</h3>
     </a>
-
-    <!-- PPID -->
-    <a href="ppid.html" class="bg-white p-6 rounded-lg shadow hover:shadow-md transition text-center border">
-      <img src="https://img.icons8.com/ios-filled/64/2f855a/document.png" alt="PPID" class="mx-auto mb-3 w-12 h-12">
+    <a href="ppid.html" class="bg-white p-6 rounded-lg shadow hover:shadow-md transition text-center border animate__animated animate__fadeInUp animate__delay-4s">
+      <img src="https://img.icons8.com/ios-filled/64/2f855a/document.png" class="mx-auto mb-3 w-12 h-12">
       <h3 class="font-semibold text-green-800">PPID</h3>
     </a>
   </div>
 </section>
 
-    <section class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center bg-white">
-  <!-- Logo / Foto -->
-  <div class="text-center md:text-left">
+<!-- Sambutan Kepala Desa -->
+<section class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center bg-white">
+  <div class="text-center md:text-left" data-aos="fade-right">
     <img src="logobrebes.png" alt="Logo Kabupaten" class="w-60 h-auto mx-auto md:mx-0 rounded-full shadow-lg" />
   </div>
-
-  <!-- Teks Sambutan -->
-  <div>
+  <div data-aos="fade-left">
     <h2 class="text-3xl md:text-4xl font-extrabold text-red-600 mb-2">Sambutan Kepala Desa Tegongan</h2>
-    <p class="text-xl font-bold text-gray-800 mb-1">Susiin</p>
+    <p class="text-xl font-bold text-gray-800 mb-1">Ahmad Sutrisno</p>
     <p class="text-sm font-medium text-gray-600 mb-4">Kepala Desa Tegongan</p>
-
     <p class="font-semibold text-gray-800 mb-2">
       Assalamu Alaikum Warohmatullahi Wabarakatuh.
     </p>
     <p class="text-gray-700 leading-relaxed">
-      Website ini hadir sebagai sarana transparansi dan keterbukaan informasi bagi seluruh masyarakat Desa Tegongan. Kami berkomitmen untuk memanfaatkan teknologi digital dalam mendukung pelayanan publik, pengembangan ekonomi desa, serta mempererat komunikasi antara pemerintah desa dan warga.
-      <br /><br />
-      Melalui platform ini, masyarakat dapat mengakses informasi terkini tentang program kerja, kegiatan, agenda, serta potensi desa yang dapat dikembangkan bersama. Semoga website ini bermanfaat dan menjadi jembatan kemajuan Desa Tegongan yang berdaya saing dan mandiri.
+      Website ini hadir sebagai sarana transparansi dan keterbukaan informasi bagi seluruh masyarakat Desa Tegongan...
     </p>
   </div>
 </section>
 
-  </main>
-  <!-- Peta Desa -->
-<section class="px-4 mb-24">
-  <h2 class="text-2xl font-bold text-green-700 text-center mb-6">Peta Desa Tegongan</h2>
-  <div class="w-full h-[450px] shadow-lg rounded-xl overflow-hidden">
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13409.543627872554!2d108.8778402342914!3d-6.893846439683261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6fa6122deee371%3A0x7283a43722b10111!2sTegongan%2C%20Kec.%20Tj.%2C%20Kabupaten%20Brebes%2C%20Jawa%20Tengah!5e1!3m2!1sid!2sid!4v1753172422073!5m2!1sid!2sid" 
-      width="100%" 
-      height="100%" 
-      style="border:0;" 
-      allowfullscreen="" 
-      loading="lazy" 
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </div>
-</section>
-<section class="px-4 py-10 bg-white">
-  <h2 class="text-2xl font-bold text-green-700 text-center mb-8">Struktur Organisasi Pemerintah Desa Tegongan</h2>
-
-  <!-- Kepala Desa -->
-  <div class="text-center mb-6">
-    <div class="bg-green-200 inline-block px-6 py-4 rounded-lg shadow">
-      <img src="foto-susin.jpg" alt="Susin" class="w-24 h-24 mx-auto rounded-full border-4 border-white shadow-lg mb-2 object-cover">
-      <p class="font-bold text-lg">Kepala Desa</p>
-      <p class="font-normal">Susin</p>
-    </div>
-  </div>
-
-  <!-- Sekdes -->
-  <div class="text-center mb-6">
-    <div class="bg-green-100 inline-block px-6 py-4 rounded-lg shadow">
-      <img src="foto-tapsir.jpg" alt="Tapsir" class="w-24 h-24 mx-auto rounded-full border-4 border-white shadow-lg mb-2 object-cover">
-      <p class="font-bold">Sekretaris Desa (SEKDES)</p>
-      <p class="font-normal">Tapsir</p>
-    </div>
-  </div>
-
-  <!-- KAUR -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-    <div class="bg-red-100 p-4 rounded-lg shadow text-center">
-      <img src="foto-luqman.jpg" alt="Luqman Yosef B" class="w-20 h-20 mx-auto rounded-full border-4 border-white shadow-lg mb-2 object-cover">
-      <p class="font-bold text-red-700">Kaur Umum & Tata Usaha</p>
-      <p>Luqman Yosef. B</p>
-    </div>
-    <div class="bg-red-100 p-4 rounded-lg shadow text-center">
-      <img src="foto-jamali.jpg" alt="Jamali Nurokhman" class="w-20 h-20 mx-auto rounded-full border-4 border-white shadow-lg mb-2 object-cover">
-      <p class="font-bold text-red-700">Kaur Perencanaan</p>
-      <p>Jamali Nurokhman</p>
-    </div>
-    <div class="bg-red-100 p-4 rounded-lg shadow text-center">
-      <img src="foto-sokhikah.jpg" alt="Sokhikah SB" class="w-20 h-20 mx-auto rounded-full border-4 border-white shadow-lg mb-2 object-cover">
-      <p class="font-bold text-red-700">Kaur Keuangan</p>
-      <p>Sokhikah SB</p>
-    </div>
-  </div>
-
-  <!-- KASI -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-    <div class="bg-blue-100 p-4 rounded-lg shadow text-center">
-      <img src="foto-suprapto.jpg" alt="Suprapto" class="w-20 h-20 mx-auto rounded-full border-4 border-white shadow-lg mb-2 object-cover">
-      <p class="font-bold text-blue-700">Kasi Kesejahteraan</p>
-      <p>Suprapto</p>
-    </div>
-    <div class="bg-blue-100 p-4 rounded-lg shadow text-center">
-      <img src="foto-taufik.jpg" alt="Taufik" class="w-20 h-20 mx-auto rounded-full border-4 border-white shadow-lg mb-2 object-cover">
-      <p class="font-bold text-blue-700">Kasi Pelayanan</p>
-      <p>Taufik</p>
-    </div>
-  </div>
-
-  <!-- Kadus -->
-  <div class="text-center">
-    <div class="bg-yellow-100 inline-block px-6 py-4 rounded-lg shadow">
-      <img src="foto-warsono.jpg" alt="Warsono" class="w-20 h-20 mx-auto rounded-full border-4 border-white shadow-lg mb-2 object-cover">
-      <p class="font-bold">Kadus II</p>
-      <p class="font-normal">Warsono</p>
-    </div>
-  </div>
-</section>
-
-
-  <!-- Agenda Terbaru -->
-  <main class="py-10 px-4 max-w-6xl mx-auto mb-24">
-    <h2 class="text-2xl font-bold text-green-700 text-center mb-8">Agenda Terbaru</h2>
-    <section class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-      <div class="bg-white shadow-md rounded-xl p-6 hover:bg-green-50 transition">
-        <p class="text-sm text-gray-500 mb-2">10 Juli 2025</p>
-        <h3 class="text-lg font-semibold text-green-700 mb-1">Musyawarah Pembangunan Desa</h3>
-        <p class="text-gray-600">Pembahasan rencana pembangunan jalan lingkungan dan drainase RT 02/04.</p>
-      </div>
-      <div class="bg-white shadow-md rounded-xl p-6 hover:bg-blue-50 transition">
-        <p class="text-sm text-gray-500 mb-2">14 Juli 2025</p>
-        <h3 class="text-lg font-semibold text-blue-700 mb-1">Penyuluhan Kesehatan Ibu & Anak</h3>
-        <p class="text-gray-600">Kegiatan posyandu dan penyuluhan gizi balita di balai desa.</p>
-      </div>
-      <div class="bg-white shadow-md rounded-xl p-6 hover:bg-yellow-50 transition">
-        <p class="text-sm text-gray-500 mb-2">20 Juli 2025</p>
-        <h3 class="text-lg font-semibold text-yellow-600 mb-1">Kerja Bakti Bersama</h3>
-        <p class="text-gray-600">Kerja bakti pembersihan saluran air & lingkungan sekitar masjid.</p>
-      </div>
-    </section>
-  </main>
 <!-- Script Toggle Menu -->
-  <script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
     const toggleBtn = document.getElementById('menu-toggle');
     const navMenu = document.getElementById('menu-nav');
-    toggleBtn.addEventListener('click', () => {
+    toggleBtn.addEventListener('click', function () {
       navMenu.classList.toggle('hidden');
     });
-  </script>
-
-<!-- Kontak Desa -->
-<section class="bg-red-800 text-white py-6 px-4 text-sm">
-  <div class="flex items-center space-x-4 mb-4">
-    <img src="logobrebes.png" alt="Logo Brebes" class="w-12 h-12" />
-    <div>
-      <h3 class="text-xl font-bold">Desa Tegongan</h3>
-      <p class="text-sm leading-tight">
-        Kecamatan Tanjung<br />
-        Kabupaten Brebes<br />
-        Provinsi Jawa Tengah
-      </p>
-    </div>
-  </div>
-
-  <ul class="space-y-4">
-    <li>
-      <button class="w-full flex justify-between items-center font-semibold pb-2 border-b border-white/30" onclick="toggleDetail('website')">
-        <span class="flex items-center space-x-2"><span>🌐</span><span>Kunjungan Website</span></span>
-        <span>⌄</span>
-      </button>
-      <div id="detail-website" class="hidden mt-2 pl-6 text-white/90 text-xs">https://desategongan.brebes.go.id</div>
-    </li>
-    <li>
-      <button class="w-full flex justify-between items-center font-semibold pb-2 border-b border-white/30" onclick="toggleDetail('kontak')">
-        <span class="flex items-center space-x-2"><span>📞</span><span>Kontak Desa</span></span>
-        <span>⌄</span>
-      </button>
-      <div id="detail-kontak" class="hidden mt-2 pl-6 text-white/90 text-xs">
-  <a href="https://wa.me/6281212192002" target="_blank" class="underline text-white">
-    📞 0812-3456-7890 (Klik untuk WhatsApp)
-  </a><br>
-  Email: desategongan@brebes.go.id
-</div>
-
-    </li>
-    <li>
-      <button class="w-full flex justify-between items-center font-semibold pb-2 border-b border-white/30" onclick="toggleDetail('telepon')">
-        <span class="flex items-center space-x-2"><span>🚨</span><span>Nomor Telepon Penting</span></span>
-        <span>⌄</span>
-      </button>
-      <div id="detail-telepon" class="hidden mt-2 pl-6 text-white/90 text-xs">
-        Pemadam: 113<br>Polisi: 110<br>Ambulan: 119
-      </div>
-    </li>
-    <li>
-      <button class="w-full flex justify-between items-center font-semibold pb-2 border-b border-white/30" onclick="toggleDetail('sosial')">
-        <span class="flex items-center space-x-2"><span>📱</span><span>Sosial Media</span></span>
-        <span>⌄</span>
-      </button>
-      <div id="detail-sosial" class="hidden mt-2 pl-6 text-white/90 text-xs">
-        Facebook: fb.com/desategongan<br>Instagram: @desategongan
-      </div>
-    </li>
-    <li>
-      <button class="w-full flex justify-between items-center font-semibold pb-2" onclick="toggleDetail('jelajahi')">
-        <span class="flex items-center space-x-2"><span>🔗</span><span>Jelajahi</span></span>
-        <span>⌄</span>
-      </button>
-      <div id="detail-jelajahi" class="hidden mt-2 pl-6 text-white/90 text-xs">
-        Peta, Galeri, Berita Desa dan lainnya.
-      </div>
-    </li>
-  </ul>
-</section>
-
-<script>
-  function toggleDetail(id) {
-    const elem = document.getElementById('detail-' + id);
-    if (elem.classList.contains('hidden')) {
-      elem.classList.remove('hidden');
-    } else {
-      elem.classList.add('hidden');
-    }
-  }
+  });
 </script>
-  <!-- Footer -->
-  <footer class="bg-red-700 text-white text-center py-6">
-    <p>&copy; KKN UMUS 2025.</p>
-  </footer>
 
+<!-- AOS Script -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+</script>
 
+</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
