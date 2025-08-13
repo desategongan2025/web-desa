@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Berita & Agenda | Desa Tegongan - Kabupaten Brebes</title>
+  <meta name="description" content="Kumpulan berita terbaru, agenda, dan pengumuman penting Desa Tegongan." />
+  <meta name="author" content="KKN UMUS 2025" />
+  <link rel="canonical" href="https://desategongan.wuaze.com/Berita.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body class="font-sans bg-white text-gray-800">
+  <!-- Header -->
+  <div class="w-full bg-red-800 py-4 px-4">
+    <div class="max-w-7xl mx-auto flex items-center space-x-4">
+      <img src="logobrebes.png" alt="Logo Brebes" class="w-12 h-12" />
+      <div>
+        <h1 class="text-xl text-white font-bold">Desa Tegongan</h1>
+        <p class="text-sm text-white leading-tight">Kecamatan Tanjung</p>
+        <p class="text-sm text-white leading-tight">Kabupaten Brebes</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigasi -->
+  <nav class="w-full bg-red-800 py-3 sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
+      <div class="text-white font-bold text-lg">Menu</div>
+      <button id="menu-toggle" class="text-white md:hidden focus:outline-none" aria-label="Buka menu">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+    <ul id="menu-nav" class="hidden flex-col gap-2 px-4 pt-2 pb-4 md:flex md:flex-row md:gap-4 md:items-center md:justify-center text-white font-semibold text-sm">
+      <li><a href="index.html" class="hover:text-yellow-300 block py-1">Home</a></li>
+      <li><a href="Profil Desa.html" class="hover:text-yellow-300 block py-1">Profil Desa</a></li>
+      <li><a href="Infografis.html" class="hover:text-yellow-300 block py-1">Infografis</a></li>
+      <li><a href="listing.html" class="hover:text-yellow-300 block py-1">Listing</a></li>
+      <li><a href="Berita.html" class="text-yellow-300 block py-1">Berita</a></li>
+      <li><a href="Belanja.html" class="hover:text-yellow-300 block py-1">Belanja</a></li>
+      <li><a href="Kontak.html" class="hover:text-yellow-300 block py-1">Kontak</a></li>
+    </ul>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="bg-red-50 border-b border-red-100">
+    <div class="max-w-7xl mx-auto px-4 py-3 text-sm">
+      <a href="index.html" class="text-red-700 hover:underline">Home</a>
+      <span class="text-gray-500"> / </span>
+      <span class="text-gray-700 font-medium">Berita</span>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="max-w-7xl mx-auto px-4 md:px-6 py-8">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-red-700">Berita & Agenda Desa</h2>
+    <p class="mt-2 text-gray-600">Informasi kegiatan, pengumuman, dan berita terbaru dari Desa Tegongan.</p>
+  </header>
+
+  <!-- Pencarian -->
+  <section class="max-w-7xl mx-auto px-4 md:px-6 pb-4">
+    <input id="search" type="text" placeholder="Cari berita atau agenda..." class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-red-400" />
+  </section>
+
+  <!-- Daftar Berita -->
+  <main class="max-w-7xl mx-auto px-4 md:px-6 pb-20">
+    <div id="news-list" class="space-y-6">
+      <!-- Contoh berita -->
+      <article class="news-item p-5 rounded-2xl border bg-white" data-title="Musyawarah Desa Pembangunan 2025">
+        <h3 class="text-xl font-bold text-red-700">Musyawarah Desa Pembangunan 2025</h3>
+        <p class="mt-1 text-sm text-gray-500">10 Agustus 2025</p>
+        <p class="mt-2 text-gray-600">Pembahasan rencana pembangunan jalan desa, perbaikan saluran irigasi, dan program UMKM.</p>
+        <a href="#" class="mt-3 inline-block text-sm text-red-700 hover:underline">Baca selengkapnya →</a>
+      </article>
+
+      <article class="news-item p-5 rounded-2xl border bg-white" data-title="Lomba 17 Agustus Desa Tegongan">
+        <h3 class="text-xl font-bold text-red-700">Lomba 17 Agustus Desa Tegongan</h3>
+        <p class="mt-1 text-sm text-gray-500">1 Agustus 2025</p>
+        <p class="mt-2 text-gray-600">Persiapan lomba kemerdekaan: panjat pinang, balap karung, dan karnaval budaya.</p>
+        <a href="#" class="mt-3 inline-block text-sm text-red-700 hover:underline">Baca selengkapnya →</a>
+      </article>
+
+      <article class="news-item p-5 rounded-2xl border bg-white" data-title="Pengumuman Bantuan Pupuk Bersubsidi">
+        <h3 class="text-xl font-bold text-red-700">Pengumuman Bantuan Pupuk Bersubsidi</h3>
+        <p class="mt-1 text-sm text-gray-500">25 Juli 2025</p>
+        <p class="mt-2 text-gray-600">Distribusi pupuk untuk petani sesuai kuota RT/RW, dibagikan di balai desa.</p>
+        <a href="#" class="mt-3 inline-block text-sm text-red-700 hover:underline">Baca selengkapnya →</a>
+      </article>
+    </div>
+
+    <div id="empty" class="hidden mt-10 text-center text-gray-600">Tidak ada berita yang cocok.</div>
+  </main>
+
+  <!-- Kontak singkat -->
+  <section class="bg-red-800 text-white py-6 px-4 text-sm">
+    <div class="max-w-7xl mx-auto flex items-center space-x-4 mb-4">
+      <img src="logobrebes.png" alt="Logo Brebes" class="w-12 h-12" />
+      <div>
+        <h3 class="text-xl font-bold">Desa Tegongan</h3>
+        <p class="leading-tight">Kecamatan Tanjung • Kabupaten Brebes • Jawa Tengah</p>
+      </div>
+    </div>
+    <ul class="max-w-7xl mx-auto space-y-2">
+      <li class="flex items-center gap-2"><span>🌐</span><span>Website: desategongan.brebes.go.id</span></li>
+      <li class="flex items-center gap-2"><span>📞</span><a class="underline" href="https://wa.me/6281212192002" target="_blank" rel="noopener">0812-3456-7890 (WhatsApp)</a></li>
+      <li class="flex items-center gap-2"><span>✉️</span><span>Email: desategongan@brebes.go.id</span></li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-red-700 text-white text-center py-6">
+    <p>&copy; KKN UMUS 2025.</p>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    // Menu toggle
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+      document.getElementById('menu-nav').classList.toggle('hidden');
+    });
+
+    // Pencarian berita
+    const searchInput = document.getElementById('search');
+    const newsItems = document.querySelectorAll('.news-item');
+    const emptyState = document.getElementById('empty');
+
+    searchInput.addEventListener('input', function () {
+      const q = this.value.toLowerCase().trim();
+      let shown = 0;
+      newsItems.forEach(item => {
+        const title = item.getAttribute('data-title').toLowerCase();
+        if (!q || title.includes(q)) {
+          item.classList.remove('hidden');
+          shown++;
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+      emptyState.classList.toggle('hidden', shown !== 0);
+    });
+  </script>
+</body>
+</html>
