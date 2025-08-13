@@ -40,7 +40,6 @@
     const hero = document.getElementById('hero');
     const images = ['80.png', 'gambar 2.jpg', 'gambar 1.jpg']; // daftar gambar
     let index = 0;
-
     setInterval(() => {
       index = (index + 1) % images.length;
       hero.style.backgroundImage = url('${images[index]}');
@@ -347,5 +346,6 @@
 
 
 </html>
+
 
 
