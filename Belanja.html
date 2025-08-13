@@ -3,131 +3,174 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Beli Dari Desa</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #f7f7f7;
-    }
-    header {
-      background-color: #b30000;
-      color: white;
-      padding: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 1.5rem;
-    }
-    nav a {
-      color: white;
-      margin-left: 1rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .container {
-      padding: 2rem;
-    }
-    .title {
-      font-size: 2rem;
-      color: #b30000;
-      margin-bottom: 0.5rem;
-    }
-    .subtitle {
-      font-size: 1rem;
-      color: #333;
-      margin-bottom: 2rem;
-    }
-    .products {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
-    .product-card {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      overflow: hidden;
-      width: 250px;
-    }
-    .product-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    .product-info {
-      padding: 1rem;
-    }
-    .product-info h3 {
-      margin: 0;
-      font-size: 1.2rem;
-    }
-    .product-info .price {
-      margin-top: 0.5rem;
-      font-weight: bold;
-      color: #444;
-    }
-    .rating {
-      margin-top: 0.5rem;
-      color: #ccc;
-    }
-  </style>
+  <title>Belanja UMKM | Desa Tegongan - Kabupaten Brebes</title>
+  <meta name="description" content="Belanja produk UMKM unggulan Desa Tegongan seperti kerupuk mentah, olahan pangan, dan kerajinan." />
+  <meta name="author" content="KKN UMUS 2025" />
+  <link rel="canonical" href="https://desategongan.wuaze.com/Belanja.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
-<body>
-
-  <header>
-    <div>
-      <h1>Desa Kersik</h1>
-      <small>Kabupaten Kutai Kartanegara</small>
-    </div>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Profil Desa</a>
-      <a href="#">Infografis</a>
-      <a href="#">Listing</a>
-      <a href="#">IDM</a>
-      <a href="#">Berita</a>
-      <a href="#" style="text-decoration: underline;">Belanja</a>
-      <a href="#">PPID</a>
-    </nav>
-  </header>
-
-  <div class="container">
-    <div class="title">Beli Dari Desa</div>
-    <div class="subtitle">Layanan yang disediakan promosi produk UMKM desa sehingga mampu meningkatkan perekonomian masyarakat desa</div>
-    
-    <div class="products">
-      <div class="product-card">
-        <img src="https://via.placeholder.com/250x180?text=Roti+Tawar" alt="Roti Tawar">
-        <div class="product-info">
-          <h3>Roti Tawar</h3>
-          <div class="rating">★★★★★</div>
-          <div class="price">Rp10.000</div>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <img src="https://via.placeholder.com/250x180?text=Konektor+Masker" alt="Konektor Masker">
-        <div class="product-info">
-          <h3>Konektor Masker</h3>
-          <div class="rating">★★★★★</div>
-          <div class="price">Rp10.000</div>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <img src="https://via.placeholder.com/250x180?text=Snack+Box" alt="Snack Box">
-        <div class="product-info">
-          <h3>Untuk Snack Box</h3>
-          <div class="rating">★★★★★</div>
-          <div class="price">Rp123</div>
-        </div>
+<body class="font-sans bg-white text-gray-800">
+  <!-- Header -->
+  <div class="w-full bg-red-800 py-4 px-4">
+    <div class="max-w-7xl mx-auto flex items-center space-x-4">
+      <img src="logobrebes.png" alt="Logo Brebes" class="w-12 h-12" />
+      <div>
+        <h1 class="text-xl text-white font-bold">Desa Tegongan</h1>
+        <p class="text-sm text-white leading-tight">Kecamatan Tanjung</p>
+        <p class="text-sm text-white leading-tight">Kabupaten Brebes</p>
       </div>
     </div>
   </div>
 
+  <!-- Navigasi -->
+  <nav class="w-full bg-red-800 py-3 sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
+      <div class="text-white font-bold text-lg">Menu</div>
+      <button id="menu-toggle" class="text-white md:hidden focus:outline-none" aria-label="Buka menu">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+    <ul id="menu-nav" class="hidden flex-col gap-2 px-4 pt-2 pb-4 md:flex md:flex-row md:gap-4 md:items-center md:justify-center text-white font-semibold text-sm">
+      <li><a href="index.html" class="hover:text-yellow-300 block py-1">Home</a></li>
+      <li><a href="Profil Desa.html" class="hover:text-yellow-300 block py-1">Profil Desa</a></li>
+      <li><a href="Infografis.html" class="hover:text-yellow-300 block py-1">Infografis</a></li>
+      <li><a href="listing.html" class="hover:text-yellow-300 block py-1">Listing</a></li>
+      <li><a href="Berita.html" class="hover:text-yellow-300 block py-1">Berita</a></li>
+      <li><a href="Belanja.html" class="text-yellow-300 block py-1">Belanja</a></li>
+      <li><a href="Kontak.html" class="hover:text-yellow-300 block py-1">Kontak</a></li>
+    </ul>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="bg-red-50 border-b border-red-100">
+    <div class="max-w-7xl mx-auto px-4 py-3 text-sm">
+      <a href="index.html" class="text-red-700 hover:underline">Home</a>
+      <span class="text-gray-500"> / </span>
+      <span class="text-gray-700 font-medium">Belanja</span>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="max-w-7xl mx-auto px-4 md:px-6 py-8">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-red-700">Belanja Produk UMKM</h2>
+    <p class="mt-2 text-gray-600">Temukan produk unggulan dari pelaku UMKM Desa Tegongan.</p>
+  </header>
+
+  <!-- Pencarian & Filter -->
+  <section class="max-w-7xl mx-auto px-4 md:px-6 pb-4">
+    <div class="grid md:grid-cols-3 gap-3">
+      <div class="md:col-span-2">
+        <input id="search" type="text" placeholder="Cari produk..." class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-red-400" />
+      </div>
+      <div class="flex gap-2 flex-wrap items-center">
+        <button data-filter="all" class="filter-btn px-3 py-2 rounded-full text-sm bg-red-700 text-white">Semua</button>
+        <button data-filter="makanan" class="filter-btn px-3 py-2 rounded-full text-sm bg-gray-100">Makanan</button>
+        <button data-filter="kerajinan" class="filter-btn px-3 py-2 rounded-full text-sm bg-gray-100">Kerajinan</button>
+        <button data-filter="lainnya" class="filter-btn px-3 py-2 rounded-full text-sm bg-gray-100">Lainnya</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Daftar Produk -->
+  <main class="max-w-7xl mx-auto px-4 md:px-6 pb-20">
+    <div id="product-list" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="product-card p-5 rounded-2xl border bg-white" data-category="makanan" data-title="Kerupuk Mentah Udang">
+        <img src="kerupuk-udang.jpg" alt="Kerupuk Mentah Udang" class="w-full h-40 object-cover rounded-lg" />
+        <h3 class="mt-3 text-lg font-bold text-red-700">Kerupuk Mentah Udang</h3>
+        <p class="text-gray-600">Kerupuk mentah udang asli buatan warga Desa Tegongan, gurih dan renyah.</p>
+        <p class="mt-2 text-red-700 font-semibold">Rp 15.000 / kg</p>
+        <a href="https://wa.me/6281212192002" target="_blank" class="mt-3 inline-block text-sm bg-red-700 text-white px-3 py-2 rounded-lg hover:bg-red-800">Pesan via WhatsApp</a>
+      </div>
+
+      <div class="product-card p-5 rounded-2xl border bg-white" data-category="makanan" data-title="Keripik Pisang Manis">
+        <img src="keripik-pisang.jpg" alt="Keripik Pisang Manis" class="w-full h-40 object-cover rounded-lg" />
+        <h3 class="mt-3 text-lg font-bold text-red-700">Keripik Pisang Manis</h3>
+        <p class="text-gray-600">Keripik pisang manis, cemilan khas yang disukai semua kalangan.</p>
+        <p class="mt-2 text-red-700 font-semibold">Rp 12.000 / pack</p>
+        <a href="https://wa.me/6281212192002" target="_blank" class="mt-3 inline-block text-sm bg-red-700 text-white px-3 py-2 rounded-lg hover:bg-red-800">Pesan via WhatsApp</a>
+      </div>
+
+      <div class="product-card p-5 rounded-2xl border bg-white" data-category="kerajinan" data-title="Anyaman Bambu">
+        <img src="anyaman-bambu.jpg" alt="Anyaman Bambu" class="w-full h-40 object-cover rounded-lg" />
+        <h3 class="mt-3 text-lg font-bold text-red-700">Anyaman Bambu</h3>
+        <p class="text-gray-600">Kerajinan tangan dari bambu berkualitas, kuat dan estetik.</p>
+        <p class="mt-2 text-red-700 font-semibold">Rp 50.000</p>
+        <a href="https://wa.me/6281212192002" target="_blank" class="mt-3 inline-block text-sm bg-red-700 text-white px-3 py-2 rounded-lg hover:bg-red-800">Pesan via WhatsApp</a>
+      </div>
+    </div>
+
+    <div id="empty" class="hidden mt-10 text-center text-gray-600">Tidak ada produk yang cocok.</div>
+  </main>
+
+  <!-- Kontak singkat -->
+  <section class="bg-red-800 text-white py-6 px-4 text-sm">
+    <div class="max-w-7xl mx-auto flex items-center space-x-4 mb-4">
+      <img src="logobrebes.png" alt="Logo Brebes" class="w-12 h-12" />
+      <div>
+        <h3 class="text-xl font-bold">Desa Tegongan</h3>
+        <p class="leading-tight">Kecamatan Tanjung • Kabupaten Brebes • Jawa Tengah</p>
+      </div>
+    </div>
+    <ul class="max-w-7xl mx-auto space-y-2">
+      <li class="flex items-center gap-2"><span>🌐</span><span>Website: desategongan.brebes.go.id</span></li>
+      <li class="flex items-center gap-2"><span>📞</span><a class="underline" href="https://wa.me/6281212192002" target="_blank" rel="noopener">0812-3456-7890 (WhatsApp)</a></li>
+      <li class="flex items-center gap-2"><span>✉️</span><span>Email: desategongan@brebes.go.id</span></li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-red-700 text-white text-center py-6">
+    <p>&copy; KKN UMUS 2025.</p>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    // Toggle menu
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+      document.getElementById('menu-nav').classList.toggle('hidden');
+    });
+
+    // Pencarian & filter
+    const searchInput = document.getElementById('search');
+    const products = document.querySelectorAll('.product-card');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const emptyState = document.getElementById('empty');
+
+    function applyFilter() {
+      const q = searchInput.value.toLowerCase().trim();
+      const activeBtn = document.querySelector('.filter-btn.bg-red-700');
+      const active = activeBtn ? activeBtn.getAttribute('data-filter') : 'all';
+
+      let shown = 0;
+      products.forEach(p => {
+        const title = p.getAttribute('data-title').toLowerCase();
+        const cat = p.getAttribute('data-category');
+        const matchText = !q || title.includes(q);
+        const matchCat = active === 'all' || cat === active;
+        if (matchText && matchCat) {
+          p.classList.remove('hidden');
+          shown++;
+        } else {
+          p.classList.add('hidden');
+        }
+      });
+      emptyState.classList.toggle('hidden', shown !== 0);
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('bg-red-700', 'text-white'));
+        filterBtns.forEach(b => b.classList.add('bg-gray-100'));
+        btn.classList.remove('bg-gray-100');
+        btn.classList.add('bg-red-700', 'text-white');
+        applyFilter();
+      });
+    });
+
+    searchInput.addEventListener('input', applyFilter);
+  </script>
 </body>
 </html>
