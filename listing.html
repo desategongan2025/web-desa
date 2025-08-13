@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Listing | Website Resmi Desa Tegongan - Kabupaten Brebes</title>
+  <meta name="description" content="Daftar halaman, layanan, dokumen, dan tautan penting Desa Tegongan." />
+  <meta name="author" content="KKN UMUS 2025" />
+  <link rel="canonical" href="https://desategongan.wuaze.com/listing.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body class="font-sans bg-white text-gray-800">
+  <!-- Header -->
+  <div class="w-full bg-red-800 py-4 px-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+        <img src="logobrebes.png" alt="Logo Brebes" class="w-12 h-12" />
+        <div>
+          <h1 class="text-xl text-white font-bold">Desa Tegongan</h1>
+          <p class="text-sm text-white leading-tight">Kecamatan Tanjung</p>
+          <p class="text-sm text-white leading-tight">Kabupaten Brebes</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigasi -->
+  <nav class="w-full bg-red-800 py-3 sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
+      <div class="text-white font-bold text-lg">Menu</div>
+      <button id="menu-toggle" class="text-white md:hidden focus:outline-none" aria-label="Buka menu">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+    <ul id="menu-nav" class="hidden flex-col gap-2 px-4 pt-2 pb-4 md:flex md:flex-row md:gap-4 md:items-center md:justify-center text-white font-semibold text-sm">
+      <li><a href="index.html" class="hover:text-yellow-300 block py-1">Home</a></li>
+      <li><a href="Profil Desa.html" class="hover:text-yellow-300 block py-1">Profil Desa</a></li>
+      <li><a href="Infografis.html" class="hover:text-yellow-300 block py-1">Infografis</a></li>
+      <li><a href="listing.html" class="text-yellow-300 block py-1">Listing</a></li>
+      <li><a href="Berita.html" class="hover:text-yellow-300 block py-1">Berita</a></li>
+      <li><a href="Belanja.html" class="hover:text-yellow-300 block py-1">Belanja</a></li>
+      <li><a href="Kontak.html" class="hover:text-yellow-300 block py-1">Kontak</a></li>
+    </ul>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="bg-red-50 border-b border-red-100">
+    <div class="max-w-7xl mx-auto px-4 py-3 text-sm">
+      <a href="index.html" class="text-red-700 hover:underline">Home</a>
+      <span class="text-gray-500"> / </span>
+      <span class="text-gray-700 font-medium">Listing</span>
+    </div>
+  </div>
+
+  <!-- Hero kecil -->
+  <header class="max-w-7xl mx-auto px-4 md:px-6 py-8">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-red-700">Listing Konten & Layanan</h2>
+    <p class="mt-2 text-gray-600">Cari cepat semua halaman, layanan, dokumen, dan tautan penting milik Desa Tegongan dalam satu tempat.</p>
+  </header>
+
+  <!-- Pencarian & Filter -->
+  <section class="max-w-7xl mx-auto px-4 md:px-6 pb-4">
+    <div class="grid md:grid-cols-3 gap-3">
+      <div class="md:col-span-2">
+        <label for="search" class="sr-only">Cari</label>
+        <input id="search" type="text" placeholder="Cari misal: ppid, umkm, agenda, surat..." class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-red-400" />
+      </div>
+      <div class="flex gap-2 flex-wrap items-center">
+        <button data-filter="all" class="filter-btn px-3 py-2 rounded-full text-sm bg-red-700 text-white">Semua</button>
+        <button data-filter="profil" class="filter-btn px-3 py-2 rounded-full text-sm bg-gray-100">Profil</button>
+        <button data-filter="informasi" class="filter-btn px-3 py-2 rounded-full text-sm bg-gray-100">Informasi</button>
+        <button data-filter="layanan" class="filter-btn px-3 py-2 rounded-full text-sm bg-gray-100">Layanan</button>
+        <button data-filter="dokumen" class="filter-btn px-3 py-2 rounded-full text-sm bg-gray-100">Dokumen</button>
+        <button data-filter="umkm" class="filter-btn px-3 py-2 rounded-full text-sm bg-gray-100">UMKM</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Daftar Kartu -->
+  <main class="max-w-7xl mx-auto px-4 md:px-6 pb-20">
+    <div id="cards" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- Profil -->
+      <a href="Profil Desa.html" class="card group block p-5 rounded-2xl border hover:shadow-md transition bg-white" data-category="profil" data-title="Profil Desa Tegongan">
+        <div class="flex items-start justify-between">
+          <h3 class="text-lg font-bold text-red-700">Profil Desa</h3>
+          <span class="text-xs px-2 py-1 rounded-full bg-red-50 text-red-700">Profil</span>
+        </div>
+        <p class="mt-2 text-gray-600">Sejarah, wilayah, potensi, demografi, dan struktur pemerintahan Desa Tegongan.</p>
+        <div class="mt-3 text-sm text-red-700 group-hover:underline">Lihat halaman →</div>
+      </a>
+
+      <a href="Infografis.html" class="card group block p-5 rounded-2xl border hover:shadow-md transition bg-white" data-category="informasi" data-title="Infografis Desa Tegongan">
+        <div class="flex items-start justify-between">
+          <h3 class="text-lg font-bold text-red-700">Infografis</h3>
+          <span class="text-xs px-2 py-1 rounded-full bg-red-50 text-red-700">Informasi</span>
+        </div>
+        <p class="mt-2 text-gray-600">Grafik ringkas: penduduk, pendidikan, pekerjaan, dan indikator penting desa.</p>
+        <div class="mt-3 text-sm text-red-700 group-hover:underline">Lihat halaman →</div>
+      </a>
+
+      <a href="idm.html" class="card group block p-5 rounded-2xl border hover:shadow-md transition bg-white" data-category="informasi" data-title="Indeks Desa Membangun (IDM)">
+        <div class="flex items-start justify-between">
+          <h3 class="text-lg font-bold text-red-700">Indeks Desa Membangun (IDM)</h3>
+          <span class="text-xs px-2 py-1 rounded-full bg-red-50 text-red-700">Informasi</span>
+        </div>
+        <p class="mt-2 text-gray-600">Skor IDM & status kemajuan desa (mandiri/maju/berkembang/tertinggal).</p>
+        <div class="mt-3 text-sm text-red-700 group-hover:underline">Lihat halaman →</div>
+      </a>
+
+      <a href="ppid.html" class="card group block p-5 rounded-2xl border hover:shadow-md transition bg-white" data-category="informasi" data-title="PPID Desa Tegongan">
+        <div class="flex items-start justify-between">
+          <h3 class="text-lg font-bold text-red-700">PPID</h3>
+          <span class="text-xs px-2 py-1 rounded-full bg-red-50 text-red-700">Informasi</span>
+        </div>
+        <p class="mt-2 text-gray-600">Pejabat Pengelola Informasi & Dokumentasi: SOP, formulir, & permohonan informasi.</p>
+        <div class="mt-3 text-sm text-red-700 group-hover:underline">Lihat halaman →</div>
+      </a>
+
+      <a href="Berita.html" class="card group block p-5 rounded-2xl border hover:shadow-md transition bg-white" data-category="informasi" data-title="Berita Desa Tegongan">
+        <div class="flex items-start justify-between">
+          <h3 class="text-lg font-bold text-red-700">Berita & Agenda</h3>
+          <span class="text-xs px-2 py-1 rounded-full bg-red-50 text-red-700">Informasi</span>
+        </div>
+        <p class="mt-2 text-gray-600">Kabar terbaru kegiatan desa, musyawarah, dan pengumuman penting.</p>
+        <div class="mt-3 text-sm text-red-700 group-hover:underline">Lihat halaman →</div>
+      </a>
+
+      <!-- Layanan -->
+      <a href="#" class="card group block p-5 rounded-2xl border hover:shadow-md transition bg-white" data-category="layanan" data-title="Layanan Administrasi Desa">
+        <div class="flex items-start justify-between">
+          <h3 class="text-lg font-bold text-red-700">Layanan Administrasi</h3>
+          <span class="text-xs px-2 py-1 rounded-full bg-red-50 text-red-700">Layanan</span>
+        </div>
+        <p class="mt-2 text-gray-600">SKTM, Surat Pengantar KTP/KK, Domisili, Usaha (SKU), & keperluan umum lainnya.</p>
+        <div class="mt-3 text-sm text-red-700 group-hover:underline">Panduan layanan →</div>
+      </a>
+
+      <a href="#" class="card group block p-5 rounded-2xl border hover:shadow-md transition bg-white" data-category="layanan" data-title="Pengaduan Warga Desa Tegongan">
+        <div class="flex items-start justify-between">
+          <h3 class="text-lg font-bold text-red-700">Pengaduan Warga</h3>
+          <span class="text-xs px-2 py-1 rounded-full bg-red-50 text-red-700">Layanan</span>
+        </div>
+        <p class="mt-2 text-gray-600">Sampaikan saran, keluhan, dan laporan cepat terkait layanan publik desa.</p>
+        <div class="mt-3 text-sm text-red-700 group-hover:underline">Kirim pengaduan →</div>
+      </a>
+
+      <!-- Dokumen -->
+      <a href="#" class="card group block p-5 rounded-2xl border hover:shadow-md transition bg-white" data-category="dokumen" data-title="Dokumen Desa: APBDes, Perdes, Perkades">
+        <div class="flex items-start justify-between">
+          <h3 class="text-lg font-bold text-red-700">Dokumen Desa</h3>
+          <span class="text-xs px-2 py-1 rounded-full bg-red-50 text-red-700">Dokumen</span>
+        </div>
+        <p class="mt-2 text-gray-600">APBDes, RKPDes, Perdes, Perkades, RPJMDes, & laporan realisasi anggaran.</p>
+        <div class="mt-3 text-sm text-red-700 group-hover:underline">Lihat dokumen →</div>
+      </a>
+
+      <!-- UMKM / Belanja -->
+      <a href="Belanja.html" class="card group block p-5 rounded-2xl border hover:shadow-md transition bg-white" data-category="umkm" data-title="Belanja Produk UMKM Tegongan">
+        <div class="flex items-start justify-between">
+          <h3 class="text-lg font-bold text-red-700">Belanja UMKM</h3>
+          <span class="text-xs px-2 py-1 rounded-full bg-red-50 text-red-700">UMKM</span>
+        </div>
+        <p class="mt-2 text-gray-600">Produk unggulan warga: kerupuk mentah, olahan pangan, dan kerajinan.</p>
+        <div class="mt-3 text-sm text-red-700 group-hover:underline">Jelajahi UMKM →</div>
+      </a>
+
+      <!-- Kontak & Peta -->
+      <a href="Kontak.html" class="card group block p-5 rounded-2xl border hover:shadow-md transition bg-white" data-category="informasi" data-title="Kontak Desa Tegongan & Peta">
+        <div class="flex items-start justify-between">
+          <h3 class="text-lg font-bold text-red-700">Kontak & Peta</h3>
+          <span class="text-xs px-2 py-1 rounded-full bg-red-50 text-red-700">Informasi</span>
+        </div>
+        <p class="mt-2 text-gray-600">Alamat balai desa, nomor penting, tautan WhatsApp, dan lokasi di Google Maps.</p>
+        <div class="mt-3 text-sm text-red-700 group-hover:underline">Lihat kontak →</div>
+      </a>
+
+      <!-- Placeholder: tambahkan item lain sesuai kebutuhan -->
+    </div>
+
+    <!-- Info kosong -->
+    <div id="empty" class="hidden mt-10 text-center text-gray-600">Tidak ada hasil untuk pencarian/fitur yang dipilih.</div>
+  </main>
+
+  <!-- Kontak singkat -->
+  <section class="bg-red-800 text-white py-6 px-4 text-sm">
+    <div class="max-w-7xl mx-auto flex items-center space-x-4 mb-4">
+      <img src="logobrebes.png" alt="Logo Brebes" class="w-12 h-12" />
+      <div>
+        <h3 class="text-xl font-bold">Desa Tegongan</h3>
+        <p class="leading-tight">Kecamatan Tanjung • Kabupaten Brebes • Jawa Tengah</p>
+      </div>
+    </div>
+
+    <ul class="max-w-7xl mx-auto space-y-2">
+      <li class="flex items-center gap-2"><span>🌐</span><span>Website: desategongan.brebes.go.id</span></li>
+      <li class="flex items-center gap-2"><span>📞</span><a class="underline" href="https://wa.me/6281212192002" target="_blank" rel="noopener">0812-3456-7890 (WhatsApp)</a></li>
+      <li class="flex items-center gap-2"><span>✉️</span><span>Email: desategongan@brebes.go.id</span></li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-red-700 text-white text-center py-6">
+    <p>&copy; KKN UMUS 2025.</p>
+  </footer>
+
+  <!-- Script: Menu + Pencarian/Filter -->
+  <script>
+    // Toggle menu
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggleBtn = document.getElementById('menu-toggle');
+      const navMenu = document.getElementById('menu-nav');
+      if (toggleBtn && navMenu) {
+        toggleBtn.addEventListener('click', function () {
+          navMenu.classList.toggle('hidden');
+        });
+      }
+    });
+
+    // Pencarian & filter
+    const searchInput = document.getElementById('search');
+    const cards = Array.from(document.querySelectorAll('.card'));
+    const filterBtns = Array.from(document.querySelectorAll('.filter-btn'));
+    const emptyState = document.getElementById('empty');
+
+    function applyFilter() {
+      const q = (searchInput.value || '').toLowerCase().trim();
+      const activeBtn = filterBtns.find(b => b.classList.contains('bg-red-700'));
+      const active = activeBtn ? activeBtn.getAttribute('data-filter') : 'all';
+
+      let shown = 0;
+      cards.forEach(card => {
+        const title = (card.getAttribute('data-title') || '').toLowerCase();
+        const cat = card.getAttribute('data-category');
+        const matchText = !q || title.includes(q);
+        const matchCat = active === 'all' || cat === active;
+        if (matchText && matchCat) {
+          card.classList.remove('hidden');
+          shown++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+      emptyState.classList.toggle('hidden', shown !== 0);
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('bg-red-700', 'text-white'));
+        filterBtns.forEach(b => b.classList.add('bg-gray-100'));
+        btn.classList.remove('bg-gray-100');
+        btn.classList.add('bg-red-700', 'text-white');
+        applyFilter();
+      });
+    });
+
+    searchInput.addEventListener('input', applyFilter);
+  </script>
+</body>
+</html>
