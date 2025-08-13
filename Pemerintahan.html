@@ -4,10 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pemerintahan Desa Tegongan</title>
+  <meta name="description" content="Struktur Pemerintahan Desa Tegongan, Kecamatan Tanjung, Kabupaten Brebes.">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-white text-gray-800 font-sans">
-  
+<body class="font-sans bg-white text-gray-800">
+
 <!-- Header -->
 <div class="w-full bg-red-800 py-4 px-4">
   <div class="flex items-center space-x-4">
@@ -20,6 +21,38 @@
   </div>
 </div>
 
+<!-- Navigasi -->
+<nav class="w-full bg-red-800 py-3">
+  <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
+    <div class="text-white font-bold text-lg">Menu</div>
+    <button id="menu-toggle" class="text-white md:hidden focus:outline-none">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+  <ul id="menu-nav" class="hidden flex-col gap-2 px-4 pt-2 pb-4 md:flex md:flex-row md:gap-4 md:items-center md:justify-center text-white font-semibold text-sm">
+    <li><a href="index.html" class="hover:text-yellow-300 block py-1">Home</a></li>
+    <li><a href="Profil Desa.html" class="hover:text-yellow-300 block py-1">Profil Desa</a></li>
+    <li><a href="Infografis.html" class="hover:text-yellow-300 block py-1">Infografis</a></li>
+    <li><a href="listing.html" class="hover:text-yellow-300 block py-1">Listing</a></li>
+    <li><a href="Berita.html" class="hover:text-yellow-300 block py-1">Berita</a></li>
+    <li><a href="Belanja.html" class="hover:text-yellow-300 block py-1">Belanja</a></li>
+    <li><a href="Kontak.html" class="hover:text-yellow-300 block py-1">Kontak</a></li>
+  </ul>
+</nav>
+
+<!-- Script Toggle Menu -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const toggleBtn = document.getElementById('menu-toggle');
+  const navMenu = document.getElementById('menu-nav');
+  toggleBtn.addEventListener('click', function () {
+    navMenu.classList.toggle('hidden');
+  });
+});
+</script>
+
 <!-- Judul Halaman -->
 <section class="max-w-7xl mx-auto px-4 py-10 text-center">
   <h2 class="text-4xl font-extrabold text-red-700 mb-2">Pemerintahan Desa Tegongan</h2>
@@ -28,63 +61,46 @@
 
 <!-- Daftar Perangkat Desa -->
 <section class="max-w-7xl mx-auto px-4 pb-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-  <!-- Kepala Desa -->
   <div class="p-5 rounded-2xl border bg-white shadow">
     <img src="kades.jpg" alt="Kepala Desa" class="w-full h-48 object-cover rounded-xl" />
     <h3 class="mt-3 text-lg font-bold text-red-700">Nama Kepala Desa</h3>
     <p class="text-gray-600">Kepala Desa</p>
   </div>
-
-  <!-- Sekretaris Desa -->
   <div class="p-5 rounded-2xl border bg-white shadow">
     <img src="sekdes.jpg" alt="Sekretaris Desa" class="w-full h-48 object-cover rounded-xl" />
     <h3 class="mt-3 text-lg font-bold text-red-700">Nama Sekdes</h3>
     <p class="text-gray-600">Sekretaris Desa</p>
   </div>
-
-  <!-- Kaur Umum -->
   <div class="p-5 rounded-2xl border bg-white shadow">
     <img src="kaur-umum.jpg" alt="Kaur Umum" class="w-full h-48 object-cover rounded-xl" />
     <h3 class="mt-3 text-lg font-bold text-red-700">Nama Kaur Umum</h3>
     <p class="text-gray-600">Kaur Umum</p>
   </div>
-
-  <!-- Kaur Keuangan -->
   <div class="p-5 rounded-2xl border bg-white shadow">
     <img src="kaur-keuangan.jpg" alt="Kaur Keuangan" class="w-full h-48 object-cover rounded-xl" />
     <h3 class="mt-3 text-lg font-bold text-red-700">Nama Kaur Keuangan</h3>
     <p class="text-gray-600">Kaur Keuangan</p>
   </div>
-
-  <!-- Kaur Perencanaan -->
   <div class="p-5 rounded-2xl border bg-white shadow">
     <img src="kaur-perencanaan.jpg" alt="Kaur Perencanaan" class="w-full h-48 object-cover rounded-xl" />
     <h3 class="mt-3 text-lg font-bold text-red-700">Nama Kaur Perencanaan</h3>
     <p class="text-gray-600">Kaur Perencanaan</p>
   </div>
-
-  <!-- Kasi Pemerintahan -->
   <div class="p-5 rounded-2xl border bg-white shadow">
     <img src="kasi-pemerintahan.jpg" alt="Kasi Pemerintahan" class="w-full h-48 object-cover rounded-xl" />
     <h3 class="mt-3 text-lg font-bold text-red-700">Nama Kasi Pemerintahan</h3>
     <p class="text-gray-600">Kasi Pemerintahan</p>
   </div>
-
-  <!-- Kasi Kesejahteraan -->
   <div class="p-5 rounded-2xl border bg-white shadow">
     <img src="kasi-kesra.jpg" alt="Kasi Kesejahteraan" class="w-full h-48 object-cover rounded-xl" />
     <h3 class="mt-3 text-lg font-bold text-red-700">Nama Kasi Kesejahteraan</h3>
     <p class="text-gray-600">Kasi Kesejahteraan</p>
   </div>
-
-  <!-- Kadus 1 -->
   <div class="p-5 rounded-2xl border bg-white shadow">
     <img src="kadus1.jpg" alt="Kepala Dusun 1" class="w-full h-48 object-cover rounded-xl" />
     <h3 class="mt-3 text-lg font-bold text-red-700">Nama Kadus 1</h3>
     <p class="text-gray-600">Kepala Dusun 1</p>
   </div>
-
-  <!-- Kadus 2 -->
   <div class="p-5 rounded-2xl border bg-white shadow">
     <img src="kadus2.jpg" alt="Kepala Dusun 2" class="w-full h-48 object-cover rounded-xl" />
     <h3 class="mt-3 text-lg font-bold text-red-700">Nama Kadus 2</h3>
