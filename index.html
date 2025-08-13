@@ -28,9 +28,7 @@
 </div>
 <!-- Hero / Slideshow Header -->
 <section class="relative w-full overflow-hidden">
-  <div class="relative w-full">
-    <img id="hero-img" src="80.png" class="w-full h-[80vh] sm:h-[80vh] md:h-[80vh] object-cover transition-all duration-700">
-  </div>
+  <img id="hero-img" src="80.png" class="w-full h-[80vh] object-cover transition-opacity duration-700 opacity-100">
   
   <!-- Overlay Gelap -->
   <div class="absolute inset-0 bg-black/50 z-10"></div>
@@ -50,22 +48,20 @@
 </section>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const heroImg = document.getElementById('hero-img');
-    const images = ['80.png', 'gambar 2.jpg', 'gambar 1.jpg']; // ganti sesuai folder kalian
-    let index = 0;
+document.addEventListener('DOMContentLoaded', function () {
+  const heroImg = document.getElementById('hero-img');
+  const images = ['80.png', 'gambar 2.jpg', 'gambar 1.jpg'];
+  let index = 0;
 
-    function changeImage() {
-      heroImg.src = images[index];
-      heroImg.classList.add('opacity-0');
-      setTimeout(() => {
-        heroImg.classList.remove('opacity-0');
-      }, 100);
+  setInterval(() => {
+    heroImg.classList.add('opacity-0');
+    setTimeout(() => {
       index = (index + 1) % images.length;
-    }
-
-    setInterval(changeImage, 4000); // ganti setiap 4 detik
-  });
+      heroImg.src = images[index];
+      heroImg.classList.remove('opacity-0');
+    }, 500); // durasi fade 0.5 detik
+  }, 4000); // ganti tiap 4 detik
+});
 </script>
 
 <!-- Marquee -->
@@ -359,6 +355,7 @@
 
 
 </html>
+
 
 
 
