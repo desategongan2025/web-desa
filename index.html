@@ -180,70 +180,47 @@ document.addEventListener('DOMContentLoaded', function () {
   </div>
 </section>
 <section class="px-4 py-10 bg-white">
-  <!-- Section Pemerintahan Desa -->
+ <!-- Section Pemerintahan Desa (Ringkasan) -->
 <section class="max-w-7xl mx-auto px-4 md:px-6 py-12">
   <h2 class="text-3xl font-extrabold text-red-700 mb-6">Pemerintahan Desa</h2>
-  <div id="staff-list" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-    <!-- Perangkat Desa (tampil awal) -->
-    <div class="staff-card p-5 rounded-2xl border bg-white">
-      <img src="kades.jpg" class="w-full h-48 object-cover rounded-xl" alt="Kepala Desa" />
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+    <!-- Kepala Desa -->
+    <div class="p-5 rounded-2xl border bg-white">
+      <img src="kades.jpg" alt="Kepala Desa" class="w-full h-48 object-cover rounded-xl" />
       <h3 class="mt-3 text-lg font-bold text-red-700">Nama Kepala Desa</h3>
       <p class="text-gray-600">Kepala Desa</p>
     </div>
-    <div class="staff-card p-5 rounded-2xl border bg-white">
-      <img src="sekdes.jpg" class="w-full h-48 object-cover rounded-xl" alt="Sekretaris Desa" />
+
+    <!-- Sekretaris Desa -->
+    <div class="p-5 rounded-2xl border bg-white">
+      <img src="sekdes.jpg" alt="Sekretaris Desa" class="w-full h-48 object-cover rounded-xl" />
       <h3 class="mt-3 text-lg font-bold text-red-700">Nama Sekdes</h3>
       <p class="text-gray-600">Sekretaris Desa</p>
     </div>
-    <div class="staff-card p-5 rounded-2xl border bg-white">
-      <img src="kaur-umum.jpg" class="w-full h-48 object-cover rounded-xl" alt="Kaur Umum" />
+
+    <!-- Kaur Umum -->
+    <div class="p-5 rounded-2xl border bg-white">
+      <img src="kaur-umum.jpg" alt="Kaur Umum" class="w-full h-48 object-cover rounded-xl" />
       <h3 class="mt-3 text-lg font-bold text-red-700">Nama Kaur Umum</h3>
       <p class="text-gray-600">Kaur Umum</p>
     </div>
-    <div class="staff-card p-5 rounded-2xl border bg-white">
-      <img src="kaur-keuangan.jpg" class="w-full h-48 object-cover rounded-xl" alt="Kaur Keuangan" />
+
+    <!-- Kaur Keuangan -->
+    <div class="p-5 rounded-2xl border bg-white">
+      <img src="kaur-keuangan.jpg" alt="Kaur Keuangan" class="w-full h-48 object-cover rounded-xl" />
       <h3 class="mt-3 text-lg font-bold text-red-700">Nama Kaur Keuangan</h3>
       <p class="text-gray-600">Kaur Keuangan</p>
     </div>
-
-    <!-- Perangkat Desa (disembunyikan awalnya) -->
-    <div class="staff-card p-5 rounded-2xl border bg-white hidden">
-      <img src="kaur-perencanaan.jpg" class="w-full h-48 object-cover rounded-xl" alt="Kaur Perencanaan" />
-      <h3 class="mt-3 text-lg font-bold text-red-700">Nama Kaur Perencanaan</h3>
-      <p class="text-gray-600">Kaur Perencanaan</p>
-    </div>
-    <div class="staff-card p-5 rounded-2xl border bg-white hidden">
-      <img src="kasi-pemerintahan.jpg" class="w-full h-48 object-cover rounded-xl" alt="Kasi Pemerintahan" />
-      <h3 class="mt-3 text-lg font-bold text-red-700">Nama Kasi Pemerintahan</h3>
-      <p class="text-gray-600">Kasi Pemerintahan</p>
-    </div>
-    <div class="staff-card p-5 rounded-2xl border bg-white hidden">
-      <img src="kasi-kesra.jpg" class="w-full h-48 object-cover rounded-xl" alt="Kasi Kesejahteraan" />
-      <h3 class="mt-3 text-lg font-bold text-red-700">Nama Kasi Kesejahteraan</h3>
-      <p class="text-gray-600">Kasi Kesejahteraan</p>
-    </div>
-    <div class="staff-card p-5 rounded-2xl border bg-white hidden">
-      <img src="kadus1.jpg" class="w-full h-48 object-cover rounded-xl" alt="Kepala Dusun 1" />
-      <h3 class="mt-3 text-lg font-bold text-red-700">Nama Kadus 1</h3>
-      <p class="text-gray-600">Kepala Dusun 1</p>
-    </div>
   </div>
 
+  <!-- Tombol Lihat Selengkapnya -->
   <div class="text-center mt-6">
-    <button id="load-more" class="px-4 py-2 bg-red-700 text-white rounded-lg hover:bg-red-800">
+    <a href="Pemerintahan.html" class="px-4 py-2 bg-red-700 text-white rounded-lg hover:bg-red-800">
       Lihat Selengkapnya
-    </button>
+    </a>
   </div>
 </section>
 
-<script>
-document.getElementById('load-more').addEventListener('click', function(){
-  document.querySelectorAll('#staff-list .hidden').forEach(function(card){
-    card.classList.remove('hidden');
-  });
-  this.style.display = 'none';
-});
-</script>
 
   <!-- Agenda Terbaru -->
   <main class="py-10 px-4 max-w-6xl mx-auto mb-24">
@@ -352,6 +329,7 @@ document.getElementById('load-more').addEventListener('click', function(){
 
 
 </html>
+
 
 
 
