@@ -27,32 +27,47 @@
   </div>
 </div>
 <!-- Hero / Slideshow Header -->
-<header id="hero" class="relative w-full h-[80vh] bg-cover bg-center overflow-hidden">
+<section class="relative w-full overflow-hidden">
+  <div class="relative w-full">
+    <img id="hero-img" src="80.png" class="w-full h-[80vh] sm:h-[80vh] md:h-[80vh] object-cover transition-all duration-700">
+  </div>
+  
+  <!-- Overlay Gelap -->
   <div class="absolute inset-0 bg-black/50 z-10"></div>
-  <div class="absolute inset-0 z-10 flex items-center justify-center text-center text-white px-4">
+
+  <!-- Teks Header -->
+  <div class="absolute inset-0 z-20 flex items-center justify-center text-center text-white px-4">
     <div>
       <h2 class="text-xl sm:text-4xl font-bold mb-2">Selamat Datang di Desa Tegongan</h2>
       <p class="text-sm sm:text-lg">Desa maju dan transparan untuk masa depan yang lebih baik</p>
     </div>
   </div>
+
   <!-- Tombol Pengaduan -->
-  <div class="absolute bottom-6 right-6 z-20">
+  <div class="absolute bottom-6 right-6 z-30">
     <button class="bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-full shadow font-semibold text-sm">📢 Pengaduan</button>
   </div>
-</header>
+</section>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const hero = document.getElementById('hero');
-    const images = ['80.png', 'gambar 2.jpg', 'gambar 1.jpg']; // Ganti dengan gambar kalian
+    const heroImg = document.getElementById('hero-img');
+    const images = ['80.png', 'gambar 2.jpg', 'gambar 1.jpg']; // ganti sesuai folder kalian
     let index = 0;
-    hero.style.backgroundImage = `url('${images[index]}')`;
-    setInterval(() => {
+
+    function changeImage() {
+      heroImg.src = images[index];
+      heroImg.classList.add('opacity-0');
+      setTimeout(() => {
+        heroImg.classList.remove('opacity-0');
+      }, 100);
       index = (index + 1) % images.length;
-      hero.style.backgroundImage = `url('${images[index]}')`;
-    }, 4000); // Ganti setiap 4 detik
+    }
+
+    setInterval(changeImage, 4000); // ganti setiap 4 detik
   });
 </script>
+
 
 <!-- Marquee -->
 <marquee behavior="scroll" direction="left" scrollamount="6" class="bg-white text-red-800 font-bold py-2 px-4">
@@ -347,6 +362,7 @@
 
 
 </html>
+
 
 
 
