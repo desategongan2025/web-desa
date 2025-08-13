@@ -3,65 +3,105 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sejarah | Desa Tegongan</title>
+  <title>Profil Desa Tegongan — Desa Tegongan</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="font-sans bg-white text-gray-800">
 
-  <!-- Header Gambar -->
-  <header class="relative h-[60vh] bg-cover bg-center" style="background-image: url('sawah.jpg');">
-    <div class="absolute inset-0 bg-black/50 z-10"></div>
-
-    <!-- Navbar -->
-    <nav class="absolute top-0 left-0 w-full z-20">
-      <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center text-white">
-        <h1 class="text-2xl font-bold">Desa Tegongan</h1>
-        <ul class="hidden md:flex space-x-6 font-semibold">
-          <li><a href="index.html" class="hover:text-yellow-300 transition">Home</a></li>
-          <li><a href="Sejarah.html" class="hover:text-yellow-300 transition font-bold underline">Sejarah</a></li>
-          <li><a href="visi&misi.html" class="hover:text-yellow-300 transition">Visi&Misi</a></li>
-          <li><a href="Struktuk.html" class="hover:text-yellow-300 transition">Struktur</a></li>
-          <li><a href="Kontak.html" class="hover:text-yellow-300 transition">Kontak</a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <!-- Judul Tengah -->
-    <div class="absolute inset-0 z-10 flex items-center justify-center text-center text-white px-4">
-      <div>
-        <h2 class="text-4xl md:text-5xl font-bold mb-2">Sejarah Desa Tegongan</h2>
-        <p class="text-lg">Asal-usul dan perkembangan desa kami dari masa ke masa</p>
-      </div>
+<!-- Header dan Navigasi -->
+<div class="w-full bg-blue-800 py-4 px-4">
+  <div class="flex items-center">
+    <img src="logobrebes.png" alt="Logo Brebes" class="w-12 h-12 mr-3" />
+    <div>
+      <h1 class="text-xl text-white font-bold">Desa Tegongan</h1>
+      <p class="text-sm text-white">Kecamatan Tanjung – Kabupaten Brebes</p>
     </div>
-  </header>
+  </div>
+</div>
+<nav class="bg-green-700 py-3">
+  <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+    <div class="text-white font-bold">Menu</div>
+    <button id="menu-toggle" class="text-white md:hidden">
+      <!-- Hamburger Icon -->
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+    <ul id="menu-nav"
+        class="hidden md:flex space-x-4 text-white text-sm font-semibold">
+      <li><a href="index.html" class="hover:text-yellow-300">Home</a></li>
+      <li><a href="Profil Desa.html" class="hover:text-yellow-300">Profil Desa</a></li>
+      <li><a href="Infografis.html" class="hover:text-yellow-300">Infografis</a></li>
+      <li><a href="Listing.html" class="hover:text-yellow-300">Listing</a></li>
+      <li><a href="Berita.html" class="hover:text-yellow-300">Berita</a></li>
+      <li><a href="Belanja.html" class="hover:text-yellow-300">Belanja</a></li>
+      <li><a href="Kontak.html" class="hover:text-yellow-300">Kontak</a></li>
+    </ul>
+  </div>
+</nav>
 
-  <!-- Konten Sejarah -->
-  <main class="max-w-4xl mx-auto px-4 py-16 leading-relaxed text-justify text-gray-800">
-    <h3 class="text-2xl font-semibold text-green-700 mb-6">Asal Usul Desa</h3>
-    <p class="mb-4">
-      Desa Tegongan merupakan salah satu desa yang berada di wilayah Kecamatan Dawe, Kabupaten Kudus, Provinsi Jawa Tengah.
-      Konon nama "Tegongan" berasal dari kata "Tegong", yaitu nama pohon yang dahulu banyak tumbuh di kawasan ini.
-      Masyarakat setempat menjadikannya sebagai simbol kekuatan dan keberanian, sehingga nama tersebut diabadikan menjadi nama desa.
-    </p>
-    
-    <h3 class="text-2xl font-semibold text-green-700 mt-10 mb-6">Perkembangan Desa</h3>
-    <p class="mb-4">
-      Sejak zaman penjajahan Belanda hingga pascakemerdekaan, Desa Tegongan telah mengalami banyak perkembangan baik dari segi infrastruktur,
-      pendidikan, dan kesejahteraan masyarakat. Berbagai fasilitas seperti sekolah, jalan, dan pelayanan publik dibangun secara bertahap melalui
-      kerja sama antara pemerintah dan warga desa.
-    </p>
+<!-- Banner Profil Desa -->
+<section class="relative h-64 bg-cover bg-center"
+         style="background-image: url('foto-desa.jpg');">
+  <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
+    <h2 class="text-white text-3xl font-bold">Profil Desa Tegongan</h2>
+  </div>
+</section>
 
-    <h3 class="text-2xl font-semibold text-green-700 mt-10 mb-6">Kehidupan Sosial dan Budaya</h3>
-    <p>
-      Desa Tegongan juga dikenal memiliki nilai budaya dan gotong royong yang tinggi. Tradisi selametan, sedekah bumi, dan kerja bakti rutin dilakukan
-      oleh warga sebagai wujud kebersamaan dan penghormatan terhadap leluhur. Nilai-nilai tersebut terus diwariskan dari generasi ke generasi.
-    </p>
-  </main>
+<!-- Isi Konten -->
+<main class="max-w-3xl mx-auto p-6 space-y-8 text-gray-700">
+  <!-- Sejarah -->
+  <section>
+    <h3 class="text-2xl font-bold text-green-700 mb-2">Sejarah Desa</h3>
+    <p>Desa Tegongan adalah salah satu desa di Kecamatan Tanjung, Kabupaten Brebes... [Silakan isi sesuai data aslinya]</p>
+  </section>
 
-  <!-- Footer -->
-  <footer class="bg-green-700 text-white text-center py-6">
-    <p>&copy; 2025 Desa Tegongan. Menjaga warisan leluhur, membangun masa depan.</p>
-  </footer>
+  <!-- Letak Geografis -->
+  <section>
+    <h3 class="text-2xl font-bold text-green-700 mb-2">Letak Geografis</h3>
+    <p>Desa ini terletak di Kecamatan Tanjung, Kabupaten Brebes. Secara administratif termasuk... [isi detail lokasi & batas-batas desa]</p>
+  </section>
+
+  <!-- Demografi & Statistik -->
+  <section>
+    <h3 class="text-2xl font-bold text-green-700 mb-2">Demografi</h3>
+    <p>Silakan masukkan data jumlah penduduk, kepadatan, pembagian umur, dsb.</p>
+  </section>
+
+  <!-- Potensi & Sarana -->
+  <section>
+    <h3 class="text-2xl font-bold text-green-700 mb-2">Potensi & Fasilitas</h3>
+    <ul class="list-disc pl-5 space-y-1">
+      <li>Potensi pertanian / perikanan / industri</li>
+      <li>Fasilitas pendidikan, kesehatan, infrastruktur desa</li>
+      <li>Potensi wisata (jika ada)</li>
+    </ul>
+  </section>
+
+  <!-- Peta Desa -->
+  <section>
+    <h3 class="text-2xl font-bold text-green-700 mb-2">Peta Desa</h3>
+    <div class="w-full h-60 rounded shadow overflow-hidden">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=[...]"
+        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-green-700 text-white text-center py-6">
+  <p>© 2025 Pemerintah Desa Tegongan — KKN UMUS</p>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.getElementById('menu-toggle');
+    const nav = document.getElementById('menu-nav');
+    toggleBtn.addEventListener('click', () => nav.classList.toggle('hidden'));
+  });
+</script>
 
 </body>
 </html>
