@@ -187,33 +187,37 @@ document.addEventListener('DOMContentLoaded', function () {
  <!-- Section Pemerintahan Desa (Ringkasan) -->
 <section class="max-w-7xl mx-auto px-4 md:px-6 py-12">
   <h2 class="text-3xl font-extrabold text-red-700 mb-6">Pemerintahan Desa</h2>
-  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-    <!-- Kepala Desa -->
-    <div class="p-5 rounded-2xl border bg-white">
-      <img src="kades.jpg" alt="Kepala Desa" class="w-full h-48 object-cover rounded-xl" />
-      <h3 class="mt-3 text-lg font-bold text-red-700">Nama Kepala Desa</h3>
-      <p class="text-gray-600">Kepala Desa</p>
-    </div>
 
-    <!-- Sekretaris Desa -->
-    <div class="p-5 rounded-2xl border bg-white">
-      <img src="sekdes.jpg" alt="Sekretaris Desa" class="w-full h-48 object-cover rounded-xl" />
-      <h3 class="mt-3 text-lg font-bold text-red-700">Nama Sekdes</h3>
-      <p class="text-gray-600">Sekretaris Desa</p>
-    </div>
+  <!-- Tambahkan pembungkus scroll -->
+  <div class="overflow-x-auto">
+    <div class="flex gap-5">
+      <!-- Kepala Desa -->
+      <div class="p-5 rounded-2xl border bg-white min-w-[200px]">
+        <img src="kades.jpg" alt="Kepala Desa" class="w-full h-48 object-cover rounded-xl" />
+        <h3 class="mt-3 text-lg font-bold text-red-700">Nama Kepala Desa</h3>
+        <p class="text-gray-600">Kepala Desa</p>
+      </div>
 
-    <!-- Kaur Umum -->
-    <div class="p-5 rounded-2xl border bg-white">
-      <img src="kaur-umum.jpg" alt="Kaur Umum" class="w-full h-48 object-cover rounded-xl" />
-      <h3 class="mt-3 text-lg font-bold text-red-700">Nama Kaur Umum</h3>
-      <p class="text-gray-600">Kaur Umum</p>
-    </div>
+      <!-- Sekretaris Desa -->
+      <div class="p-5 rounded-2xl border bg-white min-w-[200px]">
+        <img src="sekdes.jpg" alt="Sekretaris Desa" class="w-full h-48 object-cover rounded-xl" />
+        <h3 class="mt-3 text-lg font-bold text-red-700">Nama Sekdes</h3>
+        <p class="text-gray-600">Sekretaris Desa</p>
+      </div>
 
-    <!-- Kaur Keuangan -->
-    <div class="p-5 rounded-2xl border bg-white">
-      <img src="kaur-keuangan.jpg" alt="Kaur Keuangan" class="w-full h-48 object-cover rounded-xl" />
-      <h3 class="mt-3 text-lg font-bold text-red-700">Nama Kaur Keuangan</h3>
-      <p class="text-gray-600">Kaur Keuangan</p>
+      <!-- Kaur Umum -->
+      <div class="p-5 rounded-2xl border bg-white min-w-[200px]">
+        <img src="kaur-umum.jpg" alt="Kaur Umum" class="w-full h-48 object-cover rounded-xl" />
+        <h3 class="mt-3 text-lg font-bold text-red-700">Nama Kaur Umum</h3>
+        <p class="text-gray-600">Kaur Umum</p>
+      </div>
+
+      <!-- Kaur Keuangan -->
+      <div class="p-5 rounded-2xl border bg-white min-w-[200px]">
+        <img src="kaur-keuangan.jpg" alt="Kaur Keuangan" class="w-full h-48 object-cover rounded-xl" />
+        <h3 class="mt-3 text-lg font-bold text-red-700">Nama Kaur Keuangan</h3>
+        <p class="text-gray-600">Kaur Keuangan</p>
+      </div>
     </div>
   </div>
 
@@ -403,6 +407,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 </html>
+
 
 
 
