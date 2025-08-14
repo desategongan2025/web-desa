@@ -279,33 +279,56 @@ document.addEventListener('DOMContentLoaded', function () {
     dan pendayagunaannya untuk pelayanan publik yang efektif dan efisien.
   </p>
   
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <div class="flex">
-      <div class="bg-red-500 text-white text-3xl font-bold flex items-center justify-center px-8 py-6 w-1/2">1.149</div>
-      <div class="bg-gray-100 flex items-center justify-center w-1/2 font-semibold">Penduduk</div>
-    </div>
-    <div class="flex">
-      <div class="bg-red-500 text-white text-3xl font-bold flex items-center justify-center px-8 py-6 w-1/2">606</div>
-      <div class="bg-gray-100 flex items-center justify-center w-1/2 font-semibold">Laki-Laki</div>
-    </div>
-    <div class="flex">
-      <div class="bg-red-500 text-white text-3xl font-bold flex items-center justify-center px-8 py-6 w-1/2">304</div>
-      <div class="bg-gray-100 flex items-center justify-center w-1/2 font-semibold">Kepala Keluarga</div>
-    </div>
-    <div class="flex">
-      <div class="bg-red-500 text-white text-3xl font-bold flex items-center justify-center px-8 py-6 w-1/2">543</div>
-      <div class="bg-gray-100 flex items-center justify-center w-1/2 font-semibold">Perempuan</div>
-    </div>
-    <div class="flex">
-      <div class="bg-red-500 text-white text-3xl font-bold flex items-center justify-center px-8 py-6 w-1/2">76</div>
-      <div class="bg-gray-100 flex items-center justify-center w-1/2 font-semibold">Penduduk Sementara</div>
-    </div>
-    <div class="flex">
-      <div class="bg-red-500 text-white text-3xl font-bold flex items-center justify-center px-8 py-6 w-1/2">37</div>
-      <div class="bg-gray-100 flex items-center justify-center w-1/2 font-semibold">Mutasi Penduduk</div>
+  <!-- Scroll Horizontal -->
+  <div class="overflow-x-auto">
+    <div class="flex space-x-4 min-w-[600px]">
+
+      <!-- Penduduk -->
+      <div class="flex-shrink-0 flex flex-col items-center w-40 border rounded-lg p-4 bg-white shadow hover:shadow-md">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/group.png" class="bg-red-500 p-3 rounded-full mb-3" alt="Penduduk">
+        <div class="text-2xl font-bold text-red-700">1.149</div>
+        <div class="text-gray-600 font-semibold text-center">Penduduk</div>
+      </div>
+
+      <!-- Laki-Laki -->
+      <div class="flex-shrink-0 flex flex-col items-center w-40 border rounded-lg p-4 bg-white shadow hover:shadow-md">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/male.png" class="bg-red-500 p-3 rounded-full mb-3" alt="Laki-laki">
+        <div class="text-2xl font-bold text-red-700">606</div>
+        <div class="text-gray-600 font-semibold text-center">Laki-Laki</div>
+      </div>
+
+      <!-- Kepala Keluarga -->
+      <div class="flex-shrink-0 flex flex-col items-center w-40 border rounded-lg p-4 bg-white shadow hover:shadow-md">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" class="bg-red-500 p-3 rounded-full mb-3" alt="Kepala Keluarga">
+        <div class="text-2xl font-bold text-red-700">304</div>
+        <div class="text-gray-600 font-semibold text-center">Kepala Keluarga</div>
+      </div>
+
+      <!-- Perempuan -->
+      <div class="flex-shrink-0 flex flex-col items-center w-40 border rounded-lg p-4 bg-white shadow hover:shadow-md">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/female.png" class="bg-red-500 p-3 rounded-full mb-3" alt="Perempuan">
+        <div class="text-2xl font-bold text-red-700">543</div>
+        <div class="text-gray-600 font-semibold text-center">Perempuan</div>
+      </div>
+
+      <!-- Penduduk Sementara -->
+      <div class="flex-shrink-0 flex flex-col items-center w-40 border rounded-lg p-4 bg-white shadow hover:shadow-md">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/temporary.png" class="bg-red-500 p-3 rounded-full mb-3" alt="Penduduk Sementara">
+        <div class="text-2xl font-bold text-red-700">76</div>
+        <div class="text-gray-600 font-semibold text-center">Penduduk Sementara</div>
+      </div>
+
+      <!-- Mutasi Penduduk -->
+      <div class="flex-shrink-0 flex flex-col items-center w-40 border rounded-lg p-4 bg-white shadow hover:shadow-md">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/repeat.png" class="bg-red-500 p-3 rounded-full mb-3" alt="Mutasi">
+        <div class="text-2xl font-bold text-red-700">37</div>
+        <div class="text-gray-600 font-semibold text-center">Mutasi Penduduk</div>
+      </div>
+
     </div>
   </div>
 </section>
+
 <!-- ===== Berita Desa ===== -->
 <section id="berita" class="max-w-7xl mx-auto px-4 py-12">
   <h2 class="text-3xl font-extrabold text-red-700 mb-8">Berita Desa</h2>
@@ -450,6 +473,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 </html>
+
 
 
 
