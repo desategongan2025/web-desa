@@ -4,40 +4,80 @@
   <!-- Halaman Utama -->
   <url>
     <loc>https://desategongan.com/</loc>
-    <lastmod>2025-08-13</lastmod>
+    <lastmod>2025-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Halaman Profil Desa -->
+  <!-- Halaman Menu Utama -->
   <url>
-    <loc>https://desategongan.com/profil.html</loc>
-    <lastmod>2025-08-13</lastmod>
+    <loc>https://desategongan.com/Profil%20Desa.html</loc>
+    <lastmod>2025-08-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Halaman Agenda -->
   <url>
-    <loc>https://desategongan.com/agenda.html</loc>
-    <lastmod>2025-08-13</lastmod>
+    <loc>https://desategongan.com/Infografis.html</loc>
+    <lastmod>2025-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://desategongan.com/listing.html</loc>
+    <lastmod>2025-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://desategongan.com/Berita.html</loc>
+    <lastmod>2025-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Halaman Struktur Organisasi -->
   <url>
-    <loc>https://desategongan.com/struktur.html</loc>
-    <lastmod>2025-08-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://desategongan.com/Belanja.html</loc>
+    <lastmod>2025-08-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
 
-  <!-- Halaman Kontak -->
   <url>
-    <loc>https://desategongan.com/kontak.html</loc>
-    <lastmod>2025-08-13</lastmod>
-    <changefreq>yearly</changefreq>
+    <loc>https://desategongan.com/Kontak.html</loc>
+    <lastmod>2025-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://desategongan.com/agenda.html</loc>
+    <lastmod>2025-08-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Halaman Berita -->
+  <url>
+    <loc>https://desategongan.com/berita/berita1.html</loc>
+    <lastmod>2025-07-10</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://desategongan.com/berita/berita2.html</loc>
+    <lastmod>2025-07-14</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://desategongan.com/berita/berita3.html</loc>
+    <lastmod>2025-07-20</lastmod>
+    <changefreq>never</changefreq>
     <priority>0.5</priority>
   </url>
 
