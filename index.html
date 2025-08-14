@@ -184,42 +184,58 @@ document.addEventListener('DOMContentLoaded', function () {
 </section>
 <section class="px-4 py-10 bg-white">
   
- <!-- Section Pemerintahan Desa (Ringkasan) -->
-<section class="max-w-7xl mx-auto px-4 md:px-6 py-12">
-  <h2 class="text-3xl font-extrabold text-red-700 mb-6">Pemerintahan Desa</h2>
+<section class="max-w-7xl mx-auto px-4 py-12">
+  <h2 class="text-3xl font-extrabold text-red-700 mb-6 text-center">Struktur Organisasi Desa Tegongan</h2>
 
-  <!-- Tambahkan pembungkus scroll -->
+  <!-- Scroll Horizontal Container -->
   <div class="overflow-x-auto">
-    <div class="flex gap-5">
+    <div class="flex flex-col items-center min-w-[800px] space-y-8">
+
       <!-- Kepala Desa -->
-      <div class="p-5 rounded-2xl border bg-white min-w-[200px]">
-        <img src="kades.jpg" alt="Kepala Desa" class="w-full h-48 object-cover rounded-xl" />
-        <h3 class="mt-3 text-lg font-bold text-red-700">Nama Kepala Desa</h3>
+      <div class="border rounded-xl p-4 w-48 text-center bg-white shadow-lg flex-shrink-0">
+        <img src="kades.jpg" alt="Kepala Desa" class="w-full h-40 object-cover rounded-lg mb-3">
+        <h3 class="font-bold text-lg text-red-700">Nama Kepala Desa</h3>
         <p class="text-gray-600">Kepala Desa</p>
       </div>
 
-      <!-- Sekretaris Desa -->
-      <div class="p-5 rounded-2xl border bg-white min-w-[200px]">
-        <img src="sekdes.jpg" alt="Sekretaris Desa" class="w-full h-48 object-cover rounded-xl" />
-        <h3 class="mt-3 text-lg font-bold text-red-700">Nama Sekdes</h3>
-        <p class="text-gray-600">Sekretaris Desa</p>
+      <!-- Garis -->
+      <div class="w-px h-8 bg-gray-400"></div>
+
+      <!-- Sekretaris & Kasi/Kaur -->
+      <div class="flex space-x-6">
+        <!-- Sekretaris -->
+        <div class="border rounded-xl p-4 w-40 text-center bg-white shadow-lg flex-shrink-0">
+          <img src="sekdes.jpg" alt="Sekretaris Desa" class="w-full h-32 object-cover rounded-lg mb-2">
+          <h3 class="font-bold text-red-700">Nama Sekdes</h3>
+          <p class="text-gray-600">Sekretaris Desa</p>
+        </div>
+
+        <!-- Kaur Umum -->
+        <div class="border rounded-xl p-4 w-40 text-center bg-white shadow-lg flex-shrink-0">
+          <img src="kaur-umum.jpg" alt="Kaur Umum" class="w-full h-32 object-cover rounded-lg mb-2">
+          <h3 class="font-bold text-red-700">Nama Kaur Umum</h3>
+          <p class="text-gray-600">Kaur Umum</p>
+        </div>
+
+        <!-- Kaur Keuangan -->
+        <div class="border rounded-xl p-4 w-40 text-center bg-white shadow-lg flex-shrink-0">
+          <img src="kaur-keuangan.jpg" alt="Kaur Keuangan" class="w-full h-32 object-cover rounded-lg mb-2">
+          <h3 class="font-bold text-red-700">Nama Kaur Keuangan</h3>
+          <p class="text-gray-600">Kaur Keuangan</p>
+        </div>
+
+        <!-- Kasi Pemerintahan -->
+        <div class="border rounded-xl p-4 w-40 text-center bg-white shadow-lg flex-shrink-0">
+          <img src="kasi-pemerintahan.jpg" alt="Kasi Pemerintahan" class="w-full h-32 object-cover rounded-lg mb-2">
+          <h3 class="font-bold text-red-700">Nama Kasi Pemerintahan</h3>
+          <p class="text-gray-600">Kasi Pemerintahan</p>
+        </div>
       </div>
 
-      <!-- Kaur Umum -->
-      <div class="p-5 rounded-2xl border bg-white min-w-[200px]">
-        <img src="kaur-umum.jpg" alt="Kaur Umum" class="w-full h-48 object-cover rounded-xl" />
-        <h3 class="mt-3 text-lg font-bold text-red-700">Nama Kaur Umum</h3>
-        <p class="text-gray-600">Kaur Umum</p>
-      </div>
-
-      <!-- Kaur Keuangan -->
-      <div class="p-5 rounded-2xl border bg-white min-w-[200px]">
-        <img src="kaur-keuangan.jpg" alt="Kaur Keuangan" class="w-full h-48 object-cover rounded-xl" />
-        <h3 class="mt-3 text-lg font-bold text-red-700">Nama Kaur Keuangan</h3>
-        <p class="text-gray-600">Kaur Keuangan</p>
-      </div>
     </div>
   </div>
+</section>
+
 
   <!-- Tombol Lihat Selengkapnya -->
   <div class="text-center mt-6">
@@ -407,6 +423,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 </html>
+
 
 
 
