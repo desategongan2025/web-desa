@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berita Desa Tegongan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1><a href="index.html">Portal Berita Desa Tegongan</a></h1>
+    </header>
+    <main id="berita-detail">
+        <p>Memuat berita...</p>
+    </main>
+    <footer>
+        <p>© 2025 Desa Tegongan</p>
+    </footer>
+    <script>
+    async function loadDetail() {
+        const params = new URLSearchParams(window.location.search);
+        const fileName = params.get("file");
+        if (!fileName) return;
+        const res = await fetch(`posts/${fileName}`);
+        const text = await res.text();
+        const lines = text.split("\n");
+        let title = lines[0].replace("# ", "");
+        let content = lines.slice(1).join("\n");
+        document.getElementById("berita-detail").innerHTML = `<h2>${title}</h2><p>${content}</p>`;
+    }
+    loadDetail();
+    </script>
+</body>
+</html>
