@@ -36,23 +36,38 @@
     <button class="bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-full shadow font-semibold text-sm">📢 Pengaduan</button>
   </div>
 </section>
-<!-- Hero Slider -->
-<section class="relative w-full overflow-hidden">
-  <div id="slider" class="flex transition-transform duration-700 ease-in-out">
-    <img src="1.jpg" class="w-full h-[400px] object-cover flex-shrink-0" />
-    <img src="2.jpg" class="w-full h-[400px] object-cover flex-shrink-0" />
-    <img src="3.jpg" class="w-full h-[400px] object-cover flex-shrink-0" />
-    <img src="4.jpg" class="w-full h-[400px] object-cover flex-shrink-0" />
-    <img src="5.jpg" class="w-full h-[400px] object-cover flex-shrink-0" />
-    <img src="6.jpg" class="w-full h-[400px] object-cover flex-shrink-0" />
+<!-- Hero Slider Fullscreen -->
+<section class="relative w-full h-screen overflow-hidden">
+  <div id="slider" class="flex w-full h-full transition-transform duration-700 ease-in-out">
+    <img src="1.jpg" class="w-full h-screen object-cover flex-shrink-0" />
+    <img src="2.jpg" class="w-full h-screen object-cover flex-shrink-0" />
+    <img src="3.jpg" class="w-full h-screen object-cover flex-shrink-0" />
+    <img src="4.jpg" class="w-full h-screen object-cover flex-shrink-0" />
+    <img src="5.jpg" class="w-full h-screen object-cover flex-shrink-0" />
+    <img src="6.jpg" class="w-full h-screen object-cover flex-shrink-0" />
   </div>
+
   <!-- Overlay teks -->
   <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-    <h2 class="text-3xl md:text-5xl font-extrabold text-white">
+    <h2 class="text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg">
       Selamat Datang di Desa Tegongan
     </h2>
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const slider = document.getElementById('slider');
+  const slides = slider.children.length;
+  let index = 0;
+
+  setInterval(() => {
+    index = (index + 1) % slides;
+    slider.style.transform = `translateX(-${index * 100}%)`;
+  }, 5000); // ganti slide tiap 5 detik
+});
+</script>
+
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
