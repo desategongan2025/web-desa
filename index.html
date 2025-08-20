@@ -36,81 +36,38 @@
     <button class="bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-full shadow font-semibold text-sm">📢 Pengaduan</button>
   </div>
 </section>
-<!-- Hero Slider Fullscreen -->
 <style>
-  .fullscreen {
+  /* Paksa slider landscape */
+  .fullscreen-landscape {
     width: 100vw;
-    height: 100vh;   /* fallback */
-    height: 100dvh;  /* HP portrait & landscape mengikuti layar */
+    /* rasio landscape 16:9 misal */
+    height: calc(100vw * 9 / 16);
+    min-height: 100dvh; /* fallback untuk HP */
+    object-fit: cover;
+  }
+
+  /* Container tetap fullscreen */
+  .slider-container {
+    position: relative;
+    width: 100vw;
+    height: 100dvh;
+    overflow: hidden;
   }
 </style>
 
-<section class="relative fullscreen overflow-hidden">
+<section class="slider-container">
   <div id="slider" class="flex h-full transition-transform duration-700 ease-in-out">
-    <img src="6.jpg" class="fullscreen object-cover flex-shrink-0" />
-    <img src="2.jpg" class="fullscreen object-cover flex-shrink-0" />
-    <img src="3.jpg" class="fullscreen object-cover flex-shrink-0" />
-    <img src="4.jpg" class="fullscreen object-cover flex-shrink-0" />
-    <img src="5.jpg" class="fullscreen object-cover flex-shrink-0" />
-    <img src="1.jpg" class="fullscreen object-cover flex-shrink-0" />
+    <img src="6.jpg" class="fullscreen-landscape flex-shrink-0" />
+    <img src="2.jpg" class="fullscreen-landscape flex-shrink-0" />
+    <img src="3.jpg" class="fullscreen-landscape flex-shrink-0" />
+    <img src="4.jpg" class="fullscreen-landscape flex-shrink-0" />
+    <img src="5.jpg" class="fullscreen-landscape flex-shrink-0" />
+    <img src="1.jpg" class="fullscreen-landscape flex-shrink-0" />
   </div>
 
   <!-- Dot Navigation -->
   <div id="dots" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-2 z-10"></div>
 </section>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const slider = document.getElementById('slider');
-  const slides = slider.children.length;
-  const dotsContainer = document.getElementById('dots');
-  let index = 0;
-  let interval;
-
-  slider.style.width = `${slides * 100}vw`;
-
-  for (let i = 0; i < slides; i++) {
-    const dot = document.createElement('span');
-    dot.className = "w-3 h-3 bg-white rounded-full opacity-50 cursor-pointer transition transform";
-    dot.dataset.index = i;
-    dotsContainer.appendChild(dot);
-
-    dot.addEventListener('click', () => {
-      index = i;
-      updateSlide();
-      restartAutoSlide();
-    });
-  }
-
-  const dots = dotsContainer.children;
-
-  function updateSlide() {
-    slider.style.transform = `translateX(-${index * 100}vw)`;
-
-    for (let i = 0; i < dots.length; i++) {
-      dots[i].classList.remove("opacity-100", "scale-125");
-      dots[i].classList.add("opacity-50");
-    }
-    dots[index].classList.add("opacity-100", "scale-125");
-    dots[index].classList.remove("opacity-50");
-  }
-
-  function autoSlide() {
-    interval = setInterval(() => {
-      index = (index + 1) % slides;
-      updateSlide();
-    }, 5000);
-  }
-
-  function restartAutoSlide() {
-    clearInterval(interval);
-    autoSlide();
-  }
-
-  updateSlide();
-  autoSlide();
-});
-</script>
 
 <!-- Marquee -->
 <marquee behavior="scroll" direction="left" scrollamount="6" class="bg-white text-red-800 font-bold py-2 px-4">
