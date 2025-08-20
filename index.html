@@ -76,11 +76,11 @@ function kirimWA(e) {
   let pesan = `Pengaduan Warga%0A--------------------%0ANama: ${nama}%0AKontak: ${kontak}%0APengaduan:%0A${isi}`;
   let url = `https://wa.me/${nomorTujuan}?text=${pesan}`;
 
-  window.open(url, "_blank");<script>
+  window.open(url, "_blank");
+}
+
 function togglePengaduan() {
   document.getElementById("pengaduanModal").classList.toggle("hidden");
-}
-</script>
 }
 </script>
 
