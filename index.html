@@ -42,24 +42,37 @@
     <button class="bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-full shadow font-semibold text-sm">📢 Pengaduan</button>
   </div>
 </section>
+<!-- Hero Slider -->
+<section class="relative w-full overflow-hidden">
+  <div id="slider" class="flex transition-transform duration-700 ease-in-out">
+    <img src="1.jpg" class="w-full h-[400px] object-cover flex-shrink-0" />
+    <img src="2.jpg" class="w-full h-[400px] object-cover flex-shrink-0" />
+    <img src="3.jpg" class="w-full h-[400px] object-cover flex-shrink-0" />
+    <img src="4.jpg" class="w-full h-[400px] object-cover flex-shrink-0" />
+    <img src="5.jpg" class="w-full h-[400px] object-cover flex-shrink-0" />
+    <img src="6.jpg" class="w-full h-[400px] object-cover flex-shrink-0" />
+  </div>
+  <!-- Overlay teks -->
+  <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+    <h2 class="text-3xl md:text-5xl font-extrabold text-white">
+      Selamat Datang di Desa Tegongan
+    </h2>
+  </div>
+</section>
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  const heroImg = document.getElementById('hero-img');
-  const images = ['6.jpg', '1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg']; // ganti sesuai folder kalian
+  const slider = document.getElementById('slider');
+  const slides = slider.children.length;
   let index = 0;
+
   setInterval(() => {
-    // Fade out
-    heroImg.classList.add('opacity-0');
-    setTimeout(() => {
-      // Ganti gambar
-      index = (index + 1) % images.length;
-      heroImg.src = images[index];
-      // Fade in
-      heroImg.classList.remove('opacity-0');
-    }, 1000); // durasi fade sama dengan transition
-  }, 5000); // ganti setiap 2 detik
+    index = (index + 1) % slides;
+    slider.style.transform = `translateX(-${index * 100}%)`;
+  }, 5000); // geser setiap 5 detik
 });
 </script>
+
 <!-- Marquee -->
 <marquee behavior="scroll" direction="left" scrollamount="6" class="bg-white text-red-800 font-bold py-2 px-4">
   🌾 SELAMAT DATANG DI WEBSITE PEMERINTAH DESA TEGONGAN - KECAMATAN TANJUNG - KABUPATEN BREBES 🌾
