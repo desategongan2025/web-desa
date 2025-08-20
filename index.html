@@ -31,11 +31,11 @@
     </div>
   </div>
 </div>
-  <!-- Tombol buka form pengaduan -->
+  <!-- Tombol buka form pengaduan (ikon bulat kecil) -->
 <div class="fixed bottom-5 right-5 z-50">
   <button onclick="togglePengaduan()" 
-          class="px-5 py-3 bg-red-600 text-white font-semibold rounded-full shadow-lg hover:bg-red-700">
-    📢 Buat Pengaduan
+          class="w-14 h-14 bg-red-600 text-white text-2xl rounded-full shadow-lg flex items-center justify-center hover:bg-red-700">
+    📝
   </button>
 </div>
 
@@ -65,7 +65,7 @@
 </div>
 
 <!-- Slider Section -->
-<section class="slider-container">
+<section class="slider-container z-0">
   <div id="slider" class="flex h-full transition-transform duration-700 ease-in-out">
     <img src="6.jpg" class="fullscreen-landscape" />
     <img src="2.jpg" class="fullscreen-landscape" />
@@ -97,6 +97,43 @@ function kirimWA(e) {
 function togglePengaduan() {
   document.getElementById("pengaduanModal").classList.toggle("hidden");
 }
+
+// === SLIDER OTOMATIS ===
+const slider = document.getElementById("slider");
+const dotsContainer = document.getElementById("dots");
+const slides = slider.children;
+let currentIndex = 0;
+let totalSlides = slides.length;
+
+// Buat tombol dot sesuai jumlah slide
+for (let i = 0; i < totalSlides; i++) {
+  let dot = document.createElement("button");
+  dot.className = "w-3 h-3 rounded-full bg-gray-400";
+  dot.addEventListener("click", () => goToSlide(i));
+  dotsContainer.appendChild(dot);
+}
+
+function updateDots() {
+  Array.from(dotsContainer.children).forEach((dot, i) => {
+    dot.className = i === currentIndex
+      ? "w-3 h-3 rounded-full bg-white"
+      : "w-3 h-3 rounded-full bg-gray-400";
+  });
+}
+
+function goToSlide(index) {
+  currentIndex = index;
+  slider.style.transform = `translateX(-${100 * index}%)`;
+  updateDots();
+}
+
+// Auto-slide setiap 4 detik
+setInterval(() => {
+  currentIndex = (currentIndex + 1) % totalSlides;
+  goToSlide(currentIndex);
+}, 4000);
+
+goToSlide(0);
 </script>
 
 <style>
@@ -104,7 +141,7 @@ function togglePengaduan() {
 .slider-container {
   position: relative;
   width: 100vw;
-  aspect-ratio: 16 / 9; /* biar rasionya landscape */
+  aspect-ratio: 16 / 9;
   overflow: hidden;
 }
 
@@ -116,7 +153,6 @@ function togglePengaduan() {
   flex-shrink: 0;
 }
 </style>
-
 
 <!-- Marquee -->
 <marquee behavior="scroll" direction="left" scrollamount="6" class="bg-white text-red-800 font-bold py-2 px-4">
