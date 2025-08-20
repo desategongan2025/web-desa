@@ -37,36 +37,37 @@
   </div>
 </section>
 <style>
-  /* Paksa slider landscape */
-  .fullscreen-landscape {
-    width: 100vw;
-    /* rasio landscape 16:9 misal */
-    height: calc(100vw * 9 / 16);
-    min-height: 100dvh; /* fallback untuk HP */
-    object-fit: cover;
-  }
-
-  /* Container tetap fullscreen */
+  <style>
+  /* Container slider */
   .slider-container {
     position: relative;
     width: 100vw;
-    height: 100dvh;
+    /* Tinggi otomatis sesuai rasio */
+    aspect-ratio: 16 / 9;
     overflow: hidden;
+  }
+
+  /* Gambar isi penuh */
+  .fullscreen-landscape {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* biar terpotong pas */
+    flex-shrink: 0;
   }
 </style>
 
 <section class="slider-container">
   <div id="slider" class="flex h-full transition-transform duration-700 ease-in-out">
-    <img src="6.jpg" class="fullscreen-landscape flex-shrink-0" />
-    <img src="2.jpg" class="fullscreen-landscape flex-shrink-0" />
-    <img src="3.jpg" class="fullscreen-landscape flex-shrink-0" />
-    <img src="4.jpg" class="fullscreen-landscape flex-shrink-0" />
-    <img src="5.jpg" class="fullscreen-landscape flex-shrink-0" />
-    <img src="1.jpg" class="fullscreen-landscape flex-shrink-0" />
+    <img src="6.jpg" class="fullscreen-landscape" />
+    <img src="2.jpg" class="fullscreen-landscape" />
+    <img src="3.jpg" class="fullscreen-landscape" />
+    <img src="4.jpg" class="fullscreen-landscape" />
+    <img src="5.jpg" class="fullscreen-landscape" />
+    <img src="1.jpg" class="fullscreen-landscape" />
   </div>
 
   <!-- Dot Navigation -->
-  <div id="dots" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-2 z-10"></div>
+  <div id="dots" class="absolute bottom-2 left-1/2 -translate-x-1/2 flex space-x-2 z-10"></div>
 </section>
 
 <!-- Marquee -->
