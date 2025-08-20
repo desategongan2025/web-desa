@@ -41,7 +41,7 @@
   .fullscreen {
     width: 100vw;
     height: 100vh;   /* fallback */
-    height: 100dvh;  /* agar pas di HP portrait & landscape */
+    height: 100dvh;  /* HP portrait & landscape mengikuti layar */
   }
 </style>
 
@@ -69,7 +69,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   slider.style.width = `${slides * 100}vw`;
 
-  // Generate dots
   for (let i = 0; i < slides; i++) {
     const dot = document.createElement('span');
     dot.className = "w-3 h-3 bg-white rounded-full opacity-50 cursor-pointer transition transform";
