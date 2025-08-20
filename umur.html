@@ -1,26 +1,181 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Data Umur - Desa Tegongan</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IDM Desa Tegongan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
+<body class="bg-red-50 font-sans text-gray-800">
 
-  <header class="bg-green-700 text-white p-6 text-center">
-    <h1 class="text-3xl font-bold">Data Umur</h1>
-    <p class="text-sm">Informasi umur Desa Tegongan</p>
-  </header>
+<!-- Header -->
+<header class="bg-red-800 text-white">
+  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+    <div class="flex items-center space-x-3">
+      <img src="logobrebes.png" alt="Logo Brebes" class="w-10 h-10" />
+      <h1 class="text-xl font-bold leading-tight">
+        Desa Tegongan
+        <span class="block text-xs font-normal">Kecamatan Tanjung • Kabupaten Brebes</span>
+      </h1>
+    </div>
+    <nav>
+      <ul class="hidden md:flex space-x-6 text-sm font-semibold">
+        <li><a href="index.html" class="hover:text-yellow-300">Home</a></li>
+        <li><a href="Profil Desa.html" class="hover:text-yellow-300">Profil Desa</a></li>
+        <li><a href="Infografis.html" class="hover:text-yellow-300">Infografis</a></li>
+        <li><a href="Pemerintahan.html" class="hover:text-yellow-300">Pemerintahan</a></li>
+        <li><a href="IDM.html" class="text-yellow-300">IDM</a></li>
+        <li><a href="PPID.html" class="hover:text-yellow-300">PPID</a></li>
+        <li><a href="Berita.html" class="hover:text-yellow-300">Berita</a></li>
+        <li><a href="Kontak.html" class="hover:text-yellow-300">Kontak</a></li>
+      </ul>
+      <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Buka menu">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </nav>
+  </div>
+  <div id="menu-nav" class="hidden px-4 pb-4 md:hidden space-y-1 text-sm">
+    <a href="index.html" class="block py-1 hover:text-yellow-300">Home</a>
+    <a href="Profil Desa.html" class="block py-1 hover:text-yellow-300">Profil Desa</a>
+    <a href="Infografis.html" class="block py-1 hover:text-yellow-300">Infografis</a>
+    <a href="Pemerintahan.html" class="block py-1 hover:text-yellow-300">Pemerintahan</a>
+    <a href="IDM.html" class="block py-1 text-yellow-300">IDM</a>
+    <a href="PPID.html" class="block py-1 hover:text-yellow-300">PPID</a>
+    <a href="Berita.html" class="block py-1 hover:text-yellow-300">Berita</a>
+    <a href="Kontak.html" class="block py-1 hover:text-yellow-300">Kontak</a>
+  </div>
+</header>
 
-  <main class="p-6 max-w-4xl mx-auto">
-    <p class="text-lg">Konten umur akan ditampilkan di sini.</p>
-  </main>
+<!-- Hero -->
+<section class="bg-white border-b">
+  <div class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-2 gap-8 items-center">
+    <div>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-red-700 mb-2">Indeks Desa Membangun (IDM)</h2>
+      <p class="text-gray-700">Halaman ini menampilkan status perkembangan Desa Tegongan berdasarkan <strong>Indeks Desa Membangun</strong> yang dikeluarkan oleh Kementerian Desa, PDT, dan Transmigrasi RI. IDM mengukur tiga aspek utama: Sosial, Ekonomi, dan Lingkungan.</p>
+    </div>
+    <div class="bg-red-700/5 border border-red-100 rounded-xl p-6 text-center">
+      <p class="font-semibold text-gray-700 mb-2">Status Desa Tegongan (2025)</p>
+      <span class="inline-block bg-red-700 text-white font-bold px-6 py-2 rounded-full text-lg">Desa Berkembang</span>
+    </div>
+  </div>
+</section>
 
-  <footer class="bg-gray-200 text-center text-sm text-gray-600 py-4 mt-10">
-    &copy; 2025 Desa Tegongan - KKN UMUS
-  </footer>
+<main class="max-w-7xl mx-auto px-4 py-10 space-y-12">
+
+  <!-- Grafik Skor IDM -->
+  <section>
+    <h3 class="text-2xl font-bold text-red-700 mb-4">Skor IDM Desa Tegongan</h3>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white rounded-xl shadow p-6 text-center border">
+        <h4 class="font-bold text-gray-800 mb-2">Indeks Sosial</h4>
+        <p class="text-4xl font-extrabold text-red-700">0.72</p>
+        <p class="text-gray-600 text-sm mt-2">Meliputi pendidikan, kesehatan, partisipasi masyarakat.</p>
+      </div>
+      <div class="bg-white rounded-xl shadow p-6 text-center border">
+        <h4 class="font-bold text-gray-800 mb-2">Indeks Ekonomi</h4>
+        <p class="text-4xl font-extrabold text-red-700">0.68</p>
+        <p class="text-gray-600 text-sm mt-2">Meliputi akses pekerjaan, usaha desa, infrastruktur ekonomi.</p>
+      </div>
+      <div class="bg-white rounded-xl shadow p-6 text-center border">
+        <h4 class="font-bold text-gray-800 mb-2">Indeks Lingkungan</h4>
+        <p class="text-4xl font-extrabold text-red-700">0.70</p>
+        <p class="text-gray-600 text-sm mt-2">Meliputi kondisi permukiman, sanitasi, ketahanan lingkungan.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Penjelasan IDM -->
+  <section>
+    <h3 class="text-2xl font-bold text-red-700 mb-4">Apa itu IDM?</h3>
+    <div class="bg-white rounded-xl shadow p-6 border leading-relaxed text-gray-700 text-sm">
+      <p><strong>Indeks Desa Membangun (IDM)</strong> adalah instrumen yang dikembangkan Kementerian Desa untuk mengukur status perkembangan dan kemandirian desa. IDM menilai desa dalam tiga dimensi utama: sosial, ekonomi, dan ekologi/lingkungan. Hasil IDM digunakan untuk menentukan arah kebijakan pembangunan desa.</p>
+      <p class="mt-3">Berdasarkan skor IDM, desa dikategorikan menjadi: <em>Desa Sangat Tertinggal</em>, <em>Desa Tertinggal</em>, <em>Desa Berkembang</em>, <em>Desa Maju</em>, dan <em>Desa Mandiri</em>.</p>
+    </div>
+  </section>
+
+  <!-- Data IDM Tabel -->
+  <section>
+    <h3 class="text-2xl font-bold text-red-700 mb-4">Rekapitulasi IDM Desa Tegongan</h3>
+    <div class="overflow-x-auto bg-white border rounded-xl shadow">
+      <table class="w-full text-sm border-collapse">
+        <thead class="bg-red-700 text-white">
+          <tr>
+            <th class="py-2 px-3 text-left">Dimensi</th>
+            <th class="py-2 px-3 text-left">Indikator</th>
+            <th class="py-2 px-3 text-center">Skor</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y">
+          <tr>
+            <td class="py-2 px-3">Sosial</td>
+            <td class="py-2 px-3">Pendidikan, Kesehatan, Partisipasi</td>
+            <td class="py-2 px-3 text-center">0.72</td>
+          </tr>
+          <tr>
+            <td class="py-2 px-3">Ekonomi</td>
+            <td class="py-2 px-3">Kesempatan Kerja, UMKM, Akses Pasar</td>
+            <td class="py-2 px-3 text-center">0.68</td>
+          </tr>
+          <tr>
+            <td class="py-2 px-3">Lingkungan</td>
+            <td class="py-2 px-3">Sanitasi, Perumahan, Ketahanan Lingkungan</td>
+            <td class="py-2 px-3 text-center">0.70</td>
+          </tr>
+          <tr class="bg-red-50 font-bold">
+            <td class="py-2 px-3" colspan="2">Total Skor IDM</td>
+            <td class="py-2 px-3 text-center">0.70</td>
+          </tr>
+          <tr class="bg-red-100 font-bold text-red-700">
+            <td class="py-2 px-3" colspan="2">Status Desa</td>
+            <td class="py-2 px-3 text-center">Berkembang</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Unduhan -->
+  <section>
+    <h3 class="text-2xl font-bold text-red-700 mb-4">Unduhan Dokumen IDM</h3>
+    <div class="bg-white rounded-xl shadow p-6 border text-sm">
+      <ul class="list-disc pl-6 space-y-1">
+        <li><a href="#" class="underline text-red-700">Laporan IDM Desa Tegongan 2025 (PDF)</a></li>
+        <li><a href="#" class="underline text-red-700">Ringkasan Indeks Sosial, Ekonomi, Lingkungan (PDF)</a></li>
+      </ul>
+      <p class="text-xs text-gray-500 mt-3">*Tautan masih placeholder, bisa diganti dengan file asli jika sudah ada.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- Kontak ringkas di bawah -->
+<section class="bg-red-800 text-white py-6 px-4 text-sm">
+  <div class="flex items-center space-x-4 mb-4">
+    <img src="logobrebes.png" alt="Logo Brebes" class="w-12 h-12" />
+    <div>
+      <h3 class="text-xl font-bold">Desa Tegongan</h3>
+      <p class="text-sm leading-tight">Kecamatan Tanjung, Kabupaten Brebes</p>
+    </div>
+  </div>
+  <ul class="space-y-2">
+    <li>📞 <a class="underline text-white" target="_blank" href="https://wa.me/6281212192002">0812-3456-7890</a></li>
+    <li>✉️ <a class="underline text-white" href="mailto:desategongan718@gmail.com">desategongan718@gmail.com</a></li>
+    <li>🌐 desategongan.com</li>
+  </ul>
+</section>
+
+<!-- Footer -->
+<footer class="bg-red-700 text-white text-center py-6">
+  <p>&copy; 2025 Pemerintah Desa Tegongan</p>
+</footer>
+
+<script>
+  document.getElementById('menu-toggle').addEventListener('click', function () {
+    document.getElementById('menu-nav').classList.toggle('hidden');
+  });
+</script>
 
 </body>
 </html>
