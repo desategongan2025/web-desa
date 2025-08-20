@@ -1,26 +1,239 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Agenda Desa - Desa Tegongan</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>PPID Desa Tegongan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
+<body class="bg-red-50 font-sans text-gray-800">
 
-  <header class="bg-green-700 text-white p-6 text-center">
-    <h1 class="text-3xl font-bold">Agenda Desa</h1>
-    <p class="text-sm">Informasi agenda Desa Tegongan</p>
-  </header>
+<!-- Header -->
+<header class="bg-red-800 text-white">
+  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+    <div class="flex items-center space-x-3">
+      <img src="logobrebes.png" alt="Logo Brebes" class="w-10 h-10" />
+      <h1 class="text-xl font-bold leading-tight">
+        Desa Tegongan
+        <span class="block text-xs font-normal">Kecamatan Tanjung • Kabupaten Brebes</span>
+      </h1>
+    </div>
+    <nav>
+      <ul class="hidden md:flex space-x-6 text-sm font-semibold">
+        <li><a href="index.html" class="hover:text-yellow-300">Home</a></li>
+        <li><a href="Profil Desa.html" class="hover:text-yellow-300">Profil Desa</a></li>
+        <li><a href="Infografis.html" class="hover:text-yellow-300">Infografis</a></li>
+        <li><a href="Pemerintahan.html" class="hover:text-yellow-300">Pemerintahan</a></li>
+        <li><a href="PPID.html" class="text-yellow-300">PPID</a></li>
+        <li><a href="Berita.html" class="hover:text-yellow-300">Berita</a></li>
+        <li><a href="Kontak.html" class="hover:text-yellow-300">Kontak</a></li>
+      </ul>
+      <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Buka menu">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </nav>
+  </div>
+  <div id="menu-nav" class="hidden px-4 pb-4 md:hidden space-y-1 text-sm">
+    <a href="index.html" class="block py-1 hover:text-yellow-300">Home</a>
+    <a href="Profil Desa.html" class="block py-1 hover:text-yellow-300">Profil Desa</a>
+    <a href="Infografis.html" class="block py-1 hover:text-yellow-300">Infografis</a>
+    <a href="Pemerintahan.html" class="block py-1 hover:text-yellow-300">Pemerintahan</a>
+    <a href="PPID.html" class="block py-1 text-yellow-300">PPID</a>
+    <a href="Berita.html" class="block py-1 hover:text-yellow-300">Berita</a>
+    <a href="Kontak.html" class="block py-1 hover:text-yellow-300">Kontak</a>
+  </div>
+</header>
 
-  <main class="p-6 max-w-4xl mx-auto">
-    <p class="text-lg">Konten agenda akan ditampilkan di sini.</p>
-  </main>
+<!-- Hero -->
+<section class="bg-white border-b">
+  <div class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-2 gap-8 items-center">
+    <div>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-red-700 mb-2">Pejabat Pengelola Informasi dan Dokumentasi (PPID)</h2>
+      <p class="text-gray-700">Halaman layanan keterbukaan informasi Pemerintah Desa Tegongan.
+        Melayani permohonan informasi publik, keberatan informasi, dan penyediaan data yang dikelola pemerintah desa.</p>
+    </div>
+    <div class="bg-red-700/5 border border-red-100 rounded-xl p-4">
+      <ul class="text-sm text-gray-700 leading-7">
+        <li>📌 Alamat: Balai Desa Tegongan, Kec. Tanjung, Kab. Brebes</li>
+        <li>📞 WA: <a href="https://wa.me/6281212192002" target="_blank" class="underline text-red-700">0812-3456-7890</a></li>
+        <li>✉️ Email: <a href="mailto:desategongan718@gmail.com" class="underline text-red-700">desategongan718@gmail.com</a></li>
+        <li>🌐 Situs: desategongan.com</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-  <footer class="bg-gray-200 text-center text-sm text-gray-600 py-4 mt-10">
-    &copy; 2025 Desa Tegongan - KKN UMUS
-  </footer>
+<main class="max-w-7xl mx-auto px-4 py-10 space-y-12">
+
+  <!-- Struktur PPID -->
+  <section>
+    <h3 class="text-2xl font-bold text-red-700 mb-4">Struktur & Penanggung Jawab PPID</h3>
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="bg-white rounded-xl shadow p-4 border">
+        <h4 class="font-bold text-gray-800">Pembina</h4>
+        <p class="text-sm text-gray-600">Kepala Desa</p>
+        <p class="mt-1 font-semibold">Susin</p>
+      </div>
+      <div class="bg-white rounded-xl shadow p-4 border">
+        <h4 class="font-bold text-gray-800">Atasan PPID</h4>
+        <p class="text-sm text-gray-600">Sekretaris Desa</p>
+        <p class="mt-1 font-semibold">Tapsir</p>
+      </div>
+      <div class="bg-white rounded-xl shadow p-4 border">
+        <h4 class="font-bold text-gray-800">PPID Desa</h4>
+        <p class="text-sm text-gray-600">Pengelola Informasi</p>
+        <p class="mt-1 font-semibold">Lukman Yosef.B (Kaur Umum)</p>
+      </div>
+      <div class="bg-white rounded-xl shadow p-4 border">
+        <h4 class="font-bold text-gray-800">Dokumentasi & Arsip</h4>
+        <p class="mt-1 font-semibold">Jamali Nurrokhman (Kaur Perencanaan)</p>
+      </div>
+      <div class="bg-white rounded-xl shadow p-4 border">
+        <h4 class="font-bold text-gray-800">Layanan Informasi</h4>
+        <p class="mt-1 font-semibold">Taufiq (Kasi Pelayanan)</p>
+      </div>
+      <div class="bg-white rounded-xl shadow p-4 border">
+        <h4 class="font-bold text-gray-800">Koordinasi Pemerintahan</h4>
+        <p class="mt-1 font-semibold">Yadi (Kasi Pemerintahan)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dasar Hukum -->
+  <section>
+    <h3 class="text-2xl font-bold text-red-700 mb-4">Dasar Hukum</h3>
+    <div class="bg-white rounded-xl shadow p-6 border leading-relaxed text-gray-700">
+      <ul class="list-disc pl-6 space-y-2 text-sm">
+        <li>Undang-Undang Keterbukaan Informasi Publik dan peraturan turunannya.</li>
+        <li>Peraturan Bupati/Perdes tentang PPID Desa (diisi sesuai regulasi yang berlaku di Kabupaten Brebes).</li>
+        <li>Keputusan Kepala Desa Tegongan tentang Penetapan PPID Desa.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Klasifikasi Informasi -->
+  <section>
+    <h3 class="text-2xl font-bold text-red-700 mb-4">Klasifikasi Informasi Publik</h3>
+    <div class="grid md:grid-cols-3 gap-4 text-sm">
+      <div class="bg-white border rounded-xl p-5 shadow">
+        <h4 class="font-bold text-gray-800 mb-2">Informasi Berkala</h4>
+        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+          <li>Profil desa dan tata kelola.</li>
+          <li>Program/kegiatan dan anggaran desa.</li>
+          <li>Laporan realisasi APBDes.</li>
+        </ul>
+      </div>
+      <div class="bg-white border rounded-xl p-5 shadow">
+        <h4 class="font-bold text-gray-800 mb-2">Informasi Setiap Saat</h4>
+        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+          <li>Data kependudukan agregat (non-pribadi).</li>
+          <li>Dokumen perencanaan: RPJMDes, RKPDes.</li>
+          <li>Dokumen pengadaan barang/jasa.</li>
+        </ul>
+      </div>
+      <div class="bg-white border rounded-xl p-5 shadow">
+        <h4 class="font-bold text-gray-800 mb-2">Informasi Serta Merta</h4>
+        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+          <li>Informasi bencana/keadaan darurat.</li>
+          <li>Wabah penyakit dan imbauan penting.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Daftar Informasi Publik (DIP) -->
+  <section>
+    <h3 class="text-2xl font-bold text-red-700 mb-4">Daftar Informasi Publik (DIP)</h3>
+    <div class="bg-white rounded-xl shadow p-6 border text-sm">
+      <p class="text-gray-700 mb-3">Unduh dokumen DIP yang tersedia:</p>
+      <ul class="list-disc pl-6 space-y-1">
+        <li><a href="#" class="underline text-red-700">DIP Desa Tegongan (PDF)</a></li>
+        <li><a href="#" class="underline text-red-700">Ringkasan APBDes Terbaru (PDF)</a></li>
+        <li><a href="#" class="underline text-red-700">Profil Program/Kegiatan (PDF)</a></li>
+      </ul>
+      <p class="text-xs text-gray-500 mt-3">*Ganti tautan di atas dengan file asli jika sudah siap.</p>
+    </div>
+  </section>
+
+  <!-- Form Permohonan Informasi -->
+  <section id="permohonan">
+    <h3 class="text-2xl font-bold text-red-700 mb-4">Ajukan Permohonan Informasi</h3>
+    <form action="mailto:desategongan718@gmail.com" method="post" enctype="text/plain" class="bg-white rounded-xl shadow p-6 border grid md:grid-cols-2 gap-4 text-sm">
+      <div>
+        <label class="block font-semibold mb-1">Nama Lengkap</label>
+        <input type="text" name="nama" required class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-400" />
+      </div>
+      <div>
+        <label class="block font-semibold mb-1">Email/No. HP</label>
+        <input type="text" name="kontak" required class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-400" />
+      </div>
+      <div class="md:col-span-2">
+        <label class="block font-semibold mb-1">Rincian Informasi yang Diminta</label>
+        <textarea name="rincian" rows="4" required class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-400"></textarea>
+      </div>
+      <div class="md:col-span-2">
+        <label class="block font-semibold mb-1">Tujuan Penggunaan Informasi</label>
+        <input type="text" name="tujuan" class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-400" />
+      </div>
+      <div class="md:col-span-2 flex items-start gap-2">
+        <input id="setuju" type="checkbox" required class="mt-1" />
+        <label for="setuju" class="text-xs text-gray-600">Saya menyatakan data yang saya isi benar dan dapat dipertanggungjawabkan.</label>
+      </div>
+      <div class="md:col-span-2 flex gap-3">
+        <button type="submit" class="bg-red-700 hover:bg-red-800 text-white font-semibold px-5 py-2 rounded-lg">Kirim Permohonan</button>
+        <a href="https://wa.me/6281212192002?text=Permohonan%20Informasi%20Publik%20-%20Nama:%20...%20Rincian:%20..." target="_blank" class="px-5 py-2 rounded-lg border border-red-700 text-red-700 hover:bg-red-50">Ajukan via WhatsApp</a>
+      </div>
+      <p class="md:col-span-2 text-xs text-gray-500">Catatan: formulir mailto akan membuka aplikasi email Anda. Hubungi nomor WA untuk jalur cepat.</p>
+    </form>
+  </section>
+
+  <!-- SOP Layanan -->
+  <section>
+    <h3 class="text-2xl font-bold text-red-700 mb-4">Alur & Layanan PPID</h3>
+    <div class="bg-white rounded-xl shadow p-6 border text-sm leading-relaxed">
+      <ol class="list-decimal pl-6 space-y-2">
+        <li>Pemohon menyampaikan permohonan informasi melalui formulir/WA/email.</li>
+        <li>PPID melakukan pencatatan dan verifikasi awal.</li>
+        <li>Koordinasi internal untuk ketersediaan dokumen.</li>
+        <li>Pemberian informasi/penolakan sesuai ketentuan.</li>
+        <li>Jika keberatan, sampaikan ke Atasan PPID untuk ditangani.</li>
+      </ol>
+      <div class="mt-4">
+        <a href="#" class="underline text-red-700">Unduh SOP PPID (PDF)</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Kontak ringkas di bawah -->
+<section class="bg-red-800 text-white py-6 px-4 text-sm">
+  <div class="flex items-center space-x-4 mb-4">
+    <img src="logobrebes.png" alt="Logo Brebes" class="w-12 h-12" />
+    <div>
+      <h3 class="text-xl font-bold">PPID Desa Tegongan</h3>
+      <p class="text-sm leading-tight">Balai Desa Tegongan, Kec. Tanjung, Kab. Brebes</p>
+    </div>
+  </div>
+  <ul class="space-y-2">
+    <li>📞 <a class="underline text-white" target="_blank" href="https://wa.me/6281212192002">0812-3456-7890</a></li>
+    <li>✉️ <a class="underline text-white" href="mailto:desategongan718@gmail.com">desategongan718@gmail.com</a></li>
+    <li>🌐 desategongan.com</li>
+  </ul>
+</section>
+
+<!-- Footer -->
+<footer class="bg-red-700 text-white text-center py-6">
+  <p>&copy; 2025 Pemerintah Desa Tegongan</p>
+</footer>
+
+<script>
+  document.getElementById('menu-toggle').addEventListener('click', function () {
+    document.getElementById('menu-nav').classList.toggle('hidden');
+  });
+</script>
 
 </body>
 </html>
