@@ -42,30 +42,41 @@
 <div id="pengaduanModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-40">
   <div class="bg-white w-full max-w-md rounded-xl shadow-lg p-6 relative">
     <h2 class="text-xl font-bold text-red-700 mb-4">Form Pengaduan Warga</h2>
-    <form action="proses_pengaduan.php" method="POST" class="space-y-4">
+    <form onsubmit="kirimWA(event)" class="space-y-4">
       <div>
         <label class="block text-sm font-semibold mb-1">Nama</label>
-        <input type="text" name="nama" class="w-full border rounded-lg px-3 py-2" required>
+        <input type="text" id="nama" class="w-full border rounded-lg px-3 py-2" required>
       </div>
       <div>
         <label class="block text-sm font-semibold mb-1">Nomor HP / WhatsApp</label>
-        <input type="text" name="kontak" class="w-full border rounded-lg px-3 py-2" required>
+        <input type="text" id="kontak" class="w-full border rounded-lg px-3 py-2" required>
       </div>
       <div>
         <label class="block text-sm font-semibold mb-1">Isi Pengaduan</label>
-        <textarea name="isi" rows="4" class="w-full border rounded-lg px-3 py-2" required></textarea>
+        <textarea id="isi" rows="4" class="w-full border rounded-lg px-3 py-2" required></textarea>
       </div>
       <div class="flex justify-end gap-2">
         <button type="button" onclick="togglePengaduan()" class="px-4 py-2 bg-gray-300 rounded-lg">Batal</button>
-        <button type="submit" class="px-4 py-2 bg-red-700 text-white rounded-lg">Kirim</button>
+        <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded-lg">📩 Kirim via WhatsApp</button>
       </div>
     </form>
   </div>
 </div>
 
 <script>
-function togglePengaduan() {
-  document.getElementById("pengaduanModal").classList.toggle("hidden");
+function kirimWA(e) {
+  e.preventDefault();
+  let nama   = document.getElementById("nama").value;
+  let kontak = document.getElementById("kontak").value;
+  let isi    = document.getElementById("isi").value;
+
+  // Nomor WA tujuan (ganti dengan nomor Desa Tegongan, tanpa + dan 0, contoh: 6281234567890)
+  let nomorTujuan = "6281212192002"; 
+
+  let pesan = `Pengaduan Warga%0A--------------------%0ANama: ${nama}%0AKontak: ${kontak}%0APengaduan:%0A${isi}`;
+  let url = `https://wa.me/${nomorTujuan}?text=${pesan}`;
+
+  window.open(url, "_blank");
 }
 </script>
 
