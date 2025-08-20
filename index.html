@@ -46,24 +46,70 @@
     <img src="5.jpg" class="w-screen h-screen object-cover flex-shrink-0" />
     <img src="1.jpg" class="w-screen h-screen object-cover flex-shrink-0" />
   </div>
+
+  <!-- Dot Navigation -->
+  <div id="dots" class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2">
+    <!-- Dots otomatis di-generate oleh JS -->
+  </div>
 </section>
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   const slider = document.getElementById('slider');
   const slides = slider.children.length;
+  const dotsContainer = document.getElementById('dots');
   let index = 0;
+  let interval;
 
   // Atur lebar slider sesuai jumlah gambar
   slider.style.width = `${slides * 100}vw`;
 
-  setInterval(() => {
-    index = (index + 1) % slides;
+  // Buat dot sesuai jumlah slide
+  for (let i = 0; i < slides; i++) {
+    const dot = document.createElement('span');
+    dot.className = "w-3 h-3 bg-white rounded-full opacity-50 cursor-pointer transition";
+    dot.dataset.index = i;
+    dotsContainer.appendChild(dot);
+
+    // Klik dot untuk pindah slide
+    dot.addEventListener('click', () => {
+      index = i;
+      updateSlide();
+      restartAutoSlide();
+    });
+  }
+
+  const dots = dotsContainer.children;
+
+  function updateSlide() {
     slider.style.transform = `translateX(-${index * 100}vw)`;
-  }, 5000); // ganti slide tiap 5 detik
+
+    // Update dot aktif
+    for (let i = 0; i < dots.length; i++) {
+      dots[i].classList.remove("opacity-100", "scale-125");
+      dots[i].classList.add("opacity-50");
+    }
+    dots[index].classList.add("opacity-100", "scale-125");
+    dots[index].classList.remove("opacity-50");
+  }
+
+  function autoSlide() {
+    interval = setInterval(() => {
+      index = (index + 1) % slides;
+      updateSlide();
+    }, 5000);
+  }
+
+  function restartAutoSlide() {
+    clearInterval(interval);
+    autoSlide();
+  }
+
+  // Inisialisasi pertama
+  updateSlide();
+  autoSlide();
 });
 </script>
-
 
 
 <script>
