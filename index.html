@@ -32,10 +32,43 @@
   </div>
 </div>
   <!-- Tombol Pengaduan -->
-  <div class="absolute bottom-6 right-6 z-30">
-    <button class="bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-full shadow font-semibold text-sm">📢 Pengaduan</button>
+<div class="fixed bottom-6 right-6 z-30">
+  <button onclick="togglePengaduan()" class="bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-full shadow font-semibold text-sm">
+    📢 Pengaduan
+  </button>
+</div>
+
+<!-- Modal Pengaduan -->
+<div id="pengaduanModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-40">
+  <div class="bg-white w-full max-w-md rounded-xl shadow-lg p-6 relative">
+    <h2 class="text-xl font-bold text-red-700 mb-4">Form Pengaduan Warga</h2>
+    <form action="proses_pengaduan.php" method="POST" class="space-y-4">
+      <div>
+        <label class="block text-sm font-semibold mb-1">Nama</label>
+        <input type="text" name="nama" class="w-full border rounded-lg px-3 py-2" required>
+      </div>
+      <div>
+        <label class="block text-sm font-semibold mb-1">Nomor HP / WhatsApp</label>
+        <input type="text" name="kontak" class="w-full border rounded-lg px-3 py-2" required>
+      </div>
+      <div>
+        <label class="block text-sm font-semibold mb-1">Isi Pengaduan</label>
+        <textarea name="isi" rows="4" class="w-full border rounded-lg px-3 py-2" required></textarea>
+      </div>
+      <div class="flex justify-end gap-2">
+        <button type="button" onclick="togglePengaduan()" class="px-4 py-2 bg-gray-300 rounded-lg">Batal</button>
+        <button type="submit" class="px-4 py-2 bg-red-700 text-white rounded-lg">Kirim</button>
+      </div>
+    </form>
   </div>
-</section>
+</div>
+
+<script>
+function togglePengaduan() {
+  document.getElementById("pengaduanModal").classList.toggle("hidden");
+}
+</script>
+
 <style>
   <style>
   /* Container slider */
