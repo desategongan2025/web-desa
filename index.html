@@ -37,14 +37,14 @@
   </div>
 </section>
 <!-- Hero Slider Fullscreen -->
-<section class="relative w-full h-screen overflow-hidden">
-  <div id="slider" class="flex w-full h-full transition-transform duration-700 ease-in-out">
-    <img src="6.jpg" class="w-full h-screen object-cover flex-shrink-0" />
-    <img src="2.jpg" class="w-full h-screen object-cover flex-shrink-0" />
-    <img src="3.jpg" class="w-full h-screen object-cover flex-shrink-0" />
-    <img src="4.jpg" class="w-full h-screen object-cover flex-shrink-0" />
-    <img src="5.jpg" class="w-full h-screen object-cover flex-shrink-0" />
-    <img src="1.jpg" class="w-full h-screen object-cover flex-shrink-0" />
+<section class="relative w-screen h-screen overflow-hidden">
+  <div id="slider" class="flex h-full transition-transform duration-700 ease-in-out">
+    <img src="6.jpg" class="w-screen h-screen object-cover flex-shrink-0" />
+    <img src="2.jpg" class="w-screen h-screen object-cover flex-shrink-0" />
+    <img src="3.jpg" class="w-screen h-screen object-cover flex-shrink-0" />
+    <img src="4.jpg" class="w-screen h-screen object-cover flex-shrink-0" />
+    <img src="5.jpg" class="w-screen h-screen object-cover flex-shrink-0" />
+    <img src="1.jpg" class="w-screen h-screen object-cover flex-shrink-0" />
   </div>
 </section>
 
@@ -54,12 +54,16 @@ document.addEventListener('DOMContentLoaded', function () {
   const slides = slider.children.length;
   let index = 0;
 
+  // Atur lebar slider sesuai jumlah gambar
+  slider.style.width = `${slides * 100}vw`;
+
   setInterval(() => {
     index = (index + 1) % slides;
-    slider.style.transform = `translateX(-${index * 100}%)`;
+    slider.style.transform = `translateX(-${index * 100}vw)`;
   }, 5000); // ganti slide tiap 5 detik
 });
 </script>
+
 
 
 <script>
