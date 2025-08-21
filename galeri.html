@@ -22,50 +22,29 @@
     
     <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       <!-- Foto 1 -->
-      <div class="relative group">
+      <div class="relative group cursor-pointer" onclick="openLightbox('1.jpg','galeri1.jpg')">
         <img src="1.jpg" alt="Foto 1" class="rounded-lg shadow hover:scale-105 transition duration-500 w-full h-48 object-cover">
         <a href="1.jpg" download="galeri1.jpg"
-           class="absolute top-2 right-2 bg-red-600 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition">
+           class="absolute top-2 right-2 bg-red-600 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition"
+           onclick="event.stopPropagation()">
           <i class="fas fa-download"></i>
         </a>
       </div>
       <!-- Foto 2 -->
-      <div class="relative group">
+      <div class="relative group cursor-pointer" onclick="openLightbox('2.jpg','galeri2.jpg')">
         <img src="2.jpg" alt="Foto 2" class="rounded-lg shadow hover:scale-105 transition duration-500 w-full h-48 object-cover">
         <a href="2.jpg" download="galeri2.jpg"
-           class="absolute top-2 right-2 bg-red-600 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition">
+           class="absolute top-2 right-2 bg-red-600 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition"
+           onclick="event.stopPropagation()">
           <i class="fas fa-download"></i>
         </a>
       </div>
       <!-- Foto 3 -->
-      <div class="relative group">
+      <div class="relative group cursor-pointer" onclick="openLightbox('3.jpg','galeri3.jpg')">
         <img src="3.jpg" alt="Foto 3" class="rounded-lg shadow hover:scale-105 transition duration-500 w-full h-48 object-cover">
         <a href="3.jpg" download="galeri3.jpg"
-           class="absolute top-2 right-2 bg-red-600 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition">
-          <i class="fas fa-download"></i>
-        </a>
-      </div>
-      <!-- Foto 4 -->
-      <div class="relative group">
-        <img src="4.jpg" alt="Foto 4" class="rounded-lg shadow hover:scale-105 transition duration-500 w-full h-48 object-cover">
-        <a href="4.jpg" download="galeri4.jpg"
-           class="absolute top-2 right-2 bg-red-600 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition">
-          <i class="fas fa-download"></i>
-        </a>
-      </div>
-      <!-- Foto  5-->
-      <div class="relative group">
-        <img src="5.jpg" alt="Foto 5" class="rounded-lg shadow hover:scale-105 transition duration-500 w-full h-48 object-cover">
-        <a href="5.jpg" download="galeri5.jpg"
-           class="absolute top-2 right-2 bg-red-600 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition">
-          <i class="fas fa-download"></i>
-        </a>
-      </div>
-      <!-- Foto 6 -->
-      <div class="relative group">
-        <img src="6.jpg" alt="Foto 6" class="rounded-lg shadow hover:scale-105 transition duration-500 w-full h-48 object-cover">
-        <a href="6.jpg" download="galeri6.jpg"
-           class="absolute top-2 right-2 bg-red-600 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition">
+           class="absolute top-2 right-2 bg-red-600 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition"
+           onclick="event.stopPropagation()">
           <i class="fas fa-download"></i>
         </a>
       </div>
@@ -73,8 +52,41 @@
     </div>
   </section>
 
+  <!-- ===== Modal Lightbox ===== -->
+  <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center z-50">
+    <!-- Tombol Close -->
+    <span class="absolute top-4 right-6 text-white text-3xl cursor-pointer" onclick="closeLightbox()">&times;</span>
+
+    <!-- Gambar -->
+    <div class="text-center">
+      <img id="lightbox-img" src="" class="max-h-[80vh] max-w-[90vw] rounded-lg shadow-lg mx-auto">
+      
+      <!-- Tombol Download -->
+      <a id="download-btn" href="" download 
+         class="inline-block mt-4 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">
+        ⬇️ Download
+      </a>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script>
+    function openLightbox(src, filename) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('download-btn').href = src;
+      document.getElementById('download-btn').setAttribute('download', filename);
+      document.getElementById('lightbox').classList.remove('hidden');
+      document.getElementById('lightbox').classList.add('flex');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.add('hidden');
+      document.getElementById('lightbox').classList.remove('flex');
+    }
+  </script>
+
   <!-- Footer -->
-  <footer class="bg-red-700 text-white text-center py-6">
+  <footer class="bg-red-700 text-white text-center py-6 mt-10">
     <p>&copy; KKN UMUS 2025. Desa Tegongan, Kecamatan Tanjung, Kabupaten Brebes</p>
   </footer>
 
