@@ -559,33 +559,23 @@ document.addEventListener('DOMContentLoaded', function () {
   <!-- Grid Galeri -->
   <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
     <!-- Foto 1 -->
-    <div class="overflow-hidden rounded-lg shadow hover:shadow-lg">
+    <div class="overflow-hidden rounded-lg shadow hover:shadow-lg cursor-pointer" onclick="openLightbox('1.jpg')">
       <img src="1.jpg" alt="Galeri Desa 1" 
            class="w-full h-32 md:h-40 object-cover hover:scale-105 transition duration-500">
     </div>
     <!-- Foto 2 -->
-    <div class="overflow-hidden rounded-lg shadow hover:shadow-lg">
+    <div class="overflow-hidden rounded-lg shadow hover:shadow-lg cursor-pointer" onclick="openLightbox('2.jpg')">
       <img src="2.jpg" alt="Galeri Desa 2" 
            class="w-full h-32 md:h-40 object-cover hover:scale-105 transition duration-500">
     </div>
     <!-- Foto 3 -->
-    <div class="overflow-hidden rounded-lg shadow hover:shadow-lg">
+    <div class="overflow-hidden rounded-lg shadow hover:shadow-lg cursor-pointer" onclick="openLightbox('3.jpg')">
       <img src="3.jpg" alt="Galeri Desa 3" 
            class="w-full h-32 md:h-40 object-cover hover:scale-105 transition duration-500">
     </div>
     <!-- Foto 4 -->
-    <div class="overflow-hidden rounded-lg shadow hover:shadow-lg">
+    <div class="overflow-hidden rounded-lg shadow hover:shadow-lg cursor-pointer" onclick="openLightbox('4.jpg')">
       <img src="4.jpg" alt="Galeri Desa 4" 
-           class="w-full h-32 md:h-40 object-cover hover:scale-105 transition duration-500">
-    </div>
-    <!-- Foto 5 -->
-    <div class="overflow-hidden rounded-lg shadow hover:shadow-lg">
-      <img src="5.jpg" alt="Galeri Desa 5" 
-           class="w-full h-32 md:h-40 object-cover hover:scale-105 transition duration-500">
-    </div>
-    <!-- Foto 6 -->
-    <div class="overflow-hidden rounded-lg shadow hover:shadow-lg">
-      <img src="6.jpg" alt="Galeri Desa 6" 
            class="w-full h-32 md:h-40 object-cover hover:scale-105 transition duration-500">
     </div>
   </div>
@@ -598,6 +588,26 @@ document.addEventListener('DOMContentLoaded', function () {
     </a>
   </div>
 </section>
+
+<!-- ===== Modal Lightbox ===== -->
+<div id="lightbox" class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center z-50">
+  <span class="absolute top-4 right-6 text-white text-3xl cursor-pointer" onclick="closeLightbox()">&times;</span>
+  <img id="lightbox-img" src="" class="max-h-[90%] max-w-[90%] rounded-lg shadow-lg">
+</div>
+
+<!-- ===== Script Lightbox ===== -->
+<script>
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.remove('hidden');
+    document.getElementById('lightbox').classList.add('flex');
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.add('hidden');
+    document.getElementById('lightbox').classList.remove('flex');
+  }
+</script>
 
 <!-- ===== Media Sosial Desa ===== -->
 <section id="sosial-desa" class="max-w-7xl mx-auto px-4 py-12 text-center">
