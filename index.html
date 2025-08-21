@@ -407,105 +407,83 @@ document.addEventListener('DOMContentLoaded', function () {
     </div>
   </div>
 </section>
-
 <!-- ===== Berita Desa ===== -->
-<section id="berita" class="max-w-7xl mx-auto px-4 py-12 relative">
-  <h2 class="text-3xl font-extrabold text-red-700 mb-8">Berita Desa</h2>
-
-  <!-- Tombol Navigasi -->
-  <button id="prevBtn" 
-          class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-red-600 text-white p-2 rounded-full shadow hidden sm:hidden">
-    ◀
-  </button>
-  <button id="nextBtn" 
-          class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-red-600 text-white p-2 rounded-full shadow hidden sm:hidden">
-    ▶
-  </button>
+<section id="berita" class="max-w-7xl mx-auto px-4 py-10">
+  <h2 class="text-3xl font-extrabold text-red-700 mb-6">Berita Desa</h2>
 
   <!-- Wrapper Scroll -->
-  <div id="beritaScroll" 
-       class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 scroll-smooth sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:overflow-visible">
+  <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-3 scroll-smooth 
+              sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:overflow-visible">
     
     <!-- Berita 1 -->
     <a href="berita/berita1.html" 
-       class="min-w-[80%] sm:min-w-0 bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden relative block snap-start">
-      <img src="berita1.jpg" alt="Musyawarah Desa" class="w-full h-48 object-cover">
-      <div class="p-4">
-        <h3 class="text-lg font-bold text-gray-800 mb-2">Musyawarah Pembangunan Desa</h3>
-        <p class="text-gray-600 text-sm">Pembahasan rencana pembangunan jalan lingkungan dan drainase RT 02/04.</p>
-        <div class="flex items-center justify-between mt-3 text-xs text-gray-500">
-          <span>👤 Administrator</span>
-          <span>👁 349 kali</span>
+       class="min-w-[65%] sm:min-w-0 bg-white rounded-lg shadow hover:shadow-lg 
+              transition overflow-hidden relative block snap-start">
+      <img src="berita1.jpg" alt="Musyawarah Desa" 
+           class="w-full h-32 md:h-40 object-cover">
+      <div class="p-3 md:p-4">
+        <h3 class="text-sm md:text-base font-bold text-gray-800 mb-1">Musyawarah Pembangunan Desa</h3>
+        <p class="text-gray-600 text-xs md:text-sm">Pembahasan rencana pembangunan jalan lingkungan dan drainase RT 02/04.</p>
+        <div class="flex items-center justify-between mt-2 text-[11px] md:text-xs text-gray-500">
+          <span>👤 Admin</span>
+          <span>👁 349</span>
         </div>
       </div>
-      <div class="absolute bottom-4 right-4 bg-red-600 text-white px-3 py-1 rounded-lg text-sm font-bold">
+      <div class="absolute bottom-3 right-3 bg-red-600 text-white px-2 py-0.5 
+                  rounded-lg text-[10px] md:text-xs font-bold">
         10 Jul 2025
       </div>
     </a>
 
     <!-- Berita 2 -->
     <a href="berita/berita2.html" 
-       class="min-w-[80%] sm:min-w-0 bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden relative block snap-start">
-      <img src="berita2.jpg" alt="Penyuluhan" class="w-full h-48 object-cover">
-      <div class="p-4">
-        <h3 class="text-lg font-bold text-gray-800 mb-2">Penyuluhan Kesehatan Ibu & Anak</h3>
-        <p class="text-gray-600 text-sm">Kegiatan posyandu dan penyuluhan gizi balita di balai desa.</p>
-        <div class="flex items-center justify-between mt-3 text-xs text-gray-500">
-          <span>👤 Administrator</span>
-          <span>👁 1.024 kali</span>
+       class="min-w-[65%] sm:min-w-0 bg-white rounded-lg shadow hover:shadow-lg 
+              transition overflow-hidden relative block snap-start">
+      <img src="berita2.jpg" alt="Penyuluhan" 
+           class="w-full h-32 md:h-40 object-cover">
+      <div class="p-3 md:p-4">
+        <h3 class="text-sm md:text-base font-bold text-gray-800 mb-1">Penyuluhan Kesehatan Ibu & Anak</h3>
+        <p class="text-gray-600 text-xs md:text-sm">Kegiatan posyandu dan penyuluhan gizi balita di balai desa.</p>
+        <div class="flex items-center justify-between mt-2 text-[11px] md:text-xs text-gray-500">
+          <span>👤 Admin</span>
+          <span>👁 1.024</span>
         </div>
       </div>
-      <div class="absolute bottom-4 right-4 bg-red-600 text-white px-3 py-1 rounded-lg text-sm font-bold">
+      <div class="absolute bottom-3 right-3 bg-red-600 text-white px-2 py-0.5 
+                  rounded-lg text-[10px] md:text-xs font-bold">
         14 Jul 2025
       </div>
     </a>
 
     <!-- Berita 3 -->
     <a href="berita/berita3.html" 
-       class="min-w-[80%] sm:min-w-0 bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden relative block snap-start">
-      <img src="berita3.jpg" alt="Kerja Bakti" class="w-full h-48 object-cover">
-      <div class="p-4">
-        <h3 class="text-lg font-bold text-gray-800 mb-2">Kerja Bakti Bersama</h3>
-        <p class="text-gray-600 text-sm">Pembersihan saluran air & lingkungan sekitar masjid.</p>
-        <div class="flex items-center justify-between mt-3 text-xs text-gray-500">
-          <span>👤 Administrator</span>
-          <span>👁 812 kali</span>
+       class="min-w-[65%] sm:min-w-0 bg-white rounded-lg shadow hover:shadow-lg 
+              transition overflow-hidden relative block snap-start">
+      <img src="berita3.jpg" alt="Kerja Bakti" 
+           class="w-full h-32 md:h-40 object-cover">
+      <div class="p-3 md:p-4">
+        <h3 class="text-sm md:text-base font-bold text-gray-800 mb-1">Kerja Bakti Bersama</h3>
+        <p class="text-gray-600 text-xs md:text-sm">Pembersihan saluran air & lingkungan sekitar masjid.</p>
+        <div class="flex items-center justify-between mt-2 text-[11px] md:text-xs text-gray-500">
+          <span>👤 Admin</span>
+          <span>👁 812</span>
         </div>
       </div>
-      <div class="absolute bottom-4 right-4 bg-red-600 text-white px-3 py-1 rounded-lg text-sm font-bold">
+      <div class="absolute bottom-3 right-3 bg-red-600 text-white px-2 py-0.5 
+                  rounded-lg text-[10px] md:text-xs font-bold">
         20 Jul 2025
       </div>
     </a>
   </div>
 
   <!-- Tombol Lihat Semua -->
-  <div class="text-center mt-8">
-    <a href="Berita.html" class="inline-block px-6 py-3 bg-red-700 text-white rounded-lg hover:bg-red-800">
+  <div class="text-center mt-6">
+    <a href="Berita.html" 
+       class="inline-block px-5 py-2 bg-red-700 text-white rounded-lg text-sm hover:bg-red-800">
       Lihat Semua Berita
     </a>
   </div>
 </section>
-
-<!-- Script Navigasi Geser -->
-<script>
-  const scrollContainer = document.getElementById('beritaScroll');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-
-  // tampilkan tombol hanya di hp
-  if (window.innerWidth < 640) {
-    prevBtn.style.display = 'block';
-    nextBtn.style.display = 'block';
-  }
-
-  nextBtn.addEventListener('click', () => {
-    scrollContainer.scrollBy({ left: 300, behavior: 'smooth' });
-  });
-
-  prevBtn.addEventListener('click', () => {
-    scrollContainer.scrollBy({ left: -300, behavior: 'smooth' });
-  });
-</script>
 
 <!-- ===== Beli dari Desa ===== -->
 <section id="beli-dari-desa" class="max-w-7xl mx-auto px-4 py-12">
