@@ -510,36 +510,55 @@ document.addEventListener('DOMContentLoaded', function () {
   </div>
 </div>
 <script>
-  const ADMIN_PASSWORD = "tegongan123";
+<script>
+const ADMIN_PASSWORD = "tegongan123";
 
-  // Shortcut Ctrl+A
-  document.addEventListener("keydown", function(e) {
-    if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "a") {
-      const pass = prompt("Masukkan password admin:");
-      if (pass === ADMIN_PASSWORD) {
-        localStorage.setItem("isAdmin", "true");
-        document.getElementById("btnTambahBerita").classList.remove("hidden");
-        alert("✅ Mode Admin aktif. Tombol + ditampilkan.");
-      } else {
-        alert("❌ Password salah!");
-      }
+// Shortcut Alt+A
+document.addEventListener("keydown", function(e) {
+  if (e.altKey && !e.ctrlKey && !e.shiftKey && e.key.toLowerCase() === "a") {
+    const pass = prompt("Masukkan password admin:");
+    if (pass === ADMIN_PASSWORD) {
+      setAdminMode(true);
+      alert("✅ Mode Admin aktif. Tombol + ditampilkan.");
+    } else {
+      alert("❌ Password salah!");
     }
-  });
-
-  // cek admin saat load
-  window.addEventListener("load", () => {
-    if (localStorage.getItem("isAdmin") === "true") {
-      const btn = document.getElementById("btnTambahBerita");
-      if (btn) btn.classList.remove("hidden");
-    }
-  });
-
-  function toggleTambahBerita() {
-    document.getElementById("tambahBeritaModal").classList.toggle("hidden");
   }
+});
+
+// Cek admin saat load
+window.addEventListener("load", () => {
+  if (localStorage.getItem("isAdmin") === "true") {
+    setAdminMode(true);
+  }
+});
+
+// Fungsi untuk mengatur mode admin
+function setAdminMode(isAdmin) {
+  const btn = document.getElementById("btnTambahBerita");
+  if (btn) {
+    if (isAdmin) {
+      btn.classList.remove("hidden");
+      localStorage.setItem("isAdmin", "true");
+    } else {
+      btn.classList.add("hidden");
+      localStorage.removeItem("isAdmin");
+    }
+  }
+}
+
+// Fungsi toggle modal tambah berita
+function toggleTambahBerita() {
+  document.getElementById("tambahBeritaModal").classList.toggle("hidden");
+}
+
+// Fungsi logout admin
+function logoutAdmin() {
+  setAdminMode(false);
+  alert("⚠️ Mode Admin nonaktif.");
+}
 </script>
-</body>
-</html>
+
 
 
 <!-- ===== Galeri Desa ===== -->
