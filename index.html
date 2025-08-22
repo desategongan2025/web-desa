@@ -313,7 +313,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       <!-- Kasi Kesejahteraan -->
       <div class="flex-shrink-0 border rounded-xl p-4 w-48 text-center bg-white shadow-lg">
-        <img src="Yosef.jpg" alt="Kasi Kesejahteraan" class="w-full h-40 object-cover rounded-lg mb-3">
+        <img src="yosef.jpg" alt="Kasi Kesejahteraan" class="w-full h-40 object-cover rounded-lg mb-3">
         <h3 class="font-bold text-lg text-red-700">Lukman Yosef</h3>
         <p class="text-gray-600">Kasi Kesejahteraan</p>
       </div>
@@ -482,84 +482,7 @@ document.addEventListener('DOMContentLoaded', function () {
       Lihat Semua Berita
     </a>
   </div>
-  <div id="beritaWrapper" class="flex gap-4 ...">
-  <!-- berita dari firebase muncul di sini -->
-</div>
-
-<!-- Tombol + tersembunyi -->
-<button id="btnTambahBerita" 
-        onclick="toggleTambahBerita()" 
-        class="hidden min-w-[65%] sm:min-w-0 bg-red-600 text-white rounded-lg 
-               flex items-center justify-center text-4xl shadow hover:shadow-lg transition snap-start">
-  +
-</button>
-
 </section>
-<!-- Modal Tambah Berita -->
-<div id="tambahBeritaModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-  <div class="bg-white w-full max-w-md rounded-xl shadow-lg p-6 relative">
-    <h2 class="text-xl font-bold text-red-700 mb-4">Tambah Berita Baru</h2>
-    <form id="formBerita" class="space-y-4">
-      <input type="text" id="judul" placeholder="Judul Berita" class="w-full border rounded-lg px-3 py-2" required>
-      <textarea id="isiBerita" placeholder="Isi Berita" rows="4" class="w-full border rounded-lg px-3 py-2" required></textarea>
-      <div class="flex justify-end gap-2">
-        <button type="button" onclick="toggleTambahBerita()" class="px-4 py-2 bg-gray-300 rounded-lg">Batal</button>
-        <button type="submit" class="px-4 py-2 bg-red-600 text-white rounded-lg">Simpan</button>
-      </div>
-    </form>
-  </div>
-</div>
-<script>
-<script>
-const ADMIN_PASSWORD = "tegongan123";
-
-// Shortcut Alt+A
-document.addEventListener("keydown", function(e) {
-  if (e.altKey && !e.ctrlKey && !e.shiftKey && e.key.toLowerCase() === "a") {
-    const pass = prompt("Masukkan password admin:");
-    if (pass === ADMIN_PASSWORD) {
-      setAdminMode(true);
-      alert("✅ Mode Admin aktif. Tombol + ditampilkan.");
-    } else {
-      alert("❌ Password salah!");
-    }
-  }
-});
-
-// Cek admin saat load
-window.addEventListener("load", () => {
-  if (localStorage.getItem("isAdmin") === "true") {
-    setAdminMode(true);
-  }
-});
-
-// Fungsi untuk mengatur mode admin
-function setAdminMode(isAdmin) {
-  const btn = document.getElementById("btnTambahBerita");
-  if (btn) {
-    if (isAdmin) {
-      btn.classList.remove("hidden");
-      localStorage.setItem("isAdmin", "true");
-    } else {
-      btn.classList.add("hidden");
-      localStorage.removeItem("isAdmin");
-    }
-  }
-}
-
-// Fungsi toggle modal tambah berita
-function toggleTambahBerita() {
-  document.getElementById("tambahBeritaModal").classList.toggle("hidden");
-}
-
-// Fungsi logout admin
-function logoutAdmin() {
-  setAdminMode(false);
-  alert("⚠️ Mode Admin nonaktif.");
-}
-</script>
-
-
 
 <!-- ===== Galeri Desa ===== -->
 <section id="galeri-desa" class="max-w-7xl mx-auto px-4 py-12">
@@ -691,6 +614,16 @@ function logoutAdmin() {
        class="w-12 h-12 flex items-center justify-center bg-green-500 text-white rounded-full shadow hover:scale-110 transition">
       <i class="fab fa-whatsapp"></i>
     </a>
+    <!-- TikTok -->
+<a href="https://www.tiktok.com/@desa.tegongan?_t=ZS-8z5ahSUN0dj&_r=1" target="_blank" 
+   class="fixed bottom-5 right-5 w-14 h-14 flex items-center justify-center bg-black text-white rounded-full shadow-lg hover:scale-110 transition">
+  <i class="fab fa-tiktok text-2xl"></i>
+</a>
+    <!-- X -->
+<a href="https://x.com/DesaTegongan?t=GVnck1uqsOHcwMydi46spg&s=09" target="_blank" 
+   class="fixed bottom-5 right-5 w-14 h-14 flex items-center justify-center bg-black text-white rounded-full shadow-lg hover:scale-110 transition">
+  <i class="fa-brands fa-x-twitter text-2xl"></i>
+</a>
   </div>
 </section>
 
@@ -714,7 +647,7 @@ function logoutAdmin() {
         <span class="flex items-center space-x-2"><span>🌐</span><span>Kunjungan Website</span></span>
         <span>⌄</span>
       </button>
-      <div id="detail-website" class="hidden mt-2 pl-6 text-white/90 text-xs">https://desategongan.brebes.go.id</div>
+      <div id="detail-website" class="hidden mt-2 pl-6 text-white/90 text-xs">https://desategongan.com</div>
     </li>
     <li>
       <button class="w-full flex justify-between items-center font-semibold pb-2 border-b border-white/30" onclick="toggleDetail('kontak')">
@@ -723,7 +656,7 @@ function logoutAdmin() {
       </button>
       <div id="detail-kontak" class="hidden mt-2 pl-6 text-white/90 text-xs">
   <a href="https://wa.me/6281212192002" target="_blank" class="underline text-white">
-    📞 0812-3456-7890 (Klik untuk WhatsApp)
+    📞 0812-1219-2002 (Klik untuk WhatsApp)
   </a><br>
   Email: desategongan718@gmail.com
 </div>
