@@ -407,6 +407,102 @@ document.addEventListener('DOMContentLoaded', function () {
     </div>
   </div>
 </section>
+<!-- ===== Berita Desa ===== -->
+<label class="block text-sm font-semibold mb-1">Isi</label>
+<textarea id="isiBerita" rows="4" class="w-full border rounded-lg px-3 py-2" required></textarea>
+</div>
+<div>
+<label class="block text-sm font-semibold mb-1">URL Gambar</label>
+<input type="text" id="gambarBerita" class="w-full border rounded-lg px-3 py-2" required>
+</div>
+<div class="flex justify-end gap-2">
+<button type="button" onclick="toggleTambahBerita()" class="px-4 py-2 bg-gray-300 rounded-lg">Batal</button>
+<button type="submit" class="px-4 py-2 bg-green-600 text-white rounded-lg">Simpan</button>
+</div>
+</form>
+</div>
+</div>
+
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js"></script>
+
+
+<script>
+// Config Firebase kamu
+const firebaseConfig = {
+apiKey: "AIzaSyBdAQfJfj27Eww8hR0jM07aPd41nVYJCZs",
+authDomain: "desategongan-web.firebaseapp.com",
+projectId: "desategongan-web",
+storageBucket: "desategongan-web.firebasestorage.app",
+messagingSenderId: "359164423381",
+appId: "1:359164423381:web:fa937b6d3a1616665d065c"
+};
+
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+
+// Modal toggle
+function toggleTambahBerita() {
+document.getElementById("tambahBeritaModal").classList.toggle("hidden");
+}
+
+
+// Simpan berita
+async function simpanBerita(e) {
+e.preventDefault();
+const judul = document.getElementById("judulBerita").value;
+const isi = document.getElementById("isiBerita").value;
+const gambar = document.getElementById("gambarBerita").value;
+
+
+await db.collection("berita").add({
+judul, isi, gambar,
+tanggal: new Date().toLocaleDateString("id-ID"),
+views: 0,
+author: "Admin"
+});
+
+
+alert("✅ Berita berhasil ditambahkan!");
+document.getElementById("formBerita").reset();
+toggleTambahBerita();
+loadBerita();
+}
+
+
+// Load berita
+async function loadBerita() {
+const wrapper = document.querySelector("#berita .flex");
+wrapper.innerHTML = "";
+const snapshot = await db.collection("berita").orderBy("tanggal","desc").get();
+snapshot.forEach(doc => {
+const data = doc.data();
+wrapper.innerHTML += `
+<a href="#" class="min-w-[65%] sm:min-w-0 bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden relative block snap-start">
+<img src="${data.gambar}" class="w-full h-32 md:h-40 object-cover">
+<div class="p-3 md:p-4">
+<h3 class="text-sm md:text-base font-bold text-gray-800 mb-1">${data.judul}</h3>
+<p class="text-gray-600 text-xs md:text-sm">${data.isi}</p>
+<div class="flex items-center justify-between mt-2 text-[11px] md:text-xs text-gray-500">
+<span>👤 ${data.author}</span>
+<span>👁 ${data.views}</span>
+</div>
+</div>
+<div class="absolute bottom-3 right-3 bg-red-600 text-white px-2 py-0.5 rounded-lg text-[10px] md:text-xs font-bold">
+${data.tanggal}
+</div>
+</a>
+`;
+});
+}
+
+
+loadBerita();
+</script>
   <!-- Tombol Lihat Semua -->
   <div class="text-center mt-6">
     <a href="Berita.html" 
