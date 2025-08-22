@@ -475,7 +475,50 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
     </a>
   </div>
-<body class="bg-gray-100">
+<!-- ===== Berita Desa ===== -->
+<section id="berita" class="max-w-7xl mx-auto px-4 py-10">
+<h2 class="text-3xl font-extrabold text-red-700 mb-6">Berita Desa</h2>
+
+
+<!-- Wrapper Scroll Berita dari Firebase -->
+<div class="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-3 scroll-smooth
+sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:overflow-visible">
+<!-- 🔥 Berita akan dimuat otomatis dari Firestore lewat JS -->
+</div>
+
+
+<!-- Tombol Lihat Semua -->
+<div class="text-center mt-6">
+<a href="Berita.html"
+class="inline-block px-5 py-2 bg-red-700 text-white rounded-lg text-sm hover:bg-red-800">
+Lihat Semua Berita
+</a>
+</div>
+</section>
+
+
+<!-- Tombol Tambah Berita (Floating Button) -->
+<div class="fixed bottom-5 right-5 z-50">
+<button onclick="toggleTambahBerita()"
+class="w-14 h-14 bg-red-600 text-white text-3xl rounded-full shadow-lg flex items-center justify-center hover:bg-red-700">
+➕
+</button>
+</div>
+
+
+<!-- Modal Tambah Berita -->
+<div id="tambahBeritaModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+<div class="bg-white w-full max-w-lg rounded-xl shadow-lg p-6 relative">
+<h2 class="text-xl font-bold text-red-700 mb-4">Tambah Berita Baru</h2>
+<form id="formBerita" onsubmit="simpanBerita(event)" class="space-y-4">
+<div>
+<label class="block text-sm font-semibold mb-1">Judul</label>
+<input type="text" id="judulBerita" class="w-full border rounded-lg px-3 py-2" required>
+</div>
+<div>
+<label class="block text-sm font-semibold mb-1">Isi</label>
+<textarea id="isiBerita" rows="4" class="w-full border rounded-lg px-3 py-2" required></textarea>
+</div>
 <div>
 <label class="block text-sm font-semibold mb-1">URL Gambar</label>
 <input type="text" id="gambarBerita" class="w-full border rounded-lg px-3 py-2" required>
@@ -496,79 +539,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <script>
 // Config Firebase kamu
-const firebaseConfig = {
-apiKey: "AIzaSyBdAQfJfj27Eww8hR0jM07aPd41nVYJCZs",
-authDomain: "desategongan-web.firebaseapp.com",
-projectId: "desategongan-web",
-storageBucket: "desategongan-web.firebasestorage.app",
-messagingSenderId: "359164423381",
-appId: "1:359164423381:web:fa937b6d3a1616665d065c"
-};
-
-
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
-
-
-// Modal toggle
-function toggleTambahBerita() {
-document.getElementById("tambahBeritaModal").classList.toggle("hidden");
-}
-
-
-// Simpan berita
-async function simpanBerita(e) {
-e.preventDefault();
-const judul = document.getElementById("judulBerita").value;
-const isi = document.getElementById("isiBerita").value;
-const gambar = document.getElementById("gambarBerita").value;
-
-
-await db.collection("berita").add({
-judul, isi, gambar,
-tanggal: new Date().toLocaleDateString("id-ID"),
-views: 0,
-author: "Admin"
-});
-
-
-alert("✅ Berita berhasil ditambahkan!");
-document.getElementById("formBerita").reset();
-toggleTambahBerita();
-loadBerita();
-}
-
-
-// Load berita
-async function loadBerita() {
-const wrapper = document.querySelector("#berita .flex");
-wrapper.innerHTML = "";
-const snapshot = await db.collection("berita").orderBy("tanggal","desc").get();
-snapshot.forEach(doc => {
-const data = doc.data();
-wrapper.innerHTML += `
-<a href="#" class="min-w-[65%] sm:min-w-0 bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden relative block snap-start">
-<img src="${data.gambar}" class="w-full h-32 md:h-40 object-cover">
-<div class="p-3 md:p-4">
-<h3 class="text-sm md:text-base font-bold text-gray-800 mb-1">${data.judul}</h3>
-<p class="text-gray-600 text-xs md:text-sm">${data.isi}</p>
-<div class="flex items-center justify-between mt-2 text-[11px] md:text-xs text-gray-500">
-<span>👤 ${data.author}</span>
-<span>👁 ${data.views}</span>
-</div>
-</div>
-<div class="absolute bottom-3 right-3 bg-red-600 text-white px-2 py-0.5 rounded-lg text-[10px] md:text-xs font-bold">
-${data.tanggal}
-</div>
-</a>
-`;
-});
-}
-
-loadBerita();
 </script>
-</body>
-
 <!-- ===== Beli dari Desa ===== -->
 <section id="belanja" class="max-w-7xl mx-auto px-4 py-10">
   <h2 class="text-3xl font-extrabold text-red-700 mb-6">Beli dari Desa</h2>
