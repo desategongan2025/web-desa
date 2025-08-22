@@ -483,6 +483,62 @@ document.addEventListener('DOMContentLoaded', function () {
     </a>
   </div>
 </section>
+<!-- ===== Berita Desa ===== -->
+<section id="berita" class="max-w-7xl mx-auto px-4 py-12">
+  ...
+</section>
+
+<!-- Modal Tambah Berita -->
+<div id="tambahBeritaModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+  ...
+</div>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js"></script>
+
+<script>
+  // Config Firebase
+  const firebaseConfig = { ... };
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+
+  // === Script berita (simpanBerita, loadBerita, toggleTambahBerita) ===
+  ...
+</script>
+
+<!-- === Script Admin Mode === -->
+<script>
+  // Cek apakah sudah login Admin sebelumnya
+  window.addEventListener("load", () => {
+    if (localStorage.getItem("isAdmin") === "true") {
+      const btn = document.getElementById("btnTambahBerita");
+      if (btn) btn.classList.remove("hidden");
+    }
+  });
+
+  const ADMIN_PASSWORD = "tegongan123"; // ganti sesuai kebutuhan
+
+  // Kombinasi tombol Ctrl+Alt+A
+  document.addEventListener("keydown", function(e) {
+    if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "a") {
+      const pass = prompt("Masukkan password admin:");
+      if (pass === ADMIN_PASSWORD) {
+        const btn = document.getElementById("btnTambahBerita");
+        if (btn) {
+          btn.classList.remove("hidden");
+          localStorage.setItem("isAdmin", "true"); // simpan status admin
+          alert("✅ Mode Admin aktif. Tombol + ditampilkan.");
+        }
+      } else {
+        alert("❌ Password salah!");
+      }
+    }
+  });
+</script>
+</body>
+</html>
+
 <!-- ===== Galeri Desa ===== -->
 <section id="galeri-desa" class="max-w-7xl mx-auto px-4 py-12">
   <h2 class="text-3xl font-extrabold text-red-700 mb-6 text-center">Galeri Desa Tegongan</h2>
