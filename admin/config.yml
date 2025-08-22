@@ -1,7 +1,7 @@
 backend:
   name: github
-  repo: username/nama-repo  # Ganti dengan repo kamu
-  branch: main  # Atau master jika pakai master
+  repo: desategongan2025/desategongan2025.github.io
+  branch: main 
   base_url: https://api.netlify.com
   auth_endpoint: auth
   site_domain: https://desategongan2025.github.io
