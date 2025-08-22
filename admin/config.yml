@@ -1,17 +1,21 @@
 backend:
   name: github
-  repo: desategongan2025/web-desa  # ganti sesuai repo kamu
+  repo: username/nama-repo  # Ganti dengan repo kamu
+  branch: main  # Atau master jika pakai master
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+  site_domain: desategongan2025
 
-media_folder: "images/uploads"
+media_folder: "images/uploads" # Folder untuk gambar
 public_folder: "/images/uploads"
 
 collections:
-  - name: "news"
-    label: "Berita"
-    folder: "posts"   # kita pakai folder posts
+  - name: "posts"
+    label: "Posts"
+    folder: "posts"  # Folder tempat file konten
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"
     fields:
-      - {label: "Judul", name: "title", widget: "string"}
-      - {label: "Tanggal", name: "date", widget: "datetime"}
-      - {label: "Konten", name: "body", widget: "markdown"}
+      - { name: "title", label: "Title" }
+      - { name: "date", label: "Date", widget: "datetime" }
+      - { name: "body", label: "Body", widget: "markdown" }
