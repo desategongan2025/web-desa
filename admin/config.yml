@@ -4,7 +4,8 @@ backend:
   branch: main  # Atau master jika pakai master
   base_url: https://api.netlify.com
   auth_endpoint: auth
-  site_domain: desategongan2025
+  site_domain: https://desategongan2025.github.io
+
 
 media_folder: "images/uploads" # Folder untuk gambar
 public_folder: "/images/uploads"
