@@ -493,21 +493,25 @@ document.addEventListener('DOMContentLoaded', function () {
   </div>
 </section>
 
-<!-- ===== Berita Desa ===== -->
-<section id="berita" class="max-w-7xl mx-auto px-4 py-12">
-  <h2 class="text-3xl font-extrabold text-red-700 mb-6">Berita Desa</h2>
+<!-- Tombol tambah berita selalu tampil -->
+<button id="btnTambahBerita" 
+        class="w-14 h-14 bg-red-600 text-white rounded-full flex items-center justify-center text-3xl shadow hover:shadow-lg transition fixed bottom-5 right-5 z-50">
+  +
+</button>
 
-  <div id="beritaWrapper" class="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-3 scroll-smooth 
-              sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:overflow-visible">
-    <!-- Berita dari Firebase akan ditampilkan di sini -->
+<!-- Modal Login Admin -->
+<div id="loginModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+  <div class="bg-white w-full max-w-md rounded-xl shadow-lg p-6 relative">
+    <h2 class="text-xl font-bold text-red-700 mb-4">Login Admin</h2>
+    <form id="formLogin" class="space-y-4">
+      <input type="email" id="emailLogin" placeholder="Email" class="w-full border rounded-lg px-3 py-2" required>
+      <input type="password" id="passwordLogin" placeholder="Password" class="w-full border rounded-lg px-3 py-2" required>
+      <div class="flex justify-end gap-2">
+        <button type="submit" class="px-4 py-2 bg-red-600 text-white rounded-lg">Login</button>
+      </div>
+    </form>
   </div>
-
-  <!-- Tombol tambah berita -->
-  <button id="btnTambahBerita" onclick="toggleTambahBerita()" 
-          class="w-14 h-14 bg-red-600 text-white rounded-full flex items-center justify-center text-3xl shadow hover:shadow-lg transition">
-    +
-  </button>
-</section>
+</div>
 
 <!-- Modal Tambah Berita -->
 <div id="tambahBeritaModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
@@ -525,12 +529,11 @@ document.addEventListener('DOMContentLoaded', function () {
   </div>
 </div>
 
-<!-- Firebase SDK -->
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-compat-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-compat-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-compat-auth.js"></script>
 
 <script>
-  // Konfigurasi Firebase
   const firebaseConfig = {
     apiKey: "AIzaSyBdAQfJfj27Eww8hR0jM07aPd41nVYJCZs",
     authDomain: "desategongan-web.firebaseapp.com",
@@ -542,72 +545,46 @@ document.addEventListener('DOMContentLoaded', function () {
 
   firebase.initializeApp(firebaseConfig);
   const db = firebase.firestore();
+  const auth = firebase.auth();
+
+  const btnTambahBerita = document.getElementById("btnTambahBerita");
+  const loginModal = document.getElementById("loginModal");
 
   // Toggle modal tambah berita
   function toggleTambahBerita() {
     document.getElementById("tambahBeritaModal").classList.toggle("hidden");
   }
 
-  // Simpan berita baru
-  document.getElementById("formBerita").addEventListener("submit", async function(e) {
-    e.preventDefault();
-
-    const judul = document.getElementById("judul").value;
-    const isi = document.getElementById("isiBerita").value;
-    const gambar = document.getElementById("gambar").value;
-
-    try {
-      await db.collection("berita").add({
-        judul,
-        isi,
-        gambar,
-        tanggal: new Date(), // simpan sebagai timestamp
-        views: 0,
-        author: "Admin"
-      });
-
-      alert("✅ Berita baru berhasil disimpan!");
+  // Tombol + diklik
+  btnTambahBerita.addEventListener("click", () => {
+    const user = auth.currentUser;
+    if (user) {
+      // Sudah login → buka modal tambah berita
       toggleTambahBerita();
-      this.reset();
-      loadBerita(); // refresh berita
-    } catch (error) {
-      console.error("Error menambahkan berita:", error);
-      alert("❌ Gagal menambahkan berita!");
+    } else {
+      // Belum login → tampilkan modal login
+      loginModal.classList.remove("hidden");
     }
   });
 
-  // Load berita dari Firestore
-  async function loadBerita() {
-    const wrapper = document.getElementById("beritaWrapper");
-    wrapper.innerHTML = "";
+  // Login admin
+  document.getElementById("formLogin").addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const email = document.getElementById("emailLogin").value;
+    const password = document.getElementById("passwordLogin").value;
 
-    const snapshot = await db.collection("berita").orderBy("tanggal", "desc").get();
-    snapshot.forEach(doc => {
-      const data = doc.data();
-      const tanggal = new Date(data.tanggal.seconds * 1000).toLocaleDateString("id-ID");
-
-      wrapper.innerHTML += `
-        <a href="#" class="min-w-[65%] sm:min-w-0 bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden relative block snap-start">
-          <img src="${data.gambar}" alt="${data.judul}" class="w-full h-32 md:h-40 object-cover">
-          <div class="p-3 md:p-4">
-            <h3 class="text-sm md:text-base font-bold text-gray-800 mb-1">${data.judul}</h3>
-            <p class="text-gray-600 text-xs md:text-sm">${data.isi}</p>
-            <div class="flex items-center justify-between mt-2 text-[11px] md:text-xs text-gray-500">
-              <span>👤 ${data.author}</span>
-              <span>👁 ${data.views}</span>
-            </div>
-          </div>
-          <div class="absolute bottom-3 right-3 bg-red-600 text-white px-2 py-0.5 rounded-lg text-[10px] md:text-xs font-bold">
-            ${tanggal}
-          </div>
-        </a>
-      `;
-    });
-  }
-
-  // Load berita saat halaman dibuka
-  loadBerita();
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      alert("✅ Login berhasil!");
+      this.reset();
+      loginModal.classList.add("hidden");
+      toggleTambahBerita(); // langsung buka modal tambah berita setelah login
+    } catch (error) {
+      alert("❌ Email atau password salah!");
+    }
+  });
 </script>
+
 
 <!-- ===== Galeri Desa ===== -->
 <section id="galeri-desa" class="max-w-7xl mx-auto px-4 py-12">
