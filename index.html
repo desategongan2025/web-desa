@@ -492,16 +492,7 @@ document.addEventListener('DOMContentLoaded', function () {
     </a>
   </div>
 </section>
- <!-- Header -->
-  <header class="flex justify-between items-center p-4 bg-red-600 text-white">
-    <h1 class="text-xl font-bold">Berita Desa Tegongan</h1>
-    <div class="flex items-center gap-2">
-      <button id="btnLoginAdmin" class="bg-white text-red-600 px-3 py-1 rounded-lg">Login Admin</button>
-      <button id="btnLogoutAdmin" class="bg-white text-red-600 px-3 py-1 rounded-lg hidden">Logout</button>
-    </div>
-  </header>
-
-  <!-- ===== Berita Desa ===== -->
+<!-- ===== Berita Desa ===== -->
   <section id="berita" class="max-w-7xl mx-auto px-4 py-12">
     <h2 class="text-3xl font-extrabold text-red-700 mb-6">Berita Desa</h2>
 
@@ -511,8 +502,8 @@ document.addEventListener('DOMContentLoaded', function () {
     </div>
 
     <!-- Tombol tambah berita (hanya admin) -->
-    <button id="btnTambahBerita" onclick="toggleTambahBerita()" 
-            class="hidden w-14 h-14 bg-red-600 text-white rounded-full flex items-center justify-center text-3xl shadow hover:shadow-lg transition">
+    <button id="btnTambahBerita" 
+            class="w-14 h-14 bg-red-600 text-white rounded-full flex items-center justify-center text-3xl shadow hover:shadow-lg transition">
       +
     </button>
   </section>
@@ -580,6 +571,16 @@ document.addEventListener('DOMContentLoaded', function () {
     function toggleTambahBerita() {
       document.getElementById("tambahBeritaModal").classList.toggle("hidden");
     }
+
+    // Tombol + klik
+    btnTambahBerita.addEventListener("click", () => {
+      const user = auth.currentUser;
+      if (user) {
+        toggleTambahBerita();
+      } else {
+        loginModal.classList.remove("hidden");
+      }
+    });
 
     // Login Admin
     document.getElementById("formLogin").addEventListener("submit", async function(e) {
