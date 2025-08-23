@@ -374,52 +374,114 @@ document.addEventListener('DOMContentLoaded', function () {
   
   <!-- Scroll Horizontal -->
   <div class="overflow-x-auto">
-    <div class="flex space-x-4 min-w-[600px]">
+    <div id="scroll-container" class="flex space-x-4 min-w-[600px] snap-x snap-mandatory">
 
       <!-- Penduduk -->
-      <div class="flex-shrink-0 flex flex-col items-center w-40 border rounded-lg p-4 bg-white shadow hover:shadow-md">
-        <img src="https://img.icons8.com/ios-filled/50/ffffff/group.png" class="bg-red-500 p-3 rounded-full mb-3" alt="Penduduk">
-        <div class="text-2xl font-bold text-red-700">5.365</div>
+      <div class="flex-shrink-0 snap-center flex flex-col items-center w-32 sm:w-40 border rounded-lg p-4 bg-white shadow hover:shadow-lg hover:scale-105 transition-all duration-300">
+        <div class="bg-gradient-to-br from-red-500 to-red-700 p-3 rounded-full mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m6-5a4 4 0 11-8 0 4 4 0 018 0zm6 4a4 4 0 10-8 0 4 4 0 008 0z" />
+          </svg>
+        </div>
+        <div class="text-2xl font-bold text-red-700 format-number">5365</div>
         <div class="text-gray-600 font-semibold text-center">Penduduk</div>
       </div>
 
       <!-- Laki-Laki -->
-      <div class="flex-shrink-0 flex flex-col items-center w-40 border rounded-lg p-4 bg-white shadow hover:shadow-md">
-        <img src="https://img.icons8.com/ios-filled/50/ffffff/male.png" class="bg-red-500 p-3 rounded-full mb-3" alt="Laki-laki">
-        <div class="text-2xl font-bold text-red-700">2.760</div>
+      <div class="flex-shrink-0 snap-center flex flex-col items-center w-32 sm:w-40 border rounded-lg p-4 bg-white shadow hover:shadow-lg hover:scale-105 transition-all duration-300">
+        <div class="bg-gradient-to-br from-red-500 to-red-700 p-3 rounded-full mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.121 14.121A3 3 0 1112 12m0 0a3 3 0 010-6m0 6v3m0 0a9 9 0 009-9m-9 9H9m3 0a9 9 0 01-9-9" />
+          </svg>
+        </div>
+        <div class="text-2xl font-bold text-red-700 format-number">2760</div>
         <div class="text-gray-600 font-semibold text-center">Laki-Laki</div>
       </div>
 
       <!-- Kepala Keluarga -->
-      <div class="flex-shrink-0 flex flex-col items-center w-40 border rounded-lg p-4 bg-white shadow hover:shadow-md">
-        <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" class="bg-red-500 p-3 rounded-full mb-3" alt="Kepala Keluarga">
-        <div class="text-2xl font-bold text-red-700">1.315</div>
+      <div class="flex-shrink-0 snap-center flex flex-col items-center w-32 sm:w-40 border rounded-lg p-4 bg-white shadow hover:shadow-lg hover:scale-105 transition-all duration-300">
+        <div class="bg-gradient-to-br from-red-500 to-red-700 p-3 rounded-full mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9.75V6.75a.75.75 0 01.75-.75H6V3h12v3h2.25a.75.75 0 01.75.75v3l-9 6-9-6z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.75v6a.75.75 0 01-.75.75H15V12H9v7.5H3.75A.75.75 0 013 18.75v-6" />
+          </svg>
+        </div>
+        <div class="text-2xl font-bold text-red-700 format-number">1315</div>
         <div class="text-gray-600 font-semibold text-center">Kepala Keluarga</div>
       </div>
 
       <!-- Perempuan -->
-      <div class="flex-shrink-0 flex flex-col items-center w-40 border rounded-lg p-4 bg-white shadow hover:shadow-md">
-        <img src="https://img.icons8.com/ios-filled/50/ffffff/female.png" class="bg-red-500 p-3 rounded-full mb-3" alt="Perempuan">
-        <div class="text-2xl font-bold text-red-700">2.605</div>
+      <div class="flex-shrink-0 snap-center flex flex-col items-center w-32 sm:w-40 border rounded-lg p-4 bg-white shadow hover:shadow-lg hover:scale-105 transition-all duration-300">
+        <div class="bg-gradient-to-br from-red-500 to-red-700 p-3 rounded-full mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0v6" />
+          </svg>
+        </div>
+        <div class="text-2xl font-bold text-red-700 format-number">2605</div>
         <div class="text-gray-600 font-semibold text-center">Perempuan</div>
       </div>
 
       <!-- Penduduk Sementara -->
-      <div class="flex-shrink-0 flex flex-col items-center w-40 border rounded-lg p-4 bg-white shadow hover:shadow-md">
-        <img src="https://img.icons8.com/ios-filled/50/ffffff/temporary.png" class="bg-red-500 p-3 rounded-full mb-3" alt="Penduduk Sementara">
-        <div class="text-2xl font-bold text-red-700">76</div>
+      <div class="flex-shrink-0 snap-center flex flex-col items-center w-32 sm:w-40 border rounded-lg p-4 bg-white shadow hover:shadow-lg hover:scale-105 transition-all duration-300">
+        <div class="bg-gradient-to-br from-red-500 to-red-700 p-3 rounded-full mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m-12 4h12m-12 4h12m-12 4h12m-16-4h.01M4 11h.01M4 7h.01M4 15h.01" />
+          </svg>
+        </div>
+        <div class="text-2xl font-bold text-red-700 format-number">76</div>
         <div class="text-gray-600 font-semibold text-center">Penduduk Sementara</div>
       </div>
 
       <!-- Mutasi Penduduk -->
-      <div class="flex-shrink-0 flex flex-col items-center w-40 border rounded-lg p-4 bg-white shadow hover:shadow-md">
-        <img src="https://img.icons8.com/ios-filled/50/ffffff/repeat.png" class="bg-red-500 p-3 rounded-full mb-3" alt="Mutasi">
-        <div class="text-2xl font-bold text-red-700">37</div>
+      <div class="flex-shrink-0 snap-center flex flex-col items-center w-32 sm:w-40 border rounded-lg p-4 bg-white shadow hover:shadow-lg hover:scale-105 transition-all duration-300">
+        <div class="bg-gradient-to-br from-red-500 to-red-700 p-3 rounded-full mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V10a2 2 0 012-2h2m5-6v6m0 0l3-3m-3 3L9 5" />
+          </svg>
+        </div>
+        <div class="text-2xl font-bold text-red-700 format-number">37</div>
         <div class="text-gray-600 font-semibold text-center">Mutasi Penduduk</div>
       </div>
 
     </div>
   </div>
+</section>
+
+<!-- Script Format Angka dan Auto Scroll -->
+<script>
+  // Format angka ribuan
+  document.querySelectorAll('.format-number').forEach(el => {
+    el.textContent = parseInt(el.textContent).toLocaleString('id-ID');
+  });
+
+  // Auto scroll horizontal (pause jika user interaksi)
+  const scrollContainer = document.getElementById('scroll-container');
+  let scrollAmount = 0;
+  let scrollStep = 1;
+  let autoScrollActive = true;
+
+  function autoScroll() {
+    if (autoScrollActive && scrollContainer.scrollWidth > scrollContainer.clientWidth) {
+      scrollAmount += scrollStep;
+      if (scrollAmount >= scrollContainer.scrollWidth - scrollContainer.clientWidth || scrollAmount <= 0) {
+        scrollStep = -scrollStep;
+      }
+      scrollContainer.scrollTo({
+        left: scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  }
+
+  setInterval(autoScroll, 50);
+
+  // Pause saat user scroll manual
+  scrollContainer.addEventListener('mousedown', () => autoScrollActive = false);
+  scrollContainer.addEventListener('mouseup', () => autoScrollActive = true);
+  scrollContainer.addEventListener('touchstart', () => autoScrollActive = false);
+  scrollContainer.addEventListener('touchend', () => autoScrollActive = true);
+</script>
+
 </section>
    <!-- ===== Berita Desa ===== -->
 <section id="berita" class="max-w-7xl mx-auto px-4 py-10">
