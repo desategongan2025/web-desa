@@ -3,26 +3,140 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Semua Berita Desa Tegongan</title>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <title>Berita Desa Tegongan - Kabupaten Brebes</title>
+  <meta name="description" content="Kumpulan berita dan kegiatan terbaru Desa Tegongan, Kecamatan Tanjung, Kabupaten Brebes.">
+  <link rel="canonical" href="https://desategongan.com/Berita.html">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-storage-compat.js"></script>
+  <style>
+    .line-clamp-3{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  </style>
 </head>
-<body class="bg-gray-100">
+<body class="font-sans bg-white text-gray-800">
+  <!-- Header -->
+  <header class="w-full bg-red-800 py-4 px-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+        <img src="logobrebes.png" alt="Logo Brebes" class="w-12 h-12"/>
+        <div>
+          <h1 class="text-xl text-white font-bold">Berita Desa Tegongan</h1>
+          <p class="text-sm text-white/90">Kecamatan Tanjung • Kabupaten Brebes</p>
+        </div>
+      </div>
+      <a href="index.html" class="text-white hover:text-yellow-300 text-sm">← Kembali ke Beranda</a>
+    </div>
+  </header>
 
-  <div class="max-w-4xl mx-auto py-10">
-    <h1 class="text-3xl font-bold text-red-700 mb-6 text-center">Semua Berita</h1>
-    <div id="containerBerita" class="space-y-4"></div>
-    <div class="text-center mt-6">
-      <a href="index.html" 
-         class="inline-block px-5 py-2 bg-red-700 text-white rounded-lg text-sm hover:bg-red-800">
-        Kembali ke Beranda
-      </a>
+  <!-- Navigasi -->
+  <nav class="w-full bg-red-700/90">
+    <div class="max-w-7xl mx-auto px-4 py-2 flex flex-wrap items-center gap-3">
+      <a href="index.html" class="text-white/90 hover:text-white text-sm">Home</a>
+      <span class="text-white/40">/</span>
+      <span class="text-white font-semibold">Berita</span>
+    </div>
+  </nav>
+
+  <!-- Toolbar Pencarian & Filter -->
+  <section class="max-w-7xl mx-auto px-4 py-6">
+    <div class="flex flex-col md:flex-row md:items-center gap-3">
+      <div class="relative flex-1">
+        <input id="q" type="search" placeholder="Cari judul/isi berita..."
+               class="w-full border rounded-lg pl-10 pr-3 py-2 outline-none focus:ring-2 focus:ring-red-500">
+        <span class="absolute left-3 top-2.5 text-gray-500"><i class="fa fa-search"></i></span>
+      </div>
+      <select id="filterBulan" class="border rounded-lg px-3 py-2">
+        <option value="">Semua Bulan</option>
+      </select>
+      <select id="filterTahun" class="border rounded-lg px-3 py-2">
+        <option value="">Semua Tahun</option>
+      </select>
+      <button id="btnTambah" class="md:ml-auto px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">
+        + Tambah Berita
+      </button>
+    </div>
+  </section>
+
+  <!-- Daftar Berita -->
+  <main class="max-w-7xl mx-auto px-4 pb-16">
+    <!-- Info kosong -->
+    <div id="kosong" class="hidden text-center text-gray-600 py-12">
+      Belum ada berita yang cocok dengan pencarian/filters.
+    </div>
+
+    <!-- Grid -->
+    <div id="gridBerita" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Kartu skeleton (loading) -->
+      <template id="skeletonCard">
+        <div class="animate-pulse border rounded-xl overflow-hidden bg-white shadow-sm">
+          <div class="h-40 bg-gray-200"></div>
+          <div class="p-4 space-y-2">
+            <div class="h-4 bg-gray-200 w-3/4"></div>
+            <div class="h-3 bg-gray-200 w-full"></div>
+            <div class="h-3 bg-gray-200 w-5/6"></div>
+            <div class="h-3 bg-gray-200 w-1/3"></div>
+          </div>
+        </div>
+      </template>
+    </div>
+
+    <!-- Tombol muat lagi -->
+    <div class="text-center mt-8">
+      <button id="btnMore" class="hidden px-5 py-2 bg-gray-900 text-white rounded-lg hover:bg-black">Muat Lebih Banyak</button>
+    </div>
+  </main>
+
+  <!-- Modal Detail Berita -->
+  <div id="modalDetail" class="hidden fixed inset-0 bg-black/60 z-50 items-center justify-center p-4">
+    <div class="bg-white w-full max-w-3xl rounded-xl shadow-lg overflow-hidden relative">
+      <button id="closeDetail" class="absolute top-3 right-3 text-gray-600 text-xl">✖</button>
+      <img id="detailImg" src="" alt="" class="w-full h-60 object-cover">
+      <div class="p-5">
+        <h3 id="detailJudul" class="text-2xl font-bold text-red-700 mb-2"></h3>
+        <p id="detailTanggal" class="text-sm text-gray-500 mb-4"></p>
+        <div id="detailIsi" class="prose max-w-none"></div>
+      </div>
     </div>
   </div>
 
+  <!-- Modal Login -->
+  <div id="loginModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+    <div class="bg-white w-full max-w-sm rounded-xl shadow-lg p-6 relative">
+      <button data-close="loginModal" class="absolute top-2 right-2 text-gray-600">✖</button>
+      <h2 class="text-lg font-bold text-red-700 mb-4">Login Admin</h2>
+      <form id="formLogin" class="space-y-3">
+        <input id="emailLogin" type="email" placeholder="Email" class="w-full border p-2 rounded" required>
+        <input id="passwordLogin" type="password" placeholder="Password" class="w-full border p-2 rounded" required>
+        <button type="submit" class="w-full bg-red-600 text-white py-2 rounded hover:bg-red-700">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Tambah Berita -->
+  <div id="tambahModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+    <div class="bg-white w-full max-w-md rounded-xl shadow-lg p-6 relative">
+      <button data-close="tambahModal" class="absolute top-2 right-2 text-gray-600">✖</button>
+      <h2 class="text-lg font-bold text-red-700 mb-4">Tambah Berita</h2>
+      <form id="formBerita" class="space-y-3">
+        <input id="judul" type="text" placeholder="Judul Berita" class="w-full border p-2 rounded" required>
+        <textarea id="isiBerita" placeholder="Isi berita..." class="w-full border p-2 h-32 rounded" required></textarea>
+        <input id="gambar" type="file" accept="image/*" class="w-full border p-2 rounded" required>
+        <button type="submit" class="w-full bg-red-600 text-white py-2 rounded hover:bg-red-700">Simpan</button>
+      </form>
+      <button id="btnLogout" class="mt-4 w-full bg-gray-600 text-white py-2 rounded hover:bg-gray-700">Logout</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-red-700 text-white text-center py-6">
+    <p>&copy; KKN UMUS 2025.</p>
+  </footer>
+
   <script>
-    // Firebase Config (sama dengan index.html)
     const firebaseConfig = {
       apiKey: "AIzaSyBdAQfJfj27Eww8hR0jM07aPd41nVYJCZs",
       authDomain: "desategongan-web.firebaseapp.com",
@@ -33,25 +147,200 @@
     };
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
+    const auth = firebase.auth();
+    const storage = firebase.storage();
 
-    const containerBerita = document.getElementById("containerBerita");
+    const grid = document.getElementById('gridBerita');
+    const kosong = document.getElementById('kosong');
+    const btnMore = document.getElementById('btnMore');
+    const q = document.getElementById('q');
+    const filterBulan = document.getElementById('filterBulan');
+    const filterTahun = document.getElementById('filterTahun');
+    const btnTambah = document.getElementById('btnTambah');
 
-    // Tampilkan semua berita secara real-time
-    db.collection("berita").orderBy("tanggal", "desc").onSnapshot((snapshot) => {
-      containerBerita.innerHTML = "";
-      snapshot.forEach((doc) => {
-        const data = doc.data();
-        containerBerita.innerHTML += `
-          <div class="border p-4 mb-4 rounded shadow bg-white">
-            <h3 class="text-red-700 font-bold text-lg">${data.judul}</h3>
-            <img src="${data.gambar}" alt="${data.judul}" class="w-full mt-2 rounded">
-            <p class="mt-2">${data.isi}</p>
-            <small class="text-gray-500">${new Date(data.tanggal.seconds * 1000).toLocaleDateString()}</small>
+    const loginModal = document.getElementById('loginModal');
+    const tambahModal = document.getElementById('tambahModal');
+    const modalDetail = document.getElementById('modalDetail');
+    const closeDetail = document.getElementById('closeDetail');
+    const detailImg = document.getElementById('detailImg');
+    const detailJudul = document.getElementById('detailJudul');
+    const detailTanggal = document.getElementById('detailTanggal');
+    const detailIsi = document.getElementById('detailIsi');
+
+    let lastDoc = null;
+    let cacheData = [];
+
+    function fmtTanggal(d){
+      try{
+        const t = d?.seconds ? new Date(d.seconds * 1000) : (d instanceof Date ? d : new Date(d));
+        return t.toLocaleDateString('id-ID', { day:'2-digit', month:'long', year:'numeric' });
+      }catch(e){ return ''; }
+    }
+
+    function cardBerita(id, data){
+      const ringkas = (data.isi || '').replace(/\\n/g,' ').slice(0,140) + ( (data.isi||'').length>140 ? '…' : '');
+      return \`
+      <article class="border rounded-xl overflow-hidden bg-white shadow hover:shadow-lg transition">
+        <button data-id="\${id}" class="w-full text-left">
+          <img src="\${data.gambar}" alt="\${data.judul}" class="w-full h-44 object-cover">
+          <div class="p-4">
+            <h3 class="font-bold text-gray-800 mb-1">\${data.judul}</h3>
+            <p class="text-gray-600 text-sm line-clamp-3">\${ringkas}</p>
+            <div class="flex items-center justify-between mt-3 text-xs text-gray-500">
+              <span>👤 Admin</span>
+              <span>\${fmtTanggal(data.tanggal)}</span>
+            </div>
           </div>
-        `;
-      });
-    });
-  </script>
+        </button>
+      </article>\`;
+    }
 
+    function showSkeleton(n=6){
+      grid.innerHTML = '';
+      const tpl = document.getElementById('skeletonCard');
+      for(let i=0;i<n;i++){
+        grid.appendChild(tpl.content.cloneNode(true));
+      }
+    }
+
+    function openModal(el){ el.classList.remove('hidden'); el.classList.add('flex'); }
+    function closeModal(el){ el.classList.add('hidden'); el.classList.remove('flex'); }
+    document.querySelectorAll('[data-close]').forEach(btn=>{
+      btn.addEventListener('click', e => closeModal(document.getElementById(e.target.getAttribute('data-close'))));
+    });
+    closeDetail.addEventListener('click', ()=> closeModal(modalDetail));
+    modalDetail.addEventListener('click', (e)=>{ if(e.target===modalDetail) closeModal(modalDetail); });
+
+    function renderFromCache(){
+      const term = q.value.trim().toLowerCase();
+      const b = filterBulan.value;
+      const y = filterTahun.value;
+      const filtered = cacheData.filter(x=>{
+        const t = x.data.tanggal?.seconds ? new Date(x.data.tanggal.seconds*1000) : new Date();
+        const cocokBulan = !b || (t.getMonth()+1).toString().padStart(2,'0')===b;
+        const cocokTahun = !y || t.getFullYear().toString()===y;
+        const cocokCari = !term || (x.data.judul||'').toLowerCase().includes(term) || (x.data.isi||'').toLowerCase().includes(term);
+        return cocokBulan && cocokTahun && cocokCari;
+      });
+
+      grid.innerHTML = filtered.map(x=>cardBerita(x.id, x.data)).join('');
+      kosong.classList.toggle('hidden', filtered.length>0);
+
+      grid.querySelectorAll('button[data-id]').forEach(btn=>{
+        btn.addEventListener('click', () => {
+          const item = cacheData.find(v=>v.id===btn.getAttribute('data-id'));
+          if(!item) return;
+          detailImg.src = item.data.gambar;
+          detailJudul.textContent = item.data.judul;
+          detailTanggal.textContent = fmtTanggal(item.data.tanggal);
+          detailIsi.innerText = item.data.isi || '';
+          openModal(modalDetail);
+        });
+      });
+    }
+
+    async function loadInitial(){
+      showSkeleton();
+      const q = db.collection('berita').orderBy('tanggal','desc').limit(9);
+      const snap = await q.get();
+      cacheData = snap.docs.map(d=>({id:d.id, data:d.data()}));
+      lastDoc = snap.docs[snap.docs.length-1] || null;
+      renderFromCache();
+      btnMore.classList.toggle('hidden', !lastDoc);
+      setFilterOptions();
+    }
+
+    async function loadMore(){
+      if(!lastDoc) return;
+      const qx = db.collection('berita').orderBy('tanggal','desc').startAfter(lastDoc).limit(9);
+      const snap = await qx.get();
+      const newItems = snap.docs.map(d=>({id:d.id, data:d.data()}));
+      cacheData = cacheData.concat(newItems);
+      lastDoc = snap.docs[snap.docs.length-1] || null;
+      renderFromCache();
+      btnMore.classList.toggle('hidden', !lastDoc);
+      setFilterOptions();
+    }
+
+    function setFilterOptions(){
+      const months = new Set();
+      const years = new Set();
+      cacheData.forEach(x=>{
+        const t = x.data.tanggal?.seconds ? new Date(x.data.tanggal.seconds*1000) : new Date();
+        months.add((t.getMonth()+1).toString().padStart(2,'0'));
+        years.add(t.getFullYear().toString());
+      });
+      const bulanMap = {
+        "01":"Januari","02":"Februari","03":"Maret","04":"April","05":"Mei","06":"Juni",
+        "07":"Juli","08":"Agustus","09":"September","10":"Oktober","11":"November","12":"Desember"
+      };
+      if(filterBulan.options.length===1){
+        Array.from(months).sort().forEach(m=>{
+          const opt = document.createElement('option'); opt.value=m; opt.textContent=bulanMap[m]; filterBulan.appendChild(opt);
+        });
+      }
+      if(filterTahun.options.length===1){
+        Array.from(years).sort((a,b)=>b.localeCompare(a)).forEach(y=>{
+          const opt = document.createElement('option'); opt.value=y; opt.textContent=y; filterTahun.appendChild(opt);
+        });
+      }
+    }
+
+    btnMore.addEventListener('click', loadMore);
+    q.addEventListener('input', renderFromCache);
+    filterBulan.addEventListener('change', renderFromCache);
+    filterTahun.addEventListener('change', renderFromCache);
+
+    btnTambah.addEventListener('click', ()=>{
+      if(auth.currentUser) openModal(tambahModal);
+      else openModal(loginModal);
+    });
+
+    document.getElementById('formLogin').addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const email = document.getElementById('emailLogin').value;
+      const password = document.getElementById('passwordLogin').value;
+      try{
+        await auth.signInWithEmailAndPassword(email, password);
+        alert('✅ Login berhasil');
+        closeModal(loginModal);
+        openModal(tambahModal);
+      }catch(err){
+        alert('❌ Email atau password salah');
+      }
+    });
+
+    document.getElementById('btnLogout').addEventListener('click', async ()=>{
+      await auth.signOut();
+      alert('Anda sudah logout.');
+      closeModal(tambahModal);
+    });
+
+    const formBerita = document.getElementById('formBerita');
+    formBerita.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const judul = document.getElementById('judul').value.trim();
+      const isi = document.getElementById('isiBerita').value.trim();
+      const file = document.getElementById('gambar').files[0];
+      if(!judul || !isi){ alert('❌ Judul dan isi wajib diisi!'); return; }
+      if(!file){ alert('❌ Pilih gambar!'); return; }
+
+      try{
+        const storageRef = storage.ref('berita/' + Date.now() + '-' + file.name);
+        await storageRef.put(file);
+        const urlGambar = await storageRef.getDownloadURL();
+        await db.collection('berita').add({ judul, isi, gambar: urlGambar, tanggal: new Date() });
+        alert('✅ Berita berhasil ditambahkan!');
+        formBerita.reset();
+        closeModal(tambahModal);
+        await loadInitial();
+      }catch(err){
+        console.error(err);
+        alert('❌ Gagal simpan berita: ' + err.message);
+      }
+    });
+
+    loadInitial();
+  </script>
 </body>
 </html>
