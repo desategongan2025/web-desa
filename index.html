@@ -485,7 +485,7 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
     </a>
   </div>
-<!-- Tombol + di samping "Lihat Semua Berita" -->
+<!-- Tombol Lihat Semua + Tombol + -->
 <div class="text-center mt-6 flex items-center justify-center gap-3">
   <a href="Berita.html" 
      class="inline-block px-5 py-2 bg-red-700 text-white rounded-lg text-sm hover:bg-red-800">
@@ -495,11 +495,17 @@ document.addEventListener('DOMContentLoaded', function () {
           class="w-10 h-10 bg-green-600 text-white rounded-full shadow hover:bg-green-700">
     +
   </button>
+  <button id="btnLogout" 
+          class="hidden px-3 py-1 bg-gray-700 text-white rounded-lg text-sm hover:bg-gray-800">
+    Logout
+  </button>
 </div>
 
 <!-- Modal Login -->
 <div id="loginModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-  <div class="bg-white p-6 rounded-lg w-full max-w-sm">
+  <div class="bg-white p-6 rounded-lg w-full max-w-sm relative">
+    <button onclick="document.getElementById('loginModal').classList.add('hidden')" 
+            class="absolute top-2 right-2 text-gray-500 hover:text-black">✖</button>
     <h2 class="text-lg font-bold mb-4">Login Admin</h2>
     <form id="formLogin" class="space-y-3">
       <input type="email" id="emailLogin" placeholder="Email" 
@@ -516,14 +522,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <!-- Modal Tambah Berita -->
 <div id="tambahBeritaModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-  <div class="bg-white p-6 rounded-lg w-full max-w-md">
+  <div class="bg-white p-6 rounded-lg w-full max-w-md relative">
+    <button onclick="document.getElementById('tambahBeritaModal').classList.add('hidden')" 
+            class="absolute top-2 right-2 text-gray-500 hover:text-black">✖</button>
     <h2 class="text-lg font-bold mb-4">Tambah Berita</h2>
     <form id="formBerita" class="space-y-3">
       <input type="text" id="judul" placeholder="Judul Berita" 
              class="w-full border p-2 rounded" required>
       <textarea id="isiBerita" placeholder="Isi berita..." 
                 class="w-full border p-2 rounded" required></textarea>
-      <input type="text" id="gambar" placeholder="URL Gambar" 
+      <input type="file" id="gambar" accept="image/*" 
              class="w-full border p-2 rounded">
       <button type="submit" 
               class="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700">
@@ -537,15 +545,15 @@ document.addEventListener('DOMContentLoaded', function () {
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  // Konfigurasi Firebase
   const firebaseConfig = {
     apiKey: "AIzaSyBdAQfJfj27Eww8hR0jM07aPd41nVYJCZs",
     authDomain: "desategongan-web.firebaseapp.com",
     projectId: "desategongan-web",
-    storageBucket: "desategongan-web.firebasestorage.app",
+    storageBucket: "desategongan-web.appspot.com",
     messagingSenderId: "359164423381",
     appId: "1:359164423381:web:fa937b6d3a1616665d065c"
   };
@@ -553,8 +561,10 @@ document.addEventListener("DOMContentLoaded", function() {
   firebase.initializeApp(firebaseConfig);
   const db = firebase.firestore();
   const auth = firebase.auth();
+  const storage = firebase.storage();
 
   const btnTambahBerita = document.getElementById("btnTambahBerita");
+  const btnLogout = document.getElementById("btnLogout");
   const loginModal = document.getElementById("loginModal");
   const tambahBeritaModal = document.getElementById("tambahBeritaModal");
 
@@ -583,10 +593,18 @@ document.addEventListener("DOMContentLoaded", function() {
       alert("✅ Login berhasil!");
       this.reset();
       loginModal.classList.add("hidden");
+      btnLogout.classList.remove("hidden");
       toggleTambahBerita();
     } catch (error) {
       alert("❌ Email atau password salah!");
     }
+  });
+
+  // Logout
+  btnLogout.addEventListener("click", async () => {
+    await auth.signOut();
+    alert("✅ Logout berhasil!");
+    btnLogout.classList.add("hidden");
   });
 
   // Simpan berita
@@ -594,13 +612,20 @@ document.addEventListener("DOMContentLoaded", function() {
     e.preventDefault();
     const judul = document.getElementById("judul").value;
     const isi = document.getElementById("isiBerita").value;
-    const gambar = document.getElementById("gambar").value;
+    const file = document.getElementById("gambar").files[0];
 
     try {
+      let urlGambar = "";
+      if (file) {
+        const storageRef = storage.ref("berita/" + file.name);
+        await storageRef.put(file);
+        urlGambar = await storageRef.getDownloadURL();
+      }
+
       await db.collection("berita").add({
         judul,
         isi,
-        gambar,
+        gambar: urlGambar,
         tanggal: new Date()
       });
       alert("✅ Berita berhasil ditambahkan!");
@@ -612,6 +637,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 </script>
+
 
 </section>
 <!-- ===== Galeri Desa ===== -->
