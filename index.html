@@ -484,70 +484,158 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
     </a>
   </div>
-<!-- ====== Admin Tambah Berita ====== -->
-<section class="max-w-3xl mx-auto px-4 py-12">
-  <h2 class="text-2xl font-bold text-red-700 mb-4">Tambah Berita Baru</h2>
+<!-- Tombol Lihat Semua -->
+<div class="text-center mt-6">
+  <a href="Berita.html" 
+     class="inline-block px-5 py-2 bg-red-700 text-white rounded-lg text-sm hover:bg-red-800">
+    Lihat Semua Berita
+  </a>
+</div>
 
-  <!-- Tombol + -->
-  <button onclick="document.getElementById('form-berita').classList.toggle('hidden')"
-    class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg mb-4">
-    + Tambah Berita
+<!-- Tombol Tambah Berita (+) -->
+<div class="text-center mt-4">
+  <button id="btnTambahBerita"
+          class="w-12 h-12 bg-red-600 text-white text-2xl rounded-full shadow-lg hover:bg-red-700">
+    +
   </button>
+</div>
 
-  <!-- Form Tambah Berita -->
-  <form id="form-berita" class="hidden bg-white shadow-md rounded-lg p-6 space-y-4">
-    <input id="judul" type="text" placeholder="Judul Berita" class="w-full border p-2 rounded" required>
-    <textarea id="isi" placeholder="Isi Berita" rows="5" class="w-full border p-2 rounded" required></textarea>
-    <input id="gambar" type="text" placeholder="URL Gambar" class="w-full border p-2 rounded" required>
+<!-- Modal Login -->
+<div id="loginModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+  <div class="bg-white w-full max-w-sm rounded-xl shadow-lg p-6 relative">
+    <button onclick="loginModal.classList.add('hidden')" class="absolute top-2 right-2 text-gray-600">✖</button>
+    <h2 class="text-lg font-bold text-red-700 mb-4">Login Admin</h2>
+    <form id="formLogin" class="space-y-3">
+      <input id="emailLogin" type="email" placeholder="Email"
+             class="w-full border p-2 rounded" required>
+      <input id="passwordLogin" type="password" placeholder="Password"
+             class="w-full border p-2 rounded" required>
+      <button type="submit" 
+              class="w-full bg-red-600 text-white py-2 rounded hover:bg-red-700">Login</button>
+    </form>
+  </div>
+</div>
 
-    <button type="submit" 
-      class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg">
-      Simpan
-    </button>
-  </form>
-</section>
+<!-- Modal Tambah Berita -->
+<div id="tambahBeritaModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+  <div class="bg-white w-full max-w-md rounded-xl shadow-lg p-6 relative">
+    <button onclick="toggleTambahBerita()" class="absolute top-2 right-2 text-gray-600">✖</button>
+    <h2 class="text-lg font-bold text-red-700 mb-4">Tambah Berita</h2>
+    <form id="formBerita" class="space-y-3">
+      <input id="judul" type="text" placeholder="Judul Berita" class="w-full border p-2 rounded" required>
+      <textarea id="isiBerita" placeholder="Isi berita..." class="w-full border p-2 rounded" required></textarea>
+      <input id="gambar" type="file" accept="image/*" class="w-full border p-2 rounded" required>
+      <button type="submit" 
+              class="w-full bg-red-600 text-white py-2 rounded hover:bg-red-700">Simpan</button>
+    </form>
+    <button id="btnLogout" 
+            class="mt-4 w-full bg-gray-600 text-white py-2 rounded hover:bg-gray-700">Logout</button>
+  </div>
+</div>
 
-<!-- Firebase Script -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-  import { getFirestore, collection, addDoc, serverTimestamp } 
-    from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-storage-compat.js"></script>
 
+<script>
+  // Firebase Config
   const firebaseConfig = {
-    apiKey: "API_KEY_SAMPEAN",
-    authDomain: "AUTH_DOMAIN_SAMPEAN",
-    projectId: "PROJECT_ID_SAMPEAN",
-    storageBucket: "STORAGE_BUCKET_SAMPEAN",
-    messagingSenderId: "SENDER_ID_SAMPEAN",
-    appId: "APP_ID_SAMPEAN"
+    apiKey: "AIzaSyBdAQfJfj27Eww8hR0jM07aPd41nVYJCZs",
+    authDomain: "desategongan-web.firebaseapp.com",
+    projectId: "desategongan-web",
+    storageBucket: "desategongan-web.appspot.com",
+    messagingSenderId: "359164423381",
+    appId: "1:359164423381:web:fa937b6d3a1616665d065c"
   };
 
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+  const auth = firebase.auth();
+  const storage = firebase.storage();
 
-  document.getElementById("form-berita").addEventListener("submit", async (e) => {
-    e.preventDefault();
+  const btnTambahBerita = document.getElementById("btnTambahBerita");
+  const loginModal = document.getElementById("loginModal");
 
-    const judul = document.getElementById("judul").value;
-    const isi = document.getElementById("isi").value;
-    const gambar = document.getElementById("gambar").value;
+  function toggleTambahBerita() {
+    document.getElementById("tambahBeritaModal").classList.toggle("hidden");
+  }
 
-    try {
-      await addDoc(collection(db, "berita"), {
-        judul,
-        isi,
-        gambar,
-        tanggal: serverTimestamp()
-      });
-      alert("✅ Berita berhasil ditambahkan!");
-      document.getElementById("form-berita").reset();
-      document.getElementById("form-berita").classList.add("hidden");
-    } catch (error) {
-      console.error("Error menambah berita: ", error);
-      alert("❌ Gagal menyimpan berita.");
+  // Klik tombol +
+  btnTambahBerita.addEventListener("click", () => {
+    const user = auth.currentUser;
+    if (user) {
+      toggleTambahBerita();
+    } else {
+      loginModal.classList.remove("hidden");
     }
   });
+
+  // Login Admin
+  document.getElementById("formLogin").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = document.getElementById("emailLogin").value;
+    const password = document.getElementById("passwordLogin").value;
+
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      alert("✅ Login berhasil!");
+      loginModal.classList.add("hidden");
+      toggleTambahBerita();
+    } catch (err) {
+      alert("❌ Email atau password salah!");
+    }
+  });
+
+  // Logout
+  document.getElementById("btnLogout").addEventListener("click", async () => {
+    await auth.signOut();
+    alert("Anda sudah logout.");
+    toggleTambahBerita();
+  });
+
+  // Simpan Berita + Upload Gambar (PERBAIKAN)
+  document.addEventListener("DOMContentLoaded", () => {
+    const formBerita = document.getElementById("formBerita");
+
+    formBerita.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      alert("👉 Tombol Simpan berhasil diklik");
+
+      const judul = document.getElementById("judul").value;
+      const isi = document.getElementById("isiBerita").value;
+      const file = document.getElementById("gambar").files[0];
+
+      if (!file) {
+        alert("❌ Harap pilih gambar terlebih dahulu!");
+        return;
+      }
+
+      try {
+        // Upload ke Storage
+        const storageRef = storage.ref("berita/" + Date.now() + "-" + file.name);
+        await storageRef.put(file);
+        const urlGambar = await storageRef.getDownloadURL();
+
+        // Simpan ke Firestore
+        await db.collection("berita").add({
+          judul,
+          isi,
+          gambar: urlGambar,
+          tanggal: new Date()
+        });
+
+        alert("✅ Berita berhasil ditambahkan!");
+        formBerita.reset();
+        toggleTambahBerita();
+      } catch (err) {
+        alert("❌ Gagal: " + err.message);
+      }
+    });
+  });
 </script>
+
 
 
 </section>
