@@ -491,65 +491,85 @@ document.addEventListener('DOMContentLoaded', function () {
   <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-3 scroll-smooth 
               sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:overflow-visible">
     
-    <!-- Berita 1 -->
-    <a href="berita/berita1.html" 
-       class="min-w-[65%] sm:min-w-0 bg-white rounded-lg shadow hover:shadow-lg 
-              transition overflow-hidden relative block snap-start">
-      <img src="berita1.jpg" alt="Musyawarah Desa" 
-           class="w-full h-32 md:h-40 object-cover">
-      <div class="p-3 md:p-4">
-        <h3 class="text-sm md:text-base font-bold text-gray-800 mb-1">Musyawarah Pembangunan Desa</h3>
-        <p class="text-gray-600 text-xs md:text-sm">Pembahasan rencana pembangunan jalan lingkungan dan drainase RT 02/04.</p>
-        <div class="flex items-center justify-between mt-2 text-[11px] md:text-xs text-gray-500">
-          <span>👤 Admin</span>
-          <span>👁 349</span>
-        </div>
+   <div class="flex gap-4 overflow-x-auto snap-x scrollbar-hide p-4">
+  
+  <!-- Berita 1 -->
+  <a href="berita/berita1.html" 
+     class="min-w-[65%] sm:min-w-0 bg-white rounded-lg shadow hover:shadow-lg 
+            transition overflow-hidden relative block snap-start hover-zoom">
+    <img src="berita1.jpg" alt="Gebyar Kemerdekaan Pentas Seni" 
+         class="w-full h-32 md:h-40 object-cover" loading="lazy">
+    <div class="p-3 md:p-4">
+      <h3 class="text-sm md:text-base font-bold text-gray-800 mb-1">
+        Gebyar Kemerdekaan: Pentas Seni & Sintren
+      </h3>
+      <p class="text-gray-600 text-xs md:text-sm">
+        Desa Tegongan menggelar Gebyar Kemerdekaan pada 22 Agustus 2025 yang dimeriahkan
+        dengan pentas seni dan pertunjukan sintren, diikuti oleh seluruh warga desa.
+      </p>
+      <div class="flex items-center justify-between mt-2 text-[11px] md:text-xs text-gray-500">
+        <span>👤 Admin</span>
+        <span>👁 349</span>
       </div>
-      <div class="absolute bottom-3 right-3 bg-red-600 text-white px-2 py-0.5 
-                  rounded-lg text-[10px] md:text-xs font-bold">
-        10 Jul 2025
-      </div>
-    </a>
+    </div>
+    <div class="absolute bottom-3 right-3 bg-red-600 text-white px-2 py-0.5 
+                rounded-lg text-[10px] md:text-xs font-bold">
+      22 Agu 2025
+    </div>
+  </a>
 
-    <!-- Berita 2 -->
-    <a href="berita/berita2.html" 
-       class="min-w-[65%] sm:min-w-0 bg-white rounded-lg shadow hover:shadow-lg 
-              transition overflow-hidden relative block snap-start">
-      <img src="berita2.jpg" alt="Penyuluhan" 
-           class="w-full h-32 md:h-40 object-cover">
-      <div class="p-3 md:p-4">
-        <h3 class="text-sm md:text-base font-bold text-gray-800 mb-1">Penyuluhan Kesehatan Ibu & Anak</h3>
-        <p class="text-gray-600 text-xs md:text-sm">Kegiatan posyandu dan penyuluhan gizi balita di balai desa.</p>
-        <div class="flex items-center justify-between mt-2 text-[11px] md:text-xs text-gray-500">
-          <span>👤 Admin</span>
-          <span>👁 1.024</span>
-        </div>
+  <!-- Berita 2 -->
+  <a href="berita/berita2.html" 
+     class="min-w-[65%] sm:min-w-0 bg-white rounded-lg shadow hover:shadow-lg 
+            transition overflow-hidden relative block snap-start hover-zoom">
+    <img src="berita2.jpg" alt="Karnaval Desa Tegongan" 
+         class="w-full h-32 md:h-40 object-cover" loading="lazy">
+    <div class="p-3 md:p-4">
+      <h3 class="text-sm md:text-base font-bold text-gray-800 mb-1">
+        Karnaval Desa Tegongan Meriahkan HUT RI ke-80
+      </h3>
+      <p class="text-gray-600 text-xs md:text-sm">
+        Warga Desa Tegongan mengikuti karnaval pada 17 Agustus 2025 dengan beragam kostum
+        dan hiasan kreatif untuk memeriahkan peringatan HUT RI ke-80.
+      </p>
+      <div class="flex items-center justify-between mt-2 text-[11px] md:text-xs text-gray-500">
+        <span>👤 Admin</span>
+        <span>👁 1.218</span>
       </div>
-      <div class="absolute bottom-3 right-3 bg-red-600 text-white px-2 py-0.5 
-                  rounded-lg text-[10px] md:text-xs font-bold">
-        14 Jul 2025
-      </div>
-    </a>
+    </div>
+    <div class="absolute bottom-3 right-3 bg-red-600 text-white px-2 py-0.5 
+                rounded-lg text-[10px] md:text-xs font-bold">
+      17 Agu 2025
+    </div>
+  </a>
 
-    <!-- Berita 3 -->
-    <a href="berita/berita3.html" 
-       class="min-w-[65%] sm:min-w-0 bg-white rounded-lg shadow hover:shadow-lg 
-              transition overflow-hidden relative block snap-start">
-      <img src="berita3.jpg" alt="Kerja Bakti" 
-           class="w-full h-32 md:h-40 object-cover">
-      <div class="p-3 md:p-4">
-        <h3 class="text-sm md:text-base font-bold text-gray-800 mb-1">Kerja Bakti Bersama</h3>
-        <p class="text-gray-600 text-xs md:text-sm">Pembersihan saluran air & lingkungan sekitar masjid.</p>
-        <div class="flex items-center justify-between mt-2 text-[11px] md:text-xs text-gray-500">
-          <span>👤 Admin</span>
-          <span>👁 812</span>
-        </div>
+  <!-- Berita 3 -->
+  <a href="berita/berita3.html" 
+     class="min-w-[65%] sm:min-w-0 bg-white rounded-lg shadow hover:shadow-lg 
+            transition overflow-hidden relative block snap-start hover-zoom">
+    <img src="berita3.jpg" alt="Lomba Gerak Jalan" 
+         class="w-full h-32 md:h-40 object-cover" loading="lazy">
+    <div class="p-3 md:p-4">
+      <h3 class="text-sm md:text-base font-bold text-gray-800 mb-1">
+        Lomba Gerak Jalan HUT RI ke-80
+      </h3>
+      <p class="text-gray-600 text-xs md:text-sm">
+        Desa Tegongan menggelar lomba gerak jalan pada 10 Agustus 2025 dalam rangka
+        memeriahkan Hari Ulang Tahun Republik Indonesia yang ke-80.
+      </p>
+      <div class="flex items-center justify-between mt-2 text-[11px] md:text-xs text-gray-500">
+        <span>👤 Admin</span>
+        <span>👁 512</span>
       </div>
-      <div class="absolute bottom-3 right-3 bg-red-600 text-white px-2 py-0.5 
-                  rounded-lg text-[10px] md:text-xs font-bold">
-        20 Jul 2025
-      </div>
-    </a>
+    </div>
+    <div class="absolute bottom-3 right-3 bg-red-600 text-white px-2 py-0.5 
+                rounded-lg text-[10px] md:text-xs font-bold">
+      10 Agu 2025
+    </div>
+  </a>
+
+</div>
+
   </div>
 <!-- Tombol Lihat Semua -->
 <div class="text-center mt-6">
