@@ -484,28 +484,33 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
     </a>
   </div>
-<!-- ====== Berita Desa ====== -->
-<section id="berita-desa" class="max-w-7xl mx-auto px-4 py-12">
-  <h2 class="text-3xl font-extrabold text-red-700 mb-6 text-center">Berita Desa Tegongan</h2>
+<!-- ====== Admin Tambah Berita ====== -->
+<section class="max-w-3xl mx-auto px-4 py-12">
+  <h2 class="text-2xl font-bold text-red-700 mb-4">Tambah Berita Baru</h2>
 
-  <!-- Container Berita -->
-  <div id="berita-list" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    <!-- Berita otomatis dari Firebase -->
-  </div>
+  <!-- Tombol + -->
+  <button onclick="document.getElementById('form-berita').classList.toggle('hidden')"
+    class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg mb-4">
+    + Tambah Berita
+  </button>
 
-  <!-- Tombol ke Semua Berita -->
-  <div class="mt-6 text-center">
-    <a href="berita.html" class="bg-red-700 hover:bg-red-800 text-white px-4 py-2 rounded-lg">
-      Lihat Semua Berita
-    </a>
-  </div>
+  <!-- Form Tambah Berita -->
+  <form id="form-berita" class="hidden bg-white shadow-md rounded-lg p-6 space-y-4">
+    <input id="judul" type="text" placeholder="Judul Berita" class="w-full border p-2 rounded" required>
+    <textarea id="isi" placeholder="Isi Berita" rows="5" class="w-full border p-2 rounded" required></textarea>
+    <input id="gambar" type="text" placeholder="URL Gambar" class="w-full border p-2 rounded" required>
+
+    <button type="submit" 
+      class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg">
+      Simpan
+    </button>
+  </form>
 </section>
 
 <!-- Firebase Script -->
 <script type="module">
-  // Firebase Config (ganti sesuai project sampean)
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-  import { getFirestore, collection, query, orderBy, limit, getDocs } 
+  import { getFirestore, collection, addDoc, serverTimestamp } 
     from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
   const firebaseConfig = {
@@ -520,44 +525,30 @@ document.addEventListener('DOMContentLoaded', function () {
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
 
-  // Load berita ke homepage
-  async function loadBeritaHome() {
-    const q = query(collection(db, "berita"), orderBy("tanggal", "desc"), limit(3));
-    const querySnapshot = await getDocs(q);
-    const beritaList = document.getElementById("berita-list");
-    beritaList.innerHTML = "";
+  document.getElementById("form-berita").addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-    querySnapshot.forEach((doc) => {
-      const data = doc.data();
-      beritaList.innerHTML += `
-        <div class="bg-white rounded-xl shadow-md overflow-hidden">
-          <img src="${data.gambar}" class="w-full h-48 object-cover" alt="gambar berita">
-          <div class="p-4">
-            <h3 class="text-lg font-bold mb-2">${data.judul}</h3>
-            <p class="text-sm text-gray-600 mb-2">${formatTanggal(data.tanggal)}</p>
-            <p class="text-gray-700 text-sm">${data.isi.substring(0, 100)}...</p>
-          </div>
-        </div>
-      `;
-    });
-  }
+    const judul = document.getElementById("judul").value;
+    const isi = document.getElementById("isi").value;
+    const gambar = document.getElementById("gambar").value;
 
-  function formatTanggal(t) {
     try {
-      if (t && typeof t.seconds === "number") {
-        return new Date(t.seconds * 1000).toLocaleDateString("id-ID");
-      }
-      if (t instanceof Date) {
-        return t.toLocaleDateString("id-ID");
-      }
-      return "";
-    } catch {
-      return "";
+      await addDoc(collection(db, "berita"), {
+        judul,
+        isi,
+        gambar,
+        tanggal: serverTimestamp()
+      });
+      alert("✅ Berita berhasil ditambahkan!");
+      document.getElementById("form-berita").reset();
+      document.getElementById("form-berita").classList.add("hidden");
+    } catch (error) {
+      console.error("Error menambah berita: ", error);
+      alert("❌ Gagal menyimpan berita.");
     }
-  }
-
-  loadBeritaHome();
+  });
 </script>
+
 
 </section>
 <!-- ===== Galeri Desa ===== -->
