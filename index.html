@@ -534,6 +534,7 @@ document.addEventListener('DOMContentLoaded', function () {
   </div>
 </div>
 
+<!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
@@ -595,33 +596,44 @@ document.addEventListener('DOMContentLoaded', function () {
     toggleTambahBerita();
   });
 
-  // Simpan Berita + Upload Gambar
-  document.getElementById("formBerita").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const judul = document.getElementById("judul").value;
-    const isi = document.getElementById("isiBerita").value;
-    const file = document.getElementById("gambar").files[0];
+  // Simpan Berita + Upload Gambar (PERBAIKAN)
+  document.addEventListener("DOMContentLoaded", () => {
+    const formBerita = document.getElementById("formBerita");
 
-    try {
-      // Upload ke Storage
-      const storageRef = storage.ref("berita/" + Date.now() + "-" + file.name);
-      await storageRef.put(file);
-      const urlGambar = await storageRef.getDownloadURL();
+    formBerita.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      alert("👉 Tombol Simpan berhasil diklik");
 
-      // Simpan ke Firestore
-      await db.collection("berita").add({
-        judul,
-        isi,
-        gambar: urlGambar,
-        tanggal: new Date()
-      });
+      const judul = document.getElementById("judul").value;
+      const isi = document.getElementById("isiBerita").value;
+      const file = document.getElementById("gambar").files[0];
 
-      alert("✅ Berita berhasil ditambahkan!");
-      e.target.reset();
-      toggleTambahBerita();
-    } catch (err) {
-      alert("❌ Gagal: " + err.message);
-    }
+      if (!file) {
+        alert("❌ Harap pilih gambar terlebih dahulu!");
+        return;
+      }
+
+      try {
+        // Upload ke Storage
+        const storageRef = storage.ref("berita/" + Date.now() + "-" + file.name);
+        await storageRef.put(file);
+        const urlGambar = await storageRef.getDownloadURL();
+
+        // Simpan ke Firestore
+        await db.collection("berita").add({
+          judul,
+          isi,
+          gambar: urlGambar,
+          tanggal: new Date()
+        });
+
+        alert("✅ Berita berhasil ditambahkan!");
+        formBerita.reset();
+        toggleTambahBerita();
+      } catch (err) {
+        alert("❌ Gagal: " + err.message);
+      }
+    });
   });
 </script>
 
