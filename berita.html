@@ -1,34 +1,70 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Berita Desa Tegongan</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Berita - Desa Tegongan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <header>
-        <h1><a href="index.html">Portal Berita Desa Tegongan</a></h1>
-    </header>
-    <main id="berita-detail">
-        <p>Memuat berita...</p>
-    </main>
-    <footer>
-        <p>© 2025 Desa Tegongan</p>
-    </footer>
-    <script>
-    async function loadDetail() {
-        const params = new URLSearchParams(window.location.search);
-        const fileName = params.get("file");
-        if (!fileName) return;
-        const res = await fetch(`posts/${fileName}`);
-        const text = await res.text();
-        const lines = text.split("\n");
-        let title = lines[0].replace("# ", "");
-        let content = lines.slice(1).join("\n");
-        document.getElementById("berita-detail").innerHTML = `<h2>${title}</h2><p>${content}</p>`;
-    }
-    loadDetail();
-    </script>
+<body class="bg-gray-100">
+
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <h1 class="text-3xl font-bold text-red-700 mb-6 text-center">📢 Semua Berita</h1>
+
+    <div id="listBerita" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+    <div id="loadingBerita" class="text-center text-gray-500">⏳ Memuat berita...</div>
+    <div id="emptyState" class="hidden text-center text-gray-500">Belum ada berita</div>
+  </section>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+
+  <script>
+    // Firebase Config
+    const firebaseConfig = {
+      apiKey: "AIzaSyBdAQfJfj27Eww8hR0jM07aPd41nVYJCZs",
+      authDomain: "desategongan-web.firebaseapp.com",
+      projectId: "desategongan-web",
+      storageBucket: "desategongan-web.appspot.com",
+      messagingSenderId: "359164423381",
+      appId: "1:359164423381:web:fa937b6d3a1616665d065c"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    const listBerita = document.getElementById("listBerita");
+    const loadingBerita = document.getElementById("loadingBerita");
+    const emptyState = document.getElementById("emptyState");
+
+    // Ambil semua berita realtime
+    db.collection("berita")
+      .orderBy("tanggal", "desc")
+      .onSnapshot(snapshot => {
+        loadingBerita.classList.add("hidden");
+        listBerita.innerHTML = "";
+
+        if (snapshot.empty) {
+          emptyState.classList.remove("hidden");
+          return;
+        }
+        emptyState.classList.add("hidden");
+
+        snapshot.forEach(doc => {
+          const data = doc.data();
+          const tanggal = data.tanggal?.toDate().toLocaleString("id-ID") || "-";
+
+          const card = document.createElement("article");
+          card.className = "border p-4 rounded-lg shadow bg-white";
+          card.innerHTML = `
+            <h3 class="font-bold text-lg text-red-700">${data.judul}</h3>
+            ${data.gambar ? `<img src="${data.gambar}" class="w-full my-2 rounded">` : ""}
+            <p class="text-gray-700 whitespace-pre-line">${data.isi}</p>
+            <div class="mt-2 text-sm text-gray-500">🗓 ${tanggal}</div>
+          `;
+          listBerita.appendChild(card);
+        });
+      });
+  </script>
 </body>
 </html>
