@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
   <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,13 +31,14 @@
     </div>
   </div>
 </div>
-  <!-- Tombol buka form pengaduan (ikon bulat kecil) -->
+ <!-- Tombol buka form pengaduan (ikon baru) -->
 <div class="fixed bottom-5 right-5 z-50">
   <button onclick="togglePengaduan()" 
           class="w-14 h-14 bg-red-600 text-white text-2xl rounded-full shadow-lg flex items-center justify-center hover:bg-red-700">
-    📝
+    📣
   </button>
 </div>
+
 
 <!-- Modal Pengaduan -->
 <div id="pengaduanModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-40">
@@ -155,10 +155,20 @@ goToSlide(0);
 }
 </style>
 
-<!-- Marquee -->
-<marquee behavior="scroll" direction="left" scrollamount="6" class="bg-white text-red-800 font-bold py-2 px-4">
-  🌾 SELAMAT DATANG DI WEBSITE PEMERINTAH DESA TEGONGAN - KECAMATAN TANJUNG - KABUPATEN BREBES 🌾
-</marquee>
+<div class="overflow-hidden bg-white">
+  <div class="animate-marquee whitespace-nowrap text-red-800 font-bold py-2 px-4">
+    🌾 SELAMAT DATANG DI WEBSITE PEMERINTAH DESA TEGONGAN - KECAMATAN TANJUNG - KABUPATEN BREBES 🌾
+  </div>
+</div>
+
+<style>
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+.animate-marquee { animation: marquee 15s linear infinite; }
+</style>
+
 <!-- Menu Navigasi Responsive -->
 <nav class="w-full bg-red-800 py-3">
   <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
@@ -191,7 +201,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
-</body>
 </html>
 <section class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center bg-white">
   <!-- Keterangan Teks -->
@@ -616,13 +625,14 @@ document.addEventListener('DOMContentLoaded', function () {
     </a>
     <!-- TikTok -->
 <a href="https://www.tiktok.com/@desa.tegongan?_t=ZS-8z5ahSUN0dj&_r=1" target="_blank" 
-   class="fixed bottom-5 right-5 w-14 h-14 flex items-center justify-center bg-black text-white rounded-full shadow-lg hover:scale-110 transition">
+   class="fixed bottom-5 right-20 w-14 h-14 flex items-center justify-center bg-black text-white rounded-full shadow-lg hover:scale-110 transition">
   <i class="fab fa-tiktok text-2xl"></i>
 </a>
-    <!-- X -->
+
+<!-- X -->
 <a href="https://x.com/DesaTegongan?t=GVnck1uqsOHcwMydi46spg&s=09" target="_blank" 
-   class="fixed bottom-5 right-5 w-14 h-14 flex items-center justify-center bg-black text-white rounded-full shadow-lg hover:scale-110 transition">
-  <i class="fa-brands fa-x-twitter text-2xl"></i>
+   class="fixed bottom-5 right-36 w-14 h-14 flex items-center justify-center bg-black text-white rounded-full shadow-lg hover:scale-110 transition">
+  <i class="fab fa-x-twitter text-2xl"></i>
 </a>
   </div>
 </section>
