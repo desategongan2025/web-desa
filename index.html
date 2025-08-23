@@ -15,7 +15,11 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">   
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script
   </head>
 <body class="font-sans bg-white text-gray-800">
 <!-- Header -->
@@ -484,8 +488,34 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
     </a>
   </div>
-<!-- ===== FORM TAMBAH BERITA (Admin) ===== -->
-  <section class="max-w-4xl mx-auto px-4 py-8">
+<!-- ===== Tombol Tambah Berita ===== -->
+  <div class="max-w-6xl mx-auto text-center mt-6">
+    <button id="btnTambah" 
+      class="px-5 py-2 bg-red-700 text-white rounded-lg hover:bg-red-800">
+      ➕ Tambah Berita
+    </button>
+  </div>
+
+  <!-- ===== Modal Login ===== -->
+  <div id="modalLogin" class="fixed inset-0 bg-black/50 flex items-center justify-center hidden">
+    <div class="bg-white p-6 rounded-lg w-80 shadow-lg relative">
+      <h2 class="text-xl font-bold text-red-700 mb-4">🔐 Login Admin</h2>
+      <form id="formLogin" class="space-y-3">
+        <input type="text" id="username" placeholder="Username" 
+          class="w-full border p-2 rounded" required>
+        <input type="password" id="password" placeholder="Password" 
+          class="w-full border p-2 rounded" required>
+        <button type="submit" 
+          class="w-full bg-red-700 text-white py-2 rounded hover:bg-red-800">
+          Login
+        </button>
+      </form>
+      <button id="closeLogin" class="absolute top-2 right-2 text-gray-500">✖</button>
+    </div>
+  </div>
+
+  <!-- ===== Form Tambah Berita (disembunyikan dulu) ===== -->
+  <section id="formBeritaSection" class="max-w-4xl mx-auto px-4 py-8 hidden">
     <h2 class="text-2xl font-bold text-red-700 mb-4">➕ Tambah Berita</h2>
     <form id="formBerita" class="space-y-4 bg-white p-4 rounded-lg shadow">
       <input type="text" id="judul" placeholder="Judul Berita" class="w-full border p-2 rounded" required>
@@ -497,42 +527,64 @@ document.addEventListener('DOMContentLoaded', function () {
     </form>
   </section>
 
-  <!-- ===== BERITA TERBARU (3 Berita di Index) ===== -->
-  <section class="max-w-6xl mx-auto px-4 py-12">
-    <h2 class="text-2xl font-bold text-red-700 mb-6 text-center">📰 Berita Terbaru</h2>
-    <div id="listBeritaIndex" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
-
-    <!-- Tombol Lihat Semua -->
-    <div class="text-center mt-6">
-      <a href="Berita.html" 
-         class="inline-block px-5 py-2 bg-red-700 text-white rounded-lg text-sm hover:bg-red-800">
-        Lihat Semua Berita
-      </a>
-    </div>
+  <!-- ===== Daftar Berita ===== -->
+  <section class="max-w-6xl mx-auto px-4 py-8">
+    <h2 class="text-2xl font-bold text-red-700 mb-4">📰 Daftar Berita</h2>
+    <div id="loadingBerita" class="text-center text-gray-500">⏳ Memuat berita...</div>
+    <div id="emptyState" class="hidden text-center text-gray-400">Belum ada berita.</div>
+    <div id="listBerita" class="space-y-4"></div>
   </section>
 
-  <!-- Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-storage-compat.js"></script>
-
+  <!-- ===== Script Login + Firebase + CRUD Berita ===== -->
   <script>
-    // ===== Konfigurasi Firebase =====
+    // 🔥 Firebase Config (ganti dengan punyamu)
     const firebaseConfig = {
-      apiKey: "AIzaSyBdAQfJfj27Eww8hR0jM07aPd41nVYJCZs",
-      authDomain: "desategongan-web.firebaseapp.com",
-      projectId: "desategongan-web",
-      storageBucket: "desategongan-web.appspot.com",
-      messagingSenderId: "359164423381",
-      appId: "1:359164423381:web:fa937b6d3a1616665d065c"
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_AUTH_DOMAIN",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_STORAGE_BUCKET",
+      messagingSenderId: "YOUR_MSG_ID",
+      appId: "YOUR_APP_ID"
     };
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
     const storage = firebase.storage();
 
+    // ==== Elemen ====
+    const btnTambah = document.getElementById("btnTambah");
+    const modalLogin = document.getElementById("modalLogin");
+    const closeLogin = document.getElementById("closeLogin");
+    const formLogin = document.getElementById("formLogin");
+    const formBeritaSection = document.getElementById("formBeritaSection");
     const formBerita = document.getElementById("formBerita");
+    const listBerita = document.getElementById("listBerita");
+    const loadingBerita = document.getElementById("loadingBerita");
+    const emptyState = document.getElementById("emptyState");
 
-    // ===== Simpan Berita =====
+    // ==== Login ====
+    btnTambah.addEventListener("click", () => {
+      modalLogin.classList.remove("hidden");
+    });
+    closeLogin.addEventListener("click", () => {
+      modalLogin.classList.add("hidden");
+    });
+
+    formLogin.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      if (username === "admin" && password === "12345") {
+        alert("✅ Login berhasil!");
+        modalLogin.classList.add("hidden");
+        formBeritaSection.classList.remove("hidden");
+        btnTambah.classList.add("hidden");
+      } else {
+        alert("❌ Username / Password salah!");
+      }
+    });
+
+    // ==== Simpan Berita ====
     formBerita.addEventListener("submit", async (e) => {
       e.preventDefault();
       const judul = document.getElementById("judul").value.trim();
@@ -540,18 +592,21 @@ document.addEventListener('DOMContentLoaded', function () {
       const file = document.getElementById("gambar").files[0];
 
       if (!judul || !isi) {
-        alert("⚠️ Judul dan isi berita wajib diisi!");
+        alert("❌ Judul dan isi berita wajib diisi!");
+        return;
+      }
+      if (!file) {
+        alert("❌ Harap pilih gambar terlebih dahulu!");
         return;
       }
 
       try {
-        let urlGambar = "";
-        if (file) {
-          const storageRef = storage.ref("berita/" + Date.now() + "-" + file.name);
-          await storageRef.put(file);
-          urlGambar = await storageRef.getDownloadURL();
-        }
+        // upload gambar
+        const storageRef = storage.ref("berita/" + Date.now() + "-" + file.name);
+        await storageRef.put(file);
+        const urlGambar = await storageRef.getDownloadURL();
 
+        // simpan berita
         await db.collection("berita").add({
           judul,
           isi,
@@ -567,100 +622,35 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    // ===== Ambil 3 Berita Terbaru untuk Index =====
-    db.collection("berita")
-      .orderBy("tanggal", "desc")
-      .limit(3)
-      .onSnapshot(snapshot => {
-        const list = document.getElementById("listBeritaIndex");
-        list.innerHTML = "";
+    // ==== Realtime Daftar Berita ====
+    db.collection("berita").orderBy("tanggal", "desc").onSnapshot((snapshot) => {
+      loadingBerita.classList.add("hidden");
+      listBerita.innerHTML = "";
 
-        snapshot.forEach(doc => {
-          const data = doc.data();
-          const card = document.createElement("article");
-          card.className = "border p-4 rounded-lg shadow bg-white";
-          card.innerHTML = `
-            <h3 class="font-bold text-lg text-red-700">${data.judul}</h3>
-            ${data.gambar ? `<img src="${data.gambar}" class="w-full my-2 rounded">` : ""}
-            <p class="text-gray-700 line-clamp-3">${data.isi}</p>
-          `;
-          list.appendChild(card);
-        });
+      if (snapshot.empty) {
+        emptyState.classList.remove("hidden");
+        return;
+      }
+      emptyState.classList.add("hidden");
+
+      snapshot.forEach((doc) => {
+        const data = doc.data();
+        const tanggal = data.tanggal?.toDate().toLocaleString("id-ID") || "-";
+
+        const card = document.createElement("article");
+        card.className = "border p-4 rounded-lg shadow bg-white";
+        card.innerHTML = `
+          <h3 class="font-bold text-lg text-red-700">${data.judul}</h3>
+          ${data.gambar ? `<img src="${data.gambar}" alt="${data.judul}" class="w-full my-2 rounded">` : ""}
+          <p class="text-gray-700 whitespace-pre-line">${data.isi}</p>
+          <div class="mt-2 text-sm text-gray-500">🗓 ${tanggal}</div>
+        `;
+        listBerita.appendChild(card);
       });
-  </script>
-</body>
-</html>
-🔹 Berita.html (semua berita)
-html
-Copy
-Edit
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daftar Berita - Desa Tegongan</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100">
-
-  <section class="max-w-6xl mx-auto px-4 py-12">
-    <h1 class="text-3xl font-bold text-red-700 mb-6 text-center">📢 Semua Berita</h1>
-
-    <div id="listBerita" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
-    <div id="loadingBerita" class="text-center text-gray-500">⏳ Memuat berita...</div>
-    <div id="emptyState" class="hidden text-center text-gray-500">Belum ada berita</div>
-  </section>
-
-  <!-- Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
-
-  <script>
-    // Firebase Config
-    const firebaseConfig = {
-      apiKey: "AIzaSyBdAQfJfj27Eww8hR0jM07aPd41nVYJCZs",
-      authDomain: "desategongan-web.firebaseapp.com",
-      projectId: "desategongan-web",
-      storageBucket: "desategongan-web.appspot.com",
-      messagingSenderId: "359164423381",
-      appId: "1:359164423381:web:fa937b6d3a1616665d065c"
-    };
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
-
-    const listBerita = document.getElementById("listBerita");
-    const loadingBerita = document.getElementById("loadingBerita");
-    const emptyState = document.getElementById("emptyState");
-
-    // Ambil semua berita realtime
-    db.collection("berita")
-      .orderBy("tanggal", "desc")
-      .onSnapshot(snapshot => {
-        loadingBerita.classList.add("hidden");
-        listBerita.innerHTML = "";
-
-        if (snapshot.empty) {
-          emptyState.classList.remove("hidden");
-          return;
-        }
-        emptyState.classList.add("hidden");
-
-        snapshot.forEach(doc => {
-          const data = doc.data();
-          const tanggal = data.tanggal?.toDate().toLocaleString("id-ID") || "-";
-
-          const card = document.createElement("article");
-          card.className = "border p-4 rounded-lg shadow bg-white";
-          card.innerHTML = `
-            <h3 class="font-bold text-lg text-red-700">${data.judul}</h3>
-            ${data.gambar ? `<img src="${data.gambar}" class="w-full my-2 rounded">` : ""}
-            <p class="text-gray-700 whitespace-pre-line">${data.isi}</p>
-            <div class="mt-2 text-sm text-gray-500">🗓 ${tanggal}</div>
-          `;
-          listBerita.appendChild(card);
-        });
-      });
+    }, (err) => {
+      loadingBerita.classList.add("hidden");
+      console.error("❌ Gagal memuat berita:", err);
+    });
   </script>
 
 </section>
